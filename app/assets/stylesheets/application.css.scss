@@ -13,11 +13,13 @@
  */
 
  @import "bootstrap-sprockets";
- @import "bootstrap";
 
  @import "bootswatch/cosmo/variables";
 
- body { padding-top: 60px; }
+ @import "bootstrap";
 
  @import "bootswatch/cosmo/bootswatch";
 
+ .navbar-collapse {
+/* 	background-color: white;*/
+ }

@@ -20,10 +20,32 @@
 
  @import "bootswatch/cosmo/bootswatch";
 
+
 .navbar-custom {
-/* 	background-color: white;*/
-	height: 100px;
+ 	background-color: #fafafa;
+	height: 92px;
+	color: red;
  }
+
+
+.navbar-nav >li > a {
+	color: #1D86FF !important;
+	font-size: 22px;
+}
+
+
+.navbar-custom li a{
+	line-height: 60px;
+}
+
+.navbar-custom form {
+	line-height: 84px;
+	margin-left: 50px;
+}
+
+.form-control {
+	width: 80em;
+}
 
  .jumbotron {
  	min-height: 600px;

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- Divise Flash MSG -->
+<!-- Devise Flash MSG -->
 <div class="notice-error-msg">
   <% if notice.present? %>
     <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
@@ -38,7 +38,17 @@
     <% end %>
   <% end %>
 </div>
-<!-- end -->
+<!-- end Devise Flash MSG -->
+
+<!-- URL for AUTH -->
+<% if current_user %>
+  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <li class="sign-in-link"><%= link_to "Sign In", login_path %></li>
+  <li class="sign-up-link"><%= link_to "Sign Up", signup_path %></li>
+<% end %>
+<!-- end URL AUTH -->
+
 <%= yield %>
 
 </body>

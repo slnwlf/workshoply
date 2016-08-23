@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Workshoply</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -33,8 +33,6 @@
         </li>
       </ul> -->
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Sign In<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Sign Up</a></li>
         <li><a href="#">About</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -48,11 +46,48 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
+        <% if current_user %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="active"><%= link_to "Sign Up", signup_path%></li>
+          <li><%= link_to "Sign In", login_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
 
+<!-- Devise Flash MSG -->
+<div class="notice-error-msg">
+  <% if notice.present? %>
+    <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
+      <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+      <p>
+        <%= notice %>
+      </p>
+    </div>
+  <% elsif alert.present? %>
+    <div class="alert alert-danger devise-msg">
+      <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+      <p>
+        <%= alert %>
+      </p>
+    </div>
+  <% end %>
+  <% flash.each do |name, msg| %>
+    <% if name == 'error' %>
+      <div class="notice-error-msg">
+        <div class="alert remind-msg alert-danger">
+          <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+          <p>
+            <%= msg %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<!-- end Devise Flash MSG -->
 
 <%= yield %>
 

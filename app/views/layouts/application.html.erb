@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Workshoply</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-
-<body>
-
-<!--Nav bar -->
-<nav class="navbar navbar-default navbar-static-top navbar-custom">
-  <div class="navbar-custom">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to image_tag("logo.png", alt: "Workshoply"), '/', class: "navbar-brand" %>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">About</a></li>
-        <% if current_user %>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign Up", signup_path%></li>
-          <li><%= link_to "Sign In", login_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Devise Flash MSG -->
-<div class="notice-error-msg">
-  <% if notice.present? %>
-    <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
-      <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
-      <p>
-        <%= notice %>
-      </p>
-    </div>
-  <% elsif alert.present? %>
-    <div class="alert alert-danger devise-msg">
-      <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
-      <p>
-        <%= alert %>
-      </p>
-    </div>
-  <% end %>
-  <% flash.each do |name, msg| %>
-    <% if name == 'error' %>
+  <head>
+    <title>Workshoply</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <!--Nav bar -->
+    <nav class="navbar navbar-default navbar-static-top navbar-custom">
+      <div class="navbar-custom">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <%= link_to image_tag("logo.png", alt: "Workshoply"), '/', class: "navbar-brand" %>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">About</a></li>
+            <% if current_user %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Sign Up", signup_path%></li>
+            <li><%= link_to "Sign In", login_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Devise Flash MSG -->
+    <div class="notice-error-msg">
+      <% if notice.present? %>
+      <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
+        <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+        <p>
+          <%= notice %>
+        </p>
+      </div>
+      <% elsif alert.present? %>
+      <div class="alert alert-danger devise-msg">
+        <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+        <p>
+          <%= alert %>
+        </p>
+      </div>
+      <% end %>
+      <% flash.each do |name, msg| %>
+      <% if name == 'error' %>
       <div class="notice-error-msg">
         <div class="alert remind-msg alert-danger">
           <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
@@ -62,12 +59,10 @@
           </p>
         </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
-<!-- end Devise Flash MSG -->
-
-<%= yield %>
-
-</body>
+      <% end %>
+      <% end %>
+    </div>
+    <!-- end Devise Flash MSG -->
+    <%= yield %>
+  </body>
 </html>

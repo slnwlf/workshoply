@@ -52,11 +52,6 @@ a {
     background-color: #e9e9e9;
 }
 
-/*.navbar-custom form {
-	line-height: 84px;
-	margin-left: 50px;
-}*/
-
 
 .navbar-toggle {
     position: relative;
@@ -109,4 +104,15 @@ a {
  .info-container {
  	background-color: #e9e9e9;
  }
+
+.modal-content {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+.modal-dialog h4{
+  font-size: 50px;
+  text-align: center;
+}
 

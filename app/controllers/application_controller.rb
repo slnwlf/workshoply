@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
 
   def configure_devise_permitted_parameters
-    permitted_params_signup = [:email, :password, :password_confirmation]
-    permitted_params_update = [:email, :password, :password_confirmation,:current_password]
+    permitted_params_signup = [:full_name, :email, :password, :password_confirmation]
+    permitted_params_update = [:full_name, :email, :password, :password_confirmation,:current_password]
 
     if params[:action] == 'update'
       devise_parameter_sanitizer.permit(:account_update, keys: permitted_params_update) 

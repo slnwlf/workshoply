@@ -1,5 +1,15 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Greetings,</p>
+<p>Thank you for registering with Workshoply and enjoy using our workshop booking platform.</p>
+<p>Please confirm your account email by clicking the link below:</p>
+<%= link_to confirmation_url(@resource, confirmation_token: @token) do %>
+  <img alt="activate" src="https://c8.staticflickr.com/8/7345/27512037551_e5d2636613_m.jpg"/>
+<% end %>
+<p>Copy and paste the link below to your browser, if you have hard time open with the "Activate" button: </p>
+<p>
+  <%= link_to confirmation_url(@resource, confirmation_token: @token), confirmation_url(@resource, confirmation_token: @token) %>
+</p>
+<p>
+  <i>This link will be expired within 7 days after this email was sent</i>
+</p>
+<p>Workshoply Team</p>
+<p>*** This is an automatically generated email, please do not reply ***</p>

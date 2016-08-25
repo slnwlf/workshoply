@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   end
   ########
 
+  #home page routes
+  get "/about", to: "sites#about"
+
+  resources :workshops
+
   resources :users, only: [:show, :update]
+
 
 end

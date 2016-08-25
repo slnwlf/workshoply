@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   end
   ########
 
+  #home page routes
+  get "/about", to: "sites#about"
+
 end

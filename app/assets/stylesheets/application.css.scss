@@ -21,13 +21,13 @@
 .navbar-custom {
  	background-color: #fafafa;
 	height: 92px;
+    
  }
 
 .navbar-nav >li > a {
 	color: #1D86FF !important;
 	font-size: 22px;
 }
-
 
 .navbar-custom li a {
 	line-height: 80px;
@@ -39,19 +39,11 @@
     padding: 5px 15px;
     font-size: 36px;
 }
-a {
-    color: #7e3f9d;
-    font-size: 48px;
-    text-decoration: none;
-    background-color: #fafafa;
-
-}
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #fff;
     background-color: #e9e9e9;
 }
-
 
 .navbar-toggle {
     position: relative;
@@ -66,8 +58,7 @@ a {
     border-radius: 0;
 }
 
-
- .jumbotron {
+.jumbotron {
  	min-height: 1000px;
  	text-align: center;
  	background-image: url(https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg);
@@ -76,14 +67,13 @@ a {
  	color: #fff;
  }
 
- .jumbotron h1 {
+.jumbotron h1 {
  	padding-top: 120px;
  	font-size: 8em;
  	font-weight: bold;
  }
 
-
- .jumbotron h2 {
+.jumbotron h2 {
  	padding-bottom: 260px;
  	font-size: 3em;
  	font-weight: bold;
@@ -96,20 +86,13 @@ a {
     border-radius: 0;
 }
 
- .workshop-container {
+.workshop-container {
  	margin: 0 50px;
  }
 
-
- .info-container {
+.info-container {
  	background-color: #e9e9e9;
  }
-
-.modal-content {
-    width: 1000px;
-    height: 1000px;
-    margin: 0 auto;
-}
 
 .modal-dialog h4{
   font-size: 50px;
@@ -125,6 +108,4 @@ a {
 
 .btn-city {
     margin: 20px auto;
-
 }
-

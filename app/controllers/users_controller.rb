@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
 	private
 	def user
-		User.find(params[:id])
+		User.friendly.find(params[:id])
 	end
 	def user_params
 		if params[:user].present? and params[:user][:avatar].present?

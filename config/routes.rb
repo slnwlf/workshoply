@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
   resources :workshops
 
+  resources :users, only: [:show, :update]
+
+
 end

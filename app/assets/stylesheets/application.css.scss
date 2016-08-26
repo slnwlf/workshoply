@@ -111,10 +111,32 @@
 }
 
 .workshop-box {
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 
-#speaker-box {
-  border: 1px solid black;
+#speaker-box, #rating-box {
+  // border: 1px solid black;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float: left;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   cursor: pointer;
+}
+
+#reviews-box {
+    border: 1px solid black;
+    height: 200px;
 }

@@ -1,22 +1,35 @@
-<div class="row">
-	<div class="col-md-6">
-		<img src="#">
-		<form>
-			<h2>About this Seminar></h2>
-		</form>
-	</div>
-	<div class="col-md-6">
-		<div class="col-md-3">
-			<img src="#" alt="speaker-image">
-			<div id="ratingBox"></div>
-			<button>Request to Book</button>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			<div class="workshop-box center-block">
+				<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="..." width="100%">
+				<h1><%= @workshop.title %></h1>
+				<h2>About this Seminar</h2>
+				<p><%= @workshop.description %></p>
+				<p><%= @workshop.host %></p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="col-md-6" id="speaker-box">
+				<h2>About the Speaker</h2>
+				<img src="https://static.pexels.com/photos/61100/pexels-photo-61100-large.jpeg" alt="speaker-image" width="100%">
+				<p>JANE DOE is the Bay Area's leading expert on unconcious bias in the workplace. She brings empathy, passion, and energy to her informative workshops on how to identify, explore, and ultimately shed unconscious biases that may be affecting how you relate to your co-workers.</p>
+				<div class="btn btn-primary">Request to Book</div>
+			</div>
+			<div class="col-md-6" id="rating-box">
+				<h2>Rating</h2>
+				<img src="#" alt="speaker-image" width="100%">
+				<div class="rating">
+					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+				</div>
+				<div class="btn btn-primary">Rate</div>
+			</div>
 		</div>
 	</div>
-	</div>
-
 	<div class="row">
-		<div class="col-md-6">
-			<button>Write a Review</button>
-			<img src="#" alt="User Profile Picture">
-			</di>
+		<div class="col-md-6" id="reviews-box"></div>
+	</div>
+	<div class="row">
+		<button>Write a Review</button>
 	</div>

@@ -9,11 +9,12 @@
 workshops = Workshop.create([
 	{ 
 			title: 'Leadership 101',
-			description: 'Learn the basis of leading a team.',
+			description: 'Learn the basics of leading a team. A training experience that offers a wide range of theory and practical information that is useful for leadership and management in the twenty-first century. This week of instruction and experiential learning will help individuals determine whether they are interested in furthering their careers through leadership opportunities in a management position or whether they would prefer to exercise leadership by remaining in the technical or administrative arenas of the Bureau’s programs.',
 			host: 'Google'},
 		{ 
-			title: 'Unconscious Bias',
-			description: 'Identify, explore, and ultimately shed unconscious biases that may be affecting how you relate to your co-workers.',
+			title: 'Managing Unconscious Bias',
+			description: 'Identify, explore, and ultimately shed unconscious biases that may be affecting how you relate to your co-workers. We believe that understanding and managing unconscious
+				bias can help us build stronger, more diverse and inclusive organizations.',
 			host: 'Facebook'},
 			{
 				title: 'Team Building',

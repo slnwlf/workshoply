@@ -128,12 +128,18 @@
    position: absolute;
    cursor: pointer;
 }
+
+.btn-rate {
+  margin:10px 0 0 20px;
+}
 /* End Five Star rating button */
 
 #reviews-box {
     height: 120px;
     width: 100%;
-    word-wrap: break-word;
+    // word-wrap: break-word;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 #reviews-box p {

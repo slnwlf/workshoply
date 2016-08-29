@@ -17,7 +17,30 @@
  @import "bootstrap";
  @import "bootswatch/cosmo/bootswatch";
 
+body {
+  font-family: 'Lato', sans-serif;
+}
 
+h1 {
+    font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h3{
+  font-family: 'Lato', sans-serif;
+
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  font-family: 'Roboto', sans-serif;
+}
 .navbar-custom {
  	background-color: #fafafa;
 	height: 92px;

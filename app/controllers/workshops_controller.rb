@@ -50,6 +50,14 @@ class WorkshopsController < ApplicationController
 	end
 
 	def destroy
+		if current_user == @workshop.user
+			@workshop.destroy
+			flash[:notice] = "Successfully edit the workshop."
+			redirect_to workshops_path
+		else
+			flash[:error] = "You can only delete your own posted workshop."
+			redirect_to workshop_path(@workshop)
+		end
 	end
 
 	private

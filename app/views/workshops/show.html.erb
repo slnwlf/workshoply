@@ -2,10 +2,21 @@
 	<div class="row">
 		<div class="col-xs-12 col-md-6">
 			<div class="workshop-box center-block">
-				<%= image_tag @workshop.image.url(:medium) %>
-				<h1><%= @workshop.title %></h1>
+				<div class="gap-40px"></div>
+				<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+				<% if current_user == @workshop.user %>
+					<div class="edit-delete-workshop-btn-wrapper">
+						<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary edit-workshop-btn" do %>
+							<%= fa_icon "pencil-square-o " %>
+						<% end %>
+						<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger delete-workshop-btn" do %>
+							<%= fa_icon "trash-o " %>
+						<% end %>
+					</div>
+				<% end %>
+				<h1><%= @workshop.title.titleize %></h1>
 				<h2>About this Seminar</h2>
-				<h3>Speaker: <%= @workshop.user.full_name %></h3>
+				<h3>Speaker: <%= @workshop.user.full_name.titleize %></h3>
 				<p><%= @workshop.description %></p>
 			</div>
 		</div>

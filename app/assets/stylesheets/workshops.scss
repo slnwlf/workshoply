@@ -1,5 +1,19 @@
 // Trung
+.gap-40px {
+	height: 40px;
+}
 .workshop-img {
 	margin: 0 auto;
+}
+.workshop-box.center-block {
+	position: relative;
+}
+.edit-delete-workshop-btn-wrapper {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	.edit-workshop-btn, .delete-workshop-btn {
+		min-width: 55px;
+	}
 }
 // end Trung

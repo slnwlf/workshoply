@@ -1,0 +1,34 @@
+<%= form_for @workshop, html: { multipart: true } do |f| %>
+  <div class="field">
+    <%= f.label :title do %>
+    	Title <span class="required-text">(required):</span>
+    <% end %>
+    <br />
+    <%= f.text_field :title, autofocus: true, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :description do %>
+    	Description <span class="required-text">(required):</span>
+    <% end %>
+    <br />
+    <%= f.text_area :description, :class => "form-control", rows: "5" %>
+  </div>
+  <div class="field">
+    <%= f.label :location do %>
+    	Location <span class="required-text">(required):</span>
+    <% end %>
+    <br />
+    <%= f.text_field :location, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :image do %>
+      Image <span class="optional-text">(optinal):</span>
+    <% end %>
+    <br />
+    <%= f.file_field :image, :class => "form-control" %>
+  </div>
+  <div class="actions text-center">
+  	<br>
+    <%= f.submit "Create", :class => "btn btn-primary" %>
+  </div>
+<% end %>

@@ -24,8 +24,9 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/about">About</a></li>
+        <li><%= link_to "Workshops", workshops_path %></li>
         <% if current_user %>
+          <li><%= link_to "Post a Workshop", new_workshop_path %></li>
           <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.full_name.titleize %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", user_path(current_user) %></li>
@@ -33,6 +34,7 @@
             </ul>
           </li>
         <% else %>
+          <li><a href="/about">About</a></li>
           <li><%= link_to "Sign Up", signup_path%></li>
           <li><%= link_to "Sign In", login_path %></li>
         <% end %>

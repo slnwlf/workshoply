@@ -1,12 +1,12 @@
 <% @workshops.each do |workshop| %>
 	<div class="container text-center">
 		<div class="col m6">
-		<img src="#" width="400px" height="325px" /></li>
-		<h1>Workshop Title:<%= workshop.title %></h1>
-		<h1>Workshop ID:<%= workshop.id %></h1>
+		<img src="#"></li>
+		<h1><%= workshop.title %></h1>
+		<h1><%= workshop.id %></h1>
 		<h2>Speaker:<%= workshop.user_id %></h2>
-		<p>Workshop Description:<%= workshop.description %></p>
-		<a class="btn btn-primary" href="workshops/<%= workshop.id %>">See More</a>
+		<p><%= workshop.description %></p>
+		<a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a>
 	</div><br>
 	<% end %>
 </div>

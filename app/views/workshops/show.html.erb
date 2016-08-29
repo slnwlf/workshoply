@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-md-6">
 			<div class="workshop-box center-block">
-				<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="..." width="100%">
+				<%= image_tag @workshop.image.url(:medium) %>
 				<h1><%= @workshop.title %></h1>
 				<h2>About this Seminar</h2>
 				<h3>Speaker: <%= @workshop.user.full_name %></h3>

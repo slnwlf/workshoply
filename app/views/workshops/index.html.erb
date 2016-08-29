@@ -1,29 +1,13 @@
-<div class="container-fluid">
-<div class="row">
-	<div class="col-md-6">
-		<div class="workshop-box">
-			<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="..." width="100%">
-					<h1>Workshop 1</h1>
-					<div class="caption">
-						<h2>Workshop 1 Caption</h2>
-						<h2>About this Seminar</h2>
-						<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
-		</div>
-	</div>
-	</div>
-	<div class="col-md-6">
-		<div class="col-md-3" id="speaker-box">
-			<h2>About the Speaker</h2>
-			<img src="https://static.pexels.com/photos/61100/pexels-photo-61100-large.jpeg" alt="speaker-image" width="100%">
-			<p>JANE DOE is the Bay Area's leading expert on unconcious bias in the workplace. She brings empathy, passion, and energy to her informative workshops on how to identify, explore, and ultimately shed unconscious biases that may be affecting how you relate to your co-workers.</p>
-			<div class="btn btn-primary">Request to Book</div>
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-6">
-		<button>Write a Review</button>
-		<img src="#" alt="User Profile Picture">
-		</di>
-	</div>
+<% @workshops.each do |workshop| %>
+	<div class="container text-center">
+		<div class="col m6">
+		<img src="#"></li>
+		<h1><%= workshop.title %></h1>
+		<h2>Speaker:<%= workshop.user.full_name.titleize %></h2>
+		<p><%= workshop.description %></p>
+		<!-- <a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a> -->
+		<!-- above code is html code, we can use rails code for it -->
+		<%= link_to "BOOK", workshop_path(workshop), class: "btn btn-primary" %>
+	</div><br>
+	<% end %>
 </div>

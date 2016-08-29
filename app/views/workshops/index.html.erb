@@ -3,10 +3,11 @@
 		<div class="col m6">
 		<img src="#"></li>
 		<h1><%= workshop.title %></h1>
-		<h1><%= workshop.id %></h1>
-		<h2>Speaker:<%= workshop.user_id %></h2>
+		<h2>Speaker:<%= workshop.user.full_name.titleize %></h2>
 		<p><%= workshop.description %></p>
-		<a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a>
+		<!-- <a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a> -->
+		<!-- above code is html code, we can use rails code for it -->
+		<%= link_to "BOOK", workshop_path(workshop), class: "btn btn-primary" %>
 	</div><br>
 	<% end %>
 </div>

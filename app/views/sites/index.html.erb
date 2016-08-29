@@ -4,35 +4,28 @@
 		<h1>Inspire Your Team</h1>
 		<h2>Book a game-changing onsite training session for your organization</h2>
 		<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
-	</div>
+	</div><br>
 	<!-- End Hero -->
+
 	<!-- Search Bar -->
-	<div class="container">
-		<div class="row">
-			<!--Location Button - need to format -->
-			<div class="col-md-4">
-				<a class="btn btn-primary btn-lg btn-city">SAN FRANCISCO</a>
-			</div>
-			<div class="col-md-8">
-				<div class="input-group" id="adv-search">
-					<input type="text" class="form-control" id="search-bar" placeholder="Search Popular Topics" />
-					<div class="input-group-btn">
-						<div class="btn-group" role="group">
-							<div class="dropdown dropdown-lg">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Team Building</a></li>
-									<li><a href="#">Project Management</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<div class="container">
+	<div class="row">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-primary" type="button">SAN FRANCISCO</button>
+			</span>
+			<form class="search" method="post" action="index.html" >
+				<input type="text" name="q" placeholder="Search Popular Topics" />
+				<ul class="results" >
+					<li><a href="<%= workshop_path(1)%>">Leadership<br /><span>Description...</span></a></li>
+					<li><a href="<%= workshop_path(2)%>">Team Building<br /><span>Description...</span></a></li>
+					<li><a href="<%= workshop_path(3)%>">Unconscious Bias<br /><span>Description...</span></a></li>
+				</ul>
+			</form>
 		</div>
 	</div>
-	<br>
+</div>
+</div><br><br>
 	<!-- End Search Bar -->
 	<!-- Featured Workshops -->
 <div class="workshop-container">
@@ -46,8 +39,6 @@
 						<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
 						<!-- Modal Button -->
 						<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal1">BOOK</button>
-				<a class="btn btn-primary" href="#>">BOOK</a>
-
 						<div id="workshopModal1" class="modal fade" role ="dialog">
 							<div class="modal-dialog modal-lg">
 								<!--Modal content -->
@@ -133,7 +124,7 @@
 </div>
 </div>
 <!-- End Featured Workshops -->
-</div>
+
 <!-- Info Section -->
 <div class="info-container container-fluid">
 	<div class="row">

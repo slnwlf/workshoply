@@ -1,8 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-12 col-md-6">
+		<div class="col-xs-12 col-md-8">
 			<div class="workshop-box center-block">
+
 				<div class="gap-40px"></div>
+
 				<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				<% if current_user == @workshop.user %>
 					<div class="edit-delete-workshop-btn-wrapper">
@@ -15,12 +17,11 @@
 					</div>
 				<% end %>
 				<h1><%= @workshop.title.titleize %></h1>
-				<h2>About this Seminar</h2>
 				<h3>Speaker: <%= @workshop.user.full_name.titleize %></h3>
 				<p><%= @workshop.description %></p>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-xs-12 col-md-4">
 			<div class="col-md-12" id="speaker-box">
 				<h2>About the Speaker</h2>
 				<img src="https://static.pexels.com/photos/61100/pexels-photo-61100-large.jpeg" alt="speaker-image" width="100%">

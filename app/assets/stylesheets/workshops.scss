@@ -19,9 +19,22 @@
 // end Trung
 
 p {
-	font-size: 2em;
+	font-size: 1em;
 }
 
-h1, h3 {
+h1 {
 	text-align: center;
+}
+
+div.btn.btn-danger {
+	margin: 0 auto;
+
+}
+
+#speaker-box {
+	margin-top: 18px;
+}
+
+#workshop-description p{
+	max-width: 70%;
 }

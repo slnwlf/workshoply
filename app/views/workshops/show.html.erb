@@ -1,65 +1,89 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12 col-md-8">
-			<div class="workshop-box center-block">
-
-				<div class="gap-40px"></div>
-
-				<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
-				<% if current_user == @workshop.user %>
+<div class="container">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-md-9">
+				<div class="workshop-box center-block">
+<!-- 					<div class="gap-40px"></div> -->
+					<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+					<% if current_user == @workshop.user %>
 					<div class="edit-delete-workshop-btn-wrapper">
 						<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary edit-workshop-btn" do %>
-							<%= fa_icon "pencil-square-o " %>
+						<%= fa_icon "pencil-square-o " %>
 						<% end %>
 						<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger delete-workshop-btn" do %>
-							<%= fa_icon "trash-o " %>
+						<%= fa_icon "trash-o " %>
 						<% end %>
 					</div>
-				<% end %>
-				<h1><%= @workshop.title.titleize %></h1>
-				<h3>Speaker: <%= @workshop.user.full_name.titleize %></h3>
-				<p><%= @workshop.description %></p>
-			</div>
-		</div>
-		<div class="col-xs-12 col-md-4">
-			<div class="col-md-12" id="speaker-box">
-				<h2>About the Speaker</h2>
-				<img src="https://static.pexels.com/photos/61100/pexels-photo-61100-large.jpeg" alt="speaker-image" width="100%">
-				<!-- this part will be replace with @workshop.user.about later >>> Trung -->
-				<p>Jane Doe is the Bay Area's leading expert on unconcious bias in the workplace. She brings empathy, passion, and energy to her informative workshops on how to identify, explore, and ultimately shed unconscious biases that may be affecting how you relate to your co-workers.</p>
-				<div class="btn btn-primary">Request to Book</div>
-			</div>
-			<div class="col-md-6" id="rating-box">
-				<h2>Rating</h2>
-				<div class="rating">
-					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+					<% end %>
+					<h1><%= @workshop.title.titleize %></h1>
+					<div class="container">
+						<h3>Speaker: <%= @workshop.user.full_name.titleize %></h3>
+						<div id="workshop-description">
+						<p><%= @workshop.description %></p>
+						</div>
+						<div class="col-md-9 center-block">
+							<button class="btn btn-danger center-block">MESSAGE</button>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="col-md-3">
+							<div id="rating-box">
+								
+								<div class="rating">
+									<h3>Rating</h3>
+									<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+			<!-- this part will be replace with @workshop.user.about later >>> Trung -->
+			<!-- add user.first_name + user.last_name -->
+			<!-- add user.location  -->
+			<!-- add user.first_name + user.last_name -->
+<div class="container">
+		<div class="row">
+				<div class="span4">
+					<h3>About the Speaker</h3>
+					<img src="https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg"/>
+					<div class="content-heading"><h4>Jane Doe</h4></div>
+					<p>San Francisco, CA</p>
+					<p>Jane Doe is the Bay Area's leading expert on unconcious bias in the workplace.</p>
+				</div>
+			</div><br>
 		</div>
-	</div>
-</div>
+
+<!-- Reviews -->
+<div class="container">
 <div class="row">
-	<div class="col-md-6 offset-3 text-center">
+	<div class="col-md-12 text-center">
 		<div class="btn btn-primary btn-review">Write a Review</div>
 	</div>
 </div>
-<div class="row-fluid">
-	<div id="reviews-box">
-		<img src="http://www.javadismiles.com/wp-content/uploads/2015/05/images-articles-contributors-display-user-icon-silhouette-dd6c3d8c7e5dee8f722747875be985e7.png" alt="userimage" height="100px">
+<div class="row">
+	<div class="span4 review-box">
+		<img style="float:left;clear:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/mattsince87/128.jpg"/>
+		<div class="content-heading">
+			<h4>Brian Jones</h4> <!--this will be User.first_name -->
+		</div>
 		<p>This is a review. This is a review. This is a review. This is a review.</p>
 	</div>
 </div>
-<div class="row-fluid">
-	<div id="reviews-box">
-		<img src="http://www.javadismiles.com/wp-content/uploads/2015/05/images-articles-contributors-display-user-icon-silhouette-dd6c3d8c7e5dee8f722747875be985e7.png" alt="userimage" height="100px">
+<div class="row">
+	<div class="span4 review-box">
+		<img style="float:left;clear:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/erondu/128.jpg"/>
+		<div class="content-heading"><h4>Adam Smith</h4></div>
 		<p>This is a review. This is a review. This is a review. This is a review.</p>
 	</div>
 </div>
-<div class="row-fluid">
-	<div id="reviews-box">
-		<img src="http://www.javadismiles.com/wp-content/uploads/2015/05/images-articles-contributors-display-user-icon-silhouette-dd6c3d8c7e5dee8f722747875be985e7.png" alt="userimage" height="100px">
+<div class="row">
+	<div class="span4 review-box">
+		<img style="float:left;clear:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"/>
+		<div class="content-heading"><h4>Kelly Anderson</h4></div>
 		<p>This is a review. This is a review. This is a review. This is a review.</p>
 	</div>
+</div>
 </div>
 </div>
 </div>

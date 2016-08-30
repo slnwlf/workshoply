@@ -1,11 +1,9 @@
-
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<% @workshops.each do |workshop| %>
 			<div class="col-md-4">
-				<!-- This image will be the workshop.photo once we have workshop show set up.  -->
-				<img src="http://geekadelphia.com/wp-content/uploads/2012/11/gen-assembly.jpg" class="img-responsive img-thumbnail" alt="workshop photo" width="300">
+				<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 			</div>
 			<div class="col-md-8 well">
 				<h1><%= workshop.title %></h1>

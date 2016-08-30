@@ -1,13 +1,22 @@
-<% @workshops.each do |workshop| %>
-	<div class="container text-center">
-		<div class="col m6">
-		<img src="#"></li>
-		<h1><%= workshop.title %></h1>
-		<h2>Speaker:<%= workshop.user.full_name.titleize %></h2>
-		<p><%= workshop.description %></p>
-		<!-- <a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a> -->
-		<!-- above code is html code, we can use rails code for it -->
-		<%= link_to "BOOK", workshop_path(workshop), class: "btn btn-primary" %>
-	</div><br>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<% @workshops.each do |workshop| %>
+			<div class="col-md-4">
+				<!-- This image will be the workshop.photo once we have workshop show set up.  -->
+				<img src="http://geekadelphia.com/wp-content/uploads/2012/11/gen-assembly.jpg" class="img-responsive img-thumbnail" alt="workshop photo" width="300">
+			</div>
+			<div class="col-md-8 well">
+				<h1><%= workshop.title %></h1>
+				<h2>Speaker:<%= workshop.user.full_name.titleize %></h2>
+				<p><%= workshop.description %></p>
+				<!-- <a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a> -->
+				<!-- above code is html code, we can use rails code for it -->
+				<div class="text-center">
+					<%= link_to "MESSAGE", workshop_path(workshop), class: "btn btn-primary" %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
 </div>

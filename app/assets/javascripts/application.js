@@ -14,3 +14,16 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+	// city autocomplete
+	var options = {
+		types: ['(cities)'],
+		componentRestrictions: {
+			country: "us"
+		}
+	};
+	if ($(".location-input")[0]) {
+		var autocomplere = new google.maps.places.Autocomplete($(".location-input")[0], options);
+	}
+});

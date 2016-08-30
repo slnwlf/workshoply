@@ -4,10 +4,9 @@
   <meta name=”viewport” content=”width=device-width, initial-scale=1.0″ >
   <title>Workshoply</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
-<link href="https://fonts.googleapis.com/css?family=Lato|Lustria|Roboto|Merriweather" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Lustria|Roboto|Merriweather" rel="stylesheet">
 
 </head>
 
@@ -78,5 +77,11 @@
     </div>
     <!-- end Devise Flash MSG -->
     <%= yield %>
+
+    <!-- rails js files -->
+    <%= javascript_include_tag 'application' %>
+
+    <!-- geocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdEksj2K9pX7vBO8_jZgjFZk4jvWQQI0o&libraries=places"></script>
   </body>
 </html>

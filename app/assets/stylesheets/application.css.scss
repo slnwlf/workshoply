@@ -137,7 +137,8 @@ a {
 }
 
 .jumbotron {
- 	min-height: 1000px;
+ 	min-height: 500px;
+  max-height: 500px; 
  	text-align: center;
  	background-image: url(https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg);
  	background-size: cover;
@@ -146,20 +147,20 @@ a {
  }
 
 .jumbotron h1 {
- 	padding-top: 120px;
- 	font-size: 8em;
+ 	padding-top: 80px;
+ 	font-size: 4em;
  	font-weight: bold;
  }
 
 .jumbotron h2 {
- 	padding-bottom: 260px;
- 	font-size: 3em;
+ 	padding-bottom: 80px;
+ 	font-size: 2em;
  	font-weight: bold;
  }
 
 #btn-signup {
-    padding: 18px 30px;
-    font-size: 42px;
+    padding: 10px 22px;
+    font-size: 28px;
     line-height: 1.5;
     border-radius: 0;
 }

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/users/cancel", to: "devise/registrations#cancel", as: "cancel_user_registration"
     post "/users", to: "registrations#create", as: "user_registration"
-    get "/users/edit/:id", to: "devise/registrations#edit", as: "edit_user_registration"
+    get "/users/password/edit/:id", to: "devise/registrations#edit", as: "edit_user_password_registration"
     patch "/users", to: "devise/registrations#update", as: ""
     put "/users", to: "devise/registrations#update", as: ""
     delete "/users", to: "devise/registrations#destroy", as: ""
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :workshops
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :edit]
 
 
 end

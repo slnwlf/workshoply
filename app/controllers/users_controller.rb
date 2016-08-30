@@ -1,30 +1,44 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+	before_action :find_user
 
 	def show
-		@user = user
+	end
+
+	def edit
 	end
 
 	def update
+		byebug
 		if user_params
-			user.update_attributes(user_params)
-			flash[:notice] = "Successfully update profile picture."
+			@user.update_attributes(user_params)
+			if also_change_email?
+				flash[:notice] = "Successfully update profile. You will receive an email to confirm your new email."
+			else
+				flash[:notice] = "Successfully update profile."
+			end
 			redirect_to user_path(current_user)
 		else
-			flash[:error] = "Please upload a file."
+			flash[:error] = @user.errors.full_messages.join(", ")
 			redirect_to user_path(current_user)
 		end
 	end
 
 	private
-	def user
-		User.friendly.find(params[:id])
+
+	def find_user
+		@user = User.friendly.find(params[:id])
 	end
+
 	def user_params
-		if params[:user].present? and params[:user][:avatar].present?
-		  params.require(:user).permit(:avatar)
+	  params.require(:user).permit(:full_name, :email, :avatar)
+	end
+
+	def also_change_email?
+		if params[:user][:email] == current_user.email
+			return false
 		else
-			nil
+			return true
 		end
 	end
 end

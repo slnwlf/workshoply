@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+      <h2>Profile</h2>
+      <%= form_for @user, url: user_path, html: { multipart: true } do |f| %>
+        <div class="avatar-upload-container clearfix">
+          <%= image_tag @user.avatar.url(:thumb), class: "thumb-avatar" %>
+          <div class="avatar-upload">
+            <%= f.label :avatar, "Change Image", class: "btn btn-default change-avatar-btn" %>
+            <%= f.file_field :avatar %>
+            <p class="small">Image size less than 1 Mb.</p>
+          </div>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :full_name %><br />
+          <%= f.text_field :full_name, autofocus: true, :class => "form-control" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, :class => "form-control" %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= f.submit "Change", :class => "btn btn-primary" %>
+          <%= link_to "Cancel", :back, :class => "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

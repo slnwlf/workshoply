@@ -53,7 +53,7 @@ a {
     padding-right: 30px;
   }
   .navbar-logo img {
-    height: 60px;
+    height: 50px;
   }
   // overrided mobile navbar styling
   .navbar-header button.navbar-toggle {
@@ -62,7 +62,7 @@ a {
     background-color: #efefef;
     border: 1.5px solid #aeaeae;
     border-radius: 5px;
-    padding: 15px;
+    padding: 5px;
     .icon-bar {
       width: 25px;
     }
@@ -103,13 +103,13 @@ a {
 }
 
 .navbar-custom li a {
-	line-height: 90px;
+	line-height: 50px;
   font-size: 18px;
   color: #1D86FF;
 }
 
 .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
-  line-height: 50px;
+  line-height: 10px;
 }
 
 .nav > li > a {
@@ -137,7 +137,8 @@ a {
 }
 
 .jumbotron {
- 	min-height: 1000px;
+ 	min-height: 500px;
+  max-height: 500px; 
  	text-align: center;
  	background-image: url(https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg);
  	background-size: cover;
@@ -146,20 +147,20 @@ a {
  }
 
 .jumbotron h1 {
- 	padding-top: 120px;
- 	font-size: 8em;
+ 	padding-top: 80px;
+ 	font-size: 4em;
  	font-weight: bold;
  }
 
 .jumbotron h2 {
- 	padding-bottom: 260px;
- 	font-size: 3em;
+ 	padding-bottom: 80px;
+ 	font-size: 2em;
  	font-weight: bold;
  }
 
 #btn-signup {
-    padding: 18px 30px;
-    font-size: 42px;
+    padding: 10px 22px;
+    font-size: 28px;
     line-height: 1.5;
     border-radius: 0;
 }
@@ -384,3 +385,9 @@ ul.dropdown-menu{
 }
 
 .lt-ie9 .search input { line-height: 26px }
+
+.footer-nav {
+  display: inline; 
+  padding-right: 10px; 
+  padding-left: 10px; 
+}

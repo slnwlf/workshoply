@@ -6,90 +6,92 @@
 		<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
 	</div><br>
 	<!-- End Hero -->
-
 	<!-- Search Bar -->
-<div class="container">
-	<div class="row">
-		<div class="input-group">
-			<span class="input-group-btn">
-				<button class="btn btn-primary" type="button">SAN FRANCISCO</button>
-			</span>
-			<form class="search" method="post" action="index.html" >
-				<input type="text" name="q" placeholder="Search Popular Topics" />
-				<ul class="results" >
-					<li><a href="<%= workshop_path(1)%>">Leadership<br /><span>Description...</span></a></li>
-					<li><a href="<%= workshop_path(2)%>">Team Building<br /><span>Description...</span></a></li>
-					<li><a href="<%= workshop_path(3)%>">Unconscious Bias<br /><span>Description...</span></a></li>
-				</ul>
-			</form>
+	<div class="container">
+		<div class="row">
+			<div class="input-group">
+				<span class="input-group-btn">
+					<button class="btn btn-default dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">SAN FRANCISCO<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">San Francisco only</a></li>
+					</ul>
+				</span>
+				<form class="search" method="post" action="index.html" >
+					<input type="text" name="q" placeholder="Search Workshops" />
+					<ul class="results" >
+						<li><a href="<%= workshop_path(1)%>">Leadership<br /><span>Description...</span></a></li>
+						<li><a href="<%= workshop_path(2)%>">Team Building<br /><span>Description...</span></a></li>
+						<li><a href="<%= workshop_path(3)%>">Unconscious Bias<br /><span>Description...</span></a></li>
+					</ul>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </div><br><br>
-	<!-- End Search Bar -->
-	<!-- Featured Workshops -->
+<!-- End Search Bar -->
+<!-- Featured Workshops -->
 <div class="workshop-container">
-		<div class="row">
-			<div class="col-sm-12 col-md-4">
-				<div class="thumbnail">
-					<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="...">
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<div class="thumbnail">
+				<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="...">
 				<h1>Leadership 101</h1>
- 					<div class="caption">
-						<h3>Workshop 1 Caption</h3>
-						<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
-						<!-- Modal Button -->
-						<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal1">BOOK</button>
-						<div id="workshopModal1" class="modal fade" role ="dialog">
-							<div class="modal-dialog modal-lg">
-								<!--Modal content -->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Workshop 1</h4>
-									</div>
-									<div class="modal-body">
+				<div class="caption">
+					<h3>Workshop 1 Caption</h3>
+					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
+					<!-- Modal Button -->
+					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal1">Learn more</button>
+					<div id="workshopModal1" class="modal fade" role ="dialog">
+						<div class="modal-dialog modal-lg">
+							<!--Modal content -->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Workshop 1</h4>
+								</div>
+								<div class="modal-body">
 									<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="..." width="100%">
-										<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
-									</div>
+									<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-4">
-				<div class="thumbnail">
-					<img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/6.jpg" alt="...">
-					<h1>Managing Unconscious Bias</h1>
-					<div class="caption">
-						<h3>Workshop 2 Caption</h3>
-						<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut. </p>
-						<!-- Modal Button -->
-						<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal2">BOOK</button>
-						<div id="workshopModal2" class="modal fade" role ="dialog">
-							<div class="modal-dialog modal-lg">
-								<!--Modal content -->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Workshop 2</h4>
-									</div>
-									<div class="modal-body">
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<div class="thumbnail">
+				<img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/6.jpg" alt="...">
+				<h1>Unconscious Bias</h1>
+				<div class="caption">
+					<h3>Workshop 2 Caption</h3>
+					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut. </p>
+					<!-- Modal Button -->
+					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal2">Learn more</button>
+					<div id="workshopModal2" class="modal fade" role ="dialog">
+						<div class="modal-dialog modal-lg">
+							<!--Modal content -->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Workshop 2</h4>
+								</div>
+								<div class="modal-body">
 									<img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/6.jpg" alt="..." width="100%">
-										<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
-									</div>
+									<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 		<div class="col-sm-12 col-md-4">
 			<div class="thumbnail">
 				<img src="https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/83.jpg" alt="...">
@@ -98,7 +100,7 @@
 					<h3>Workshop 3 Caption</h3>
 					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
 					<!-- Modal Button -->
-					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal3">BOOK</button>
+					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal3">Learn more</button>
 					<div id="workshopModal3" class="modal fade" role ="dialog">
 						<div class="modal-dialog modal-lg">
 							<!--Modal content -->
@@ -108,7 +110,7 @@
 									<h4 class="modal-title">Workshop 3</h4>
 								</div>
 								<div class="modal-body">
-								<img src="https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/83.jpg" alt="..." width="100%">
+									<img src="https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/83.jpg" alt="..." width="100%">
 									<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
 								</div>
 								<div class="modal-footer">
@@ -124,14 +126,13 @@
 </div>
 </div>
 <!-- End Featured Workshops -->
-
 <!-- Info Section -->
 <div class="info-container container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<h1>About Workshoply</h1>
-				<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
-			</div>
-		</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<h1>About Workshoply</h1>
+		<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
 	</div>
+</div>
+</div>
 </div>

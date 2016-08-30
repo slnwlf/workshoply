@@ -9,9 +9,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		byebug
-		if user_params
-			@user.update_attributes(user_params)
+		if @user.update_attributes(user_params)
 			if also_change_email?
 				flash[:notice] = "Successfully update profile. You will receive an email to confirm your new email."
 			else
@@ -20,7 +18,7 @@ class UsersController < ApplicationController
 			redirect_to user_path(current_user)
 		else
 			flash[:error] = @user.errors.full_messages.join(", ")
-			redirect_to user_path(current_user)
+			redirect_to edit_user_path(current_user)
 		end
 	end
 
@@ -31,7 +29,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-	  params.require(:user).permit(:full_name, :email, :avatar)
+	  params.require(:user).permit(:full_name, :email, :avatar, :bio, :location, :organization)
 	end
 
 	def also_change_email?

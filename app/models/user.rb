@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
          :confirmable
 
   validates :full_name, presence: true
-  validates :location, presence: true
+  validates :location, presence: true, format: { with: /\A[a-zA-Z][a-zA-Z,\s]+[a-zA-Z], [a-zA-Z]{2}, [a-zA-Z][a-zA-Z,\s]+[a-zA-Z]\z/,
+    message: "example: San Diago, CA, United States" }
   validates :organization, presence: true
   validates :bio, length: { minimum: 100, maximum: 1000,
     too_long: "%{count} characters is the maximum allowed" }

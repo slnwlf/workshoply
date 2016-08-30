@@ -3,18 +3,15 @@
 	<div class="col-sm-5">
 		<div class="avatar-wrapper text-center">
 			<%= image_tag @user.avatar.url(:medium), class: "avatar-img", style: "max-width: 300px;" %>
-			<br>
-			<%= form_for @user, url: user_path, html: { multipart: true } do |f| %>
-				<%= f.label :avatar, "Change Image", class: "btn btn-default change-avatar-btn" %>
-		    <%= f.file_field :avatar %>
-		  <% end %>
 		</div>
 	</div>
 	<div class="col-sm-7">
 		<p>Name: <%= @user.full_name.titleize %></p>
 		<p>Email: <%= @user.email %></p>
 		<p>Join: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
-		<%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
+		<%= link_to "Edit Profile", edit_user_path(current_user) %>
+		<br>
+		<%= link_to "Change Password", edit_user_password_registration_path(current_user) %>
 		<!-- see views/devise/registrations/edit.html.erb for edit user view -->
 	</div>
 </div>

@@ -6,8 +6,8 @@
 				<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 			</div>
 			<div class="col-md-8 well">
-				<h1><%= workshop.title %></h1>
-				<h2>Speaker:<%= workshop.user.full_name.titleize %></h2>
+				<h2><%= workshop.title %></h2>
+				<h3>Speaker:<%= workshop.user.full_name.titleize %></h3>
 				<p><%= workshop.description %></p>
 				<!-- <a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a> -->
 				<!-- above code is html code, we can use rails code for it -->

@@ -1,17 +1,22 @@
 <div class="container">
-	<h1>Show Page</h1>
-	<div class="col-sm-5">
-		<div class="avatar-wrapper text-center">
-			<%= image_tag @user.avatar.url(:medium), class: "avatar-img", style: "max-width: 300px;" %>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-4">
+				<div class="avatar-wrapper text-center">
+					<%= image_tag @user.avatar.url(:medium), class: "avatar-img", style: "max-width: 300px;" %>
+				</div>
+			</div>
+			<div class="col-md-8 well">
+				<h2><%= @user.full_name.titleize %></h2>
+				<p>Email: <%= @user.email %></p>
+				<p>Location: <%= @user.location %></p>
+				<p>Bio: <%= @user.bio %></p>
+				<p>Workshoply member since: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
+				<div>
+				<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %> <%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-primary"  %>
+				</div>
+				<!-- see views/devise/registrations/edit.html.erb for edit user view -->
+			</div>
 		</div>
-	</div>
-	<div class="col-sm-7">
-		<p>Name: <%= @user.full_name.titleize %></p>
-		<p>Email: <%= @user.email %></p>
-		<p>Join: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
-		<%= link_to "Edit Profile", edit_user_path(current_user) %>
-		<br>
-		<%= link_to "Change Password", edit_user_password_registration_path(current_user) %>
-		<!-- see views/devise/registrations/edit.html.erb for edit user view -->
 	</div>
 </div>

@@ -9,21 +9,17 @@
 	<!-- Search Bar -->
 	<div class="container">
 		<div class="row">
-			<div class="input-group">
+			<div class="form-group">
 				<span class="input-group-btn">
-					<button class="btn btn-default dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">SAN FRANCISCO<span class="caret"></span></button>
+					<button class="btn btn-default dropdown-toggle" id="site-workshops-filter" type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Featured Workshops<span class="caret pull-right"></span></button>
 					<ul class="dropdown-menu">
-						<li><a href="#">San Francisco only</a></li>
-					</ul>
+          <li><%= link_to "All Workshops", workshops_path %></li>
+          <% Topic.all.each do |topic| %>
+            <!-- loop all created topics to make dropdown -->
+            <li><%= link_to topic.name, workshops_path(topic: topic.name) %></li>
+          <% end  %>
+        </ul>
 				</span>
-				<form class="search" method="post" action="index.html" >
-					<input type="text" name="q" placeholder="Search Workshops" />
-					<ul class="results" >
-						<li><a href="<%= workshop_path(1)%>">Leadership<br /><span>Description...</span></a></li>
-						<li><a href="<%= workshop_path(2)%>">Team Building<br /><span>Description...</span></a></li>
-						<li><a href="<%= workshop_path(3)%>">Unconscious Bias<br /><span>Description...</span></a></li>
-					</ul>
-				</form>
 			</div>
 		</div>
 	</div>

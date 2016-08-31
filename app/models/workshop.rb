@@ -1,6 +1,10 @@
 class Workshop < ActiveRecord::Base
 
 	extend FriendlyId
+
+
+	ratyrate_rateable 'rating'
+
   friendly_id :title, use: :slugged
 	belongs_to :user
 

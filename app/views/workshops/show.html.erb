@@ -28,11 +28,14 @@
 					<div class="col-md-12">
 						<div class="col-md-3">
 							<div id="rating-box">
-								
-								<div class="rating">
-									<h3>Rating</h3>
-									<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+							<div class="row">
+								<div class="small-2 large-4 columns">
+									<% if current_user %>
+									Rating: <%= rating_for @workshop, "rating", disable_after_rate: false, enable_half: true, half_show: true, path: 'cancel_on'%>
+									<div id="hintDiv"></div
+									<% end %>
 								</div>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -53,6 +56,8 @@
 				</div>
 			</div><br>
 		</div>
+
+
 
 <!-- Reviews -->
 <div class="container">

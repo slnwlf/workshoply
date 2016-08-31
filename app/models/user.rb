@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
 	extend FriendlyId
+
+  ratyrate_rater
+  
   friendly_id :full_name, use: :slugged
   has_many :workshops
   # Include default devise modules. Others available are:

@@ -9,6 +9,14 @@
 }
 // end workshops index
 
+// new workshop
+select#workshop_topic_id {
+  -webkit-appearance: none;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/f/f7/Arrow-down-navmenu.png) no-repeat right;
+  background-color: white;
+}
+// end
+
 // Trung
 .gap-40px {
 	height: 40px;

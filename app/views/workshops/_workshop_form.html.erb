@@ -1,5 +1,9 @@
 <%= form_for @workshop, html: { multipart: true } do |f| %>
   <div class="field">
+    <%= f.label :topic_id  %>
+    <%= f.collection_select :topic_id, Topic.all, :id, :titleize_name, {prompt: "Choose a topic"}, class: "form-control dropdown-toggle", autofocus: true %>
+  </div>
+  <div class="field">
     <%= f.label :title do %>
     	Title <span class="required-text">(required):</span>
     <% end %>

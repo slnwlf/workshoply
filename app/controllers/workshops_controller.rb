@@ -1,4 +1,4 @@
-include ActionView::Helpers::TextHelper # <<< for pluralize
+include ActionView::Helpers::TextHelper
 
 class WorkshopsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
@@ -10,10 +10,16 @@ class WorkshopsController < ApplicationController
 		else
 			topic = Topic.find_by(name: params[:topic].downcase)
 			if topic
-				@workshops = Workshop.where(topic_id: topic.id).order("created_at DESC")
-				flash[:notice] = "Found #{pluralize(@workshops.count, 'workshop')} with topic '#{params[:topic].titleize}'"
+				workshops = Workshop.where(topic_id: topic.id).order("created_at DESC")
+				if workshops.count > 0
+					flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}'"
+					@workshops = workshops
+				else
+					flash[:notice] = "No workshops with topic '#{params[:topic].titleize}'. Showing all workshops."
+					@workshops = Workshop.all.order("created_at DESC")
+				end
 			else
-				flash[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops"
+				flash[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
 				@workshops = Workshop.all.order("created_at DESC")
 			end
 		end
@@ -80,7 +86,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def workshop_params
-		params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image)
+		params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image, :topic_id)
 	end
 
 end

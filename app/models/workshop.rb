@@ -7,6 +7,7 @@ class Workshop < ActiveRecord::Base
 
   friendly_id :title, use: :slugged
 	belongs_to :user
+	belongs_to :topic
 
 	validates :title, presence: true
 	validates :description, presence: true

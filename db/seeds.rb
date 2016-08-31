@@ -1,38 +1,59 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
+# DO NOT DELETE THIS - TRUNG
 users = User.create([
 	{
-		full_name: 'Sam Brooks', email: 'sam@mail.com', password: 'sam12345', password_confirmation: 'sam12345'
+		full_name: 'Sam Brooks', 
+		email: 'sam@mail.com', 
+		password: 'sam12345', 
+		password_confirmation: 'sam12345',
+		organization: "General Assembly",
+		location: "San Francisco, CA, United States",
+		bio: "Ex nam senserit vituperatoribus. Nonumy vituperata an cum. Ut dicam veniam ornatus mea, no sale platonem repudiare ius, te quaeque mentitum his. Mei ex bonorum mediocrem, per at agam placerat invidunt. No etiam quodsi menandri his. Vis quaestio gubergren no, tota everti an pri. Quod solet nec ne, ei sumo everti prompta vel, nostro consequat."
 	}, 
 	{
-		full_name: 'Dave Sloan', email: 'dave@mail.com', password: 'dave12345', password_confirmation: 'dave12345'
+		full_name: 'Dave Sloan', 
+		email: 'dave@mail.com', 
+		password: 'dave12345', 
+		password_confirmation: 'dave12345',
+		organization: "Amazon",
+		location: "Melo Park, CA, United States",
+		bio: "Lorem ipsum dolor sit amet, mei at reque salutandi, petentium sapientem deseruisse vix ea. Eam cu malis perpetua, eam ex mutat aperiri. Ad nonumy scripserit has, duo nulla sonet deterruisset ad, mei eros scriptorem cu. Erant ornatus nonumes ne mea, sed justo delectus perpetua ei."
 	}, 
 	{
-		full_name: 'Sam Brooks', email: 'trung@mail.com', password: 'trung12345', password_confirmation: 'trung12345'
+		full_name: 'Trung Huynh', 
+		email: 'trung@mail.com', 
+		password: 'trung12345', 
+		password_confirmation: 'trung12345',
+		organization: "Amazon",
+		location: "Fremont, CA, United States",
+		bio: "In legimus maluisset accusamus nec, sed ut munere dolorum signiferumque, id esse voluptua reprimique pri. Quo an dolores hendrerit liberavisse. Et eos petentium conclusionemque, eu duo enim feugiat. Ea inani consul aperiri mea, vim id dicit feugait, et eum ignota efficiantur. Eos aperiri lucilius ad, eum ut nostrud consectetuer voluptatibus."
 	}
 ])
 
-workshops = Workshop.create([
-	{ 
-		title: 'Leadership 101',
-		description: 'Learn the basics of leading a team. A training experience that offers a wide range of theory and practical information that is useful for leadership and management in the twenty-first century. This week of instruction and experiential learning will help individuals determine whether they are interested in furthering their careers through leadership opportunities in a management position or whether they would prefer to exercise leadership by remaining in the technical or administrative arenas of the Bureau’s programs.',
-		user_id: 1
-	},
-	{ 
-		title: 'Managing Unconscious Bias',
-		description: 'Identify, explore, and ultimately shed unconscious biases that may be affecting how you relate to your co-workers. We believe that understanding and managing unconscious
-			bias can help us build stronger, more diverse and inclusive organizations.',
-		user_id: 2
-	},
-	{
-		title: 'Team Building',
-		description: 'Learn how to build effective teams, bring out the best in your teammates, and work collaboratively to accomplish big goals and solve important problems.',
-		user_id: 3
-	}
+topics = Topic.create([
+	{name: "Teamwork"},
+	{name: "Leadership Skills"},
+	{name: "Communication Skills"},
+	{name: "Management Training"},
+	{name: "Project Management"},
+	{name: "Public Speaking"},
+	{name: "Strategy / Marketing"},
+	{name: "Presentation Skills"},
+	{name: "Cross-cultural Knowledge"},
+	{name: "Ethics"},
+	{name: "Creativity Techniques"}
 ])
+
+# DO NOT DELETE THIS - TRUNG
+titles = ["Diam Torquatos Assueverit", "Tibique Vivendum Prodesset Id Sea", "legere corrumpit vis ne", "Legere Corrumpit Vis Ne", "Vivendum Prodess etgere Corrumpit", "Vivendum Prodess Etgere Corrumpit"]
+
+description = 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet, consectetur, adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur'
+
+20.times do |x|
+	Workshop.create({
+		title: titles[rand(1..6) - 1],
+		description: description,
+		location: User.find(rand(1..3)).location,
+		user_id: rand(1..3),
+		topic_id: rand(1..11),
+	})
+end

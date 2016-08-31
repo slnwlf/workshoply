@@ -16,7 +16,7 @@
           <li><%= link_to "All Workshops", workshops_path %></li>
           <% Topic.all.each do |topic| %>
             <!-- loop all created topics to make dropdown -->
-            <li><%= link_to topic.name, workshops_path(topic: topic.name) %></li>
+            <li><%= link_to topic.name.titleize, workshops_path(topic: topic.name) %></li>
           <% end  %>
         </ul>
 				</span>

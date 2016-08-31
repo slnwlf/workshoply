@@ -30,17 +30,17 @@ users = User.create([
 ])
 
 topics = Topic.create([
-	{name: "Teamwork"},
-	{name: "Leadership Skills"},
-	{name: "Communication Skills"},
-	{name: "Management Training"},
-	{name: "Project Management"},
-	{name: "Public Speaking"},
-	{name: "Strategy / Marketing"},
-	{name: "Presentation Skills"},
-	{name: "Cross-cultural Knowledge"},
-	{name: "Ethics"},
-	{name: "Creativity Techniques"}
+	{name: "teamwork"},
+	{name: "leadership skills"},
+	{name: "communication skills"},
+	{name: "management training"},
+	{name: "project management"},
+	{name: "public speaking"},
+	{name: "strategy / marketing"},
+	{name: "presentation skills"},
+	{name: "cross-cultural knowledge"},
+	{name: "ethics"},
+	{name: "creativity techniques"}
 ])
 
 # DO NOT DELETE THIS - TRUNG

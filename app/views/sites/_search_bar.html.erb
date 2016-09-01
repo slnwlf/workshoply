@@ -5,7 +5,7 @@
 				<div class="row search-bar">
 					<div class="col-sm-4 search-location-wrapper">
 						<div class="form-group">
-							<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "to_s"), prompt: "Choose a city", class: "selectpicker form-group", hidden: true %>
+							<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "titleize"), prompt: "Choose a city", class: "selectpicker form-group", hidden: true %>
 						</div>
 					</div>
 					<div class="col-sm-6 search-topic-wrapper">

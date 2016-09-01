@@ -6,7 +6,7 @@ users = User.create([
 		password: 'sam12345', 
 		password_confirmation: 'sam12345',
 		organization: "General Assembly",
-		location: "San Francisco, CA, United States",
+		location: "san francisco, ca, united states",
 		bio: "Ex nam senserit vituperatoribus. Nonumy vituperata an cum. Ut dicam veniam ornatus mea, no sale platonem repudiare ius, te quaeque mentitum his. Mei ex bonorum mediocrem, per at agam placerat invidunt. No etiam quodsi menandri his. Vis quaestio gubergren no, tota everti an pri. Quod solet nec ne, ei sumo everti prompta vel, nostro consequat."
 	}, 
 	{
@@ -15,7 +15,7 @@ users = User.create([
 		password: 'dave12345', 
 		password_confirmation: 'dave12345',
 		organization: "Amazon",
-		location: "Melo Park, CA, United States",
+		location: "melo park, ca, united states",
 		bio: "Lorem ipsum dolor sit amet, mei at reque salutandi, petentium sapientem deseruisse vix ea. Eam cu malis perpetua, eam ex mutat aperiri. Ad nonumy scripserit has, duo nulla sonet deterruisset ad, mei eros scriptorem cu. Erant ornatus nonumes ne mea, sed justo delectus perpetua ei."
 	}, 
 	{
@@ -24,7 +24,7 @@ users = User.create([
 		password: 'trung12345', 
 		password_confirmation: 'trung12345',
 		organization: "Amazon",
-		location: "Fremont, CA, United States",
+		location: "fremont, ca, united states",
 		bio: "In legimus maluisset accusamus nec, sed ut munere dolorum signiferumque, id esse voluptua reprimique pri. Quo an dolores hendrerit liberavisse. Et eos petentium conclusionemque, eu duo enim feugiat. Ea inani consul aperiri mea, vim id dicit feugait, et eum ignota efficiantur. Eos aperiri lucilius ad, eum ut nostrud consectetuer voluptatibus."
 	}
 ])

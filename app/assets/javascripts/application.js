@@ -16,6 +16,20 @@
 //= require bootstrap-select-1.10.0/bootstrap-select.min
 //= require_tree .
 
+/* Making titleize function for String */
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+String.prototype.titleize = function() {
+  var string_array = this.split(' ');
+  string_array = string_array.map(function(str) {
+     return str.capitalize(); 
+  });
+  
+  return string_array.join(' ');
+};
+/**************************************/
+
 $(function() {
 	// city autocomplete
 	var options = {
@@ -28,3 +42,13 @@ $(function() {
 		var autocomplere = new google.maps.places.Autocomplete($(".location-input")[0], options);
 	}
 });
+
+function getJsonFromUrl() {
+  var query = location.search.substr(1);
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]).replace(/\+/g, " ");
+  });
+  return result;
+}

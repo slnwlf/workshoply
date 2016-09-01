@@ -7,6 +7,12 @@
 					<%= link_to "MESSAGE", user_path(@user),class: "btn btn-primary" %>
 				</div>
 			</div>
+
+			<div>
+				<h1>Test mail div</h1>
+				<%= render current_user.mailbox.inbox %>
+			</div>
+
 			<div class="col-md-8 well">
 				<h2><%= @user.full_name.titleize %></h2>
 				<p>Email: <%= @user.email %></p>

@@ -25,4 +25,15 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
 
+  #mailboxer
+  helper_method :mailbox
+
+  private
+
+  def mailbox
+    @mailbox ||= current_user.mailbox
+  end
+
+
+
 end

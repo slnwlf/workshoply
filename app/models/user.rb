@@ -2,6 +2,18 @@ class User < ActiveRecord::Base
 
 	extend FriendlyId
 
+  ##mailboxer config/methods
+  acts_as_messageable
+
+  def mailboxer_name
+    self.mailboxer_name
+  end
+
+  def mailboxer_email(object)
+    self.mailboxer_email
+  end
+  ##end mailboxer
+
   ratyrate_rater
   
   friendly_id :full_name, use: :slugged

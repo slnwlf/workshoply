@@ -10,17 +10,18 @@ class WorkshopsController < ApplicationController
 		elsif !params[:topic].blank? and params[:location].blank?
 			topic = Topic.find_by(name: params[:topic].downcase)
 			if topic
+				# see show_workshops(query_params, msg, param, both=false) in private
 				show_workshops({topic_id: topic.id}, "with topic", params[:topic])
 			else
 				flash[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
 				@workshops = Workshop.all.order("created_at DESC")
 			end
 		elsif params[:topic].blank? and !params[:location].blank?
-			show_workshops({location: params[:location]}, "in", params[:location])
+			show_workshops({location: params[:location].downcase}, "in", params[:location])
 		elsif !params[:topic].blank? and !params[:location].blank?
 			topic = Topic.find_by(name: params[:topic].downcase)
 			if topic 
-				show_workshops({location: params[:location], topic_id: topic.id}, nil, nil, true)
+				show_workshops({location: params[:location].downcase, topic_id: topic.id}, nil, nil, true)
 			end
 		end
 	end
@@ -71,7 +72,7 @@ class WorkshopsController < ApplicationController
 	def destroy
 		if current_user == @workshop.user
 			@workshop.destroy
-			flash[:notice] = "Successfully edit the workshop."
+			flash[:notice] = "Successfully delete the workshop."
 			redirect_to workshops_path
 		else
 			flash[:error] = "You can only delete your own posted workshop."
@@ -86,7 +87,9 @@ class WorkshopsController < ApplicationController
 	end
 
 	def workshop_params
-		params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image, :topic_id)
+		workshop_params = params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image, :topic_id)
+		workshop_params[:location] = workshop_params[:location].downcase
+		return workshop_params
 	end
 
 	def show_workshops(query_params, msg, param, both=false)

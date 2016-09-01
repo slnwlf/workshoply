@@ -1,11 +1,49 @@
 <div class="container">
+	<div class="row well">
+		<div class="col-md-4">
+			<div class="avatar-wrapper text-center">
+				<%= image_tag @user.avatar.url(:medium), class: "avatar-img", style: "max-width: 300px;" %>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<h2><%= @user.full_name.titleize %></h2>
+			<p>
+				<% if current_user %>
+					Email: <%= @user.email %><br>
+				<% end %>
+				Location: <%= @user.location.titleize %><br>
+				Member since: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %><br>
+			</p>
+			<p>Bio: 
+				<% if @user.bio %>
+					<%= @user.bio %>
+				<% else %>
+					<% if current_user %>
+						Required for posting workshop.
+					<% else %>
+						User hasn't added bio yet.
+					<% end %>
+				<% end %>
+			</p>
+			<div>
+				<% if !current_user %>
+					<a href="#" class="btn btn-primary">MESSAGE</a>
+				<% else %>
+					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %> 
+					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-primary"  %>
+				<% end %>
+			</div>
+			<!-- see views/devise/registrations/edit.html.erb for edit user view -->
+		</div>
+	</div>
 	<div class="row">
+		<h3 class="text-center"><%= @user.full_name %>'s workshops</h3><br>
 		<div class="col-md-12">
-			<div class="col-md-4">
-				<div class="avatar-wrapper text-center">
-					<%= image_tag @user.avatar.url(:medium), class: "avatar-img", style: "max-width: 300px;" %>
-					<%= link_to "MESSAGE", user_path(@user),class: "btn btn-primary" %>
+			<% @user.workshops.each do |workshop| %>
+				<div class="col-md-4">
+					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				</div>
+
 			</div>
 
 			<div>
@@ -31,22 +69,23 @@
 						<% @user.workshops.each do |workshop| %>
 						<div class="col-md-4">
 							<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+
+				<div class="col-md-8 well">
+					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
+					<h4>
+						Topic: <%= workshop.topic.name.titleize %>
+						<br>
+						Location: <%= workshop.location.titleize %>
+					</h4>
+					<p><%= workshop.description %></p>
+					<% if !current_user %>
+						<div class="text-center">
+							<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
+
 						</div>
-						<div class="col-md-8 well">
-							<h2><%= workshop.title %></h2>
-							<h3>Speaker:<%= workshop.user.full_name.titleize %></h3>
-							<p><%= workshop.description %></p>
-							<!-- <a class="btn btn-primary" href="workshops/<%= workshop.id %>">BOOK</a> -->
-							<!-- above code is html code, we can use rails code for it -->
-							<div class="text-center">
-								<%= link_to "MESSAGE", workshop_path(workshop), class: "btn btn-primary" %>
-							</div>
-						</div>
-					</div>
 					<% end %>
-					
 				</div>
-			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

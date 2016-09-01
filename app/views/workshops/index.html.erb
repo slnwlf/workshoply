@@ -1,29 +1,37 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<% @workshops.each do |workshop| %>
-			<div class="col-md-4">
-				<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
-			</div>
-			<div class="col-md-8 well">
-				<h2><%= workshop.title.titleize %></h2>
-				<h4>
-					Topic: <%= workshop.topic.name.titleize %>
-					<br>
-					Location: <%= workshop.location.titleize %>
-				</h4>
-				<div class="workshop-index-speaker clearfix">
-					<%= image_tag workshop.user.avatar.url(:thumb), class: "tiny-thumb" %>
-					<span>
-						<h4>Speaker:<%= workshop.user.full_name.titleize %></h4>
-					</span>
+<div class="container-fluid">
+	<%= render "sites/search_bar" %>
+	<br>
+	<br>	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<% @workshops.each do |workshop| %>
+				<div class="col-md-4">
+					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				</div>
-				<p><%= workshop.description %></p>
-				<div class="text-center">
-					<%= link_to "MESSAGE", workshop_path(workshop), class: "btn btn-primary" %>
+				<div class="col-md-8 well">
+					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
+					<h4>
+						Topic: <%= workshop.topic.name.titleize %>
+						<br>
+						Location: <%= workshop.location.titleize %>
+					</h4>
+					<div class="workshop-index-speaker clearfix">
+						<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
+						<span>
+							<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+						</span>
+					</div>
+					<p><%= workshop.description %></p>
+					<div class="text-center">
+						<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
+					</div>
 				</div>
+				<% end %>
 			</div>
-			<% end %>
 		</div>
 	</div>
 </div>
+<%= javascript_tag do %>
+	var useJsonFromUrl = true;
+<% end %>

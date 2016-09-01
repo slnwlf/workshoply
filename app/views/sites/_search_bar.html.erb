@@ -1,0 +1,32 @@
+<section class="search-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<%= form_tag workshops_path, method: :get, class: "search-bar-form" do %>
+					<div class="row search-bar">
+						<div class="col-sm-4 search-location-wrapper">
+							<div class="form-group">
+								<p>Location:</p>
+								<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "titleize"), prompt: "Choose a city", class: "selectpicker form-group", hidden: true %>
+							</div>
+						</div>
+						<div class="col-sm-6 search-topic-wrapper">
+							<div class="form-group">
+								<p>Topic:</p>
+								<%= select_tag :topic, options_from_collection_for_select(Topic.all, :name, :titleize_name), prompt: "Choose a topic", class: "selectpicker form-group", hidden: true %>
+							</div>	
+						</div>
+						<div class="col-sm-2 search-btn-wrapper">
+							<div class="form-group">
+								<div style="height: 32px"></div>
+								<button class="btn btn-primary form-control" type="submit">
+		            <p><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</p>
+		          </button>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

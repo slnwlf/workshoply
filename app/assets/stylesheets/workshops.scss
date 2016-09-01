@@ -1,7 +1,11 @@
+.workshop-title-link:hover, .workshop-title-link:focus, .workshop-title-link:active,
+.speaker-name-link:hover, .speaker-name-link:focus, .speaker-name-link:active {
+	text-decoration: none;
+}
 // workshops index
 .workshop-index-speaker {
 	margin-bottom: 15px;
-	.tiny-thumb {
+	.tiny-thumb img {
 		height: 50px;
 		float: left;
 		margin-right: 15px;

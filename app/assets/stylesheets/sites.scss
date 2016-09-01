@@ -3,3 +3,19 @@ button#site-workshops-filter {
 	text-align: left;
 	font-size: 18px;
 }
+.search-location-wrapper, .search-topic-wrapper, .search-btn-wrapper {
+	padding: 0px;
+	.form-group {
+		margin: 0px;
+	}
+}
+.search-location-wrapper, .search-topic-wrapper {
+	.bootstrap-select {
+		width: 100% !important;
+		button.btn.dropdown-toggle.btn-default {
+			color: #000 !important;
+			background-color: #fff !important;
+			border-color: #2780e3 !important;
+		}
+	}
+}

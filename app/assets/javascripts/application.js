@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require bootstrap-select-1.10.0/bootstrap-select.min
 //= require_tree .
 
 $(function() {

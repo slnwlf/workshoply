@@ -7,19 +7,8 @@
 	</div><br>
 	<!-- End Hero -->
 	<!-- Search Bar -->
-	<div class="container">
-		<div class="row">
-			<%= form_tag workshops_path, method: :get do %>
-				<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "to_s"), prompt: "Choose a city", class: "form-control dropdown-toggle" %>
-				<%= select_tag :topic, options_from_collection_for_select(Topic.all, :name, :titleize_name), prompt: "Choose a topic", class: "form-control dropdown-toggle" %>	
-				<span class="input-group-btn">
-          <button class="btn btn-primary" type="submit">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-          </button>
-        </span>
-			<% end %>
-		</div>
-	</div>
+	<%= render "search_bar" %>
+
 </div><br><br>
 <!-- End Search Bar -->
 <!-- Featured Workshops -->

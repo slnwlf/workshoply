@@ -9,18 +9,15 @@
 	<!-- Search Bar -->
 	<div class="container">
 		<div class="row">
-			<div class="form-group">
+			<%= form_tag workshops_path, method: :get do %>
+				<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "to_s"), prompt: "Choose a city", class: "form-control dropdown-toggle" %>
+				<%= select_tag :topic, options_from_collection_for_select(Topic.all, :name, :titleize_name), prompt: "Choose a topic", class: "form-control dropdown-toggle" %>	
 				<span class="input-group-btn">
-					<button class="btn btn-default dropdown-toggle" id="site-workshops-filter" type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Featured Workshops<span class="caret pull-right"></span></button>
-					<ul class="dropdown-menu">
-          <li><%= link_to "All Workshops", workshops_path %></li>
-          <% Topic.all.each do |topic| %>
-            <!-- loop all created topics to make dropdown -->
-            <li><%= link_to topic.name.titleize, workshops_path(topic: topic.name) %></li>
-          <% end  %>
-        </ul>
-				</span>
-			</div>
+          <button class="btn btn-primary" type="submit">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+        </span>
+			<% end %>
 		</div>
 	</div>
 </div><br><br>

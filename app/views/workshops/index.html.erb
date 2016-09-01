@@ -6,7 +6,7 @@
 				<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 			</div>
 			<div class="col-md-8 well">
-				<h2><%= workshop.title %></h2>
+				<h2><%= workshop.title.titleize %></h2>
 				<h4>
 					Topic: <%= workshop.topic.name.titleize %>
 					<br>

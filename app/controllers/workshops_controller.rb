@@ -5,22 +5,22 @@ class WorkshopsController < ApplicationController
 	before_action :workshop, only: [:show, :edit, :update, :destroy]
 
 	def index
-		if params[:topic].blank?
+		if params[:topic].blank? and params[:location].blank?
 			@workshops = Workshop.all.order("created_at DESC")
-		else
+		elsif !params[:topic].blank? and params[:location].blank?
 			topic = Topic.find_by(name: params[:topic].downcase)
 			if topic
-				workshops = Workshop.where(topic_id: topic.id).order("created_at DESC")
-				if workshops.count > 0
-					flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}'"
-					@workshops = workshops
-				else
-					flash[:notice] = "No workshops with topic '#{params[:topic].titleize}'. Showing all workshops."
-					@workshops = Workshop.all.order("created_at DESC")
-				end
+				show_workshops({topic_id: topic.id}, "with topic", params[:topic])
 			else
 				flash[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
 				@workshops = Workshop.all.order("created_at DESC")
+			end
+		elsif params[:topic].blank? and !params[:location].blank?
+			show_workshops({location: params[:location]}, "in", params[:location])
+		elsif !params[:topic].blank? and !params[:location].blank?
+			topic = Topic.find_by(name: params[:topic].downcase)
+			if topic 
+				show_workshops({location: params[:location], topic_id: topic.id}, nil, nil, true)
 			end
 		end
 	end
@@ -87,6 +87,25 @@ class WorkshopsController < ApplicationController
 
 	def workshop_params
 		params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image, :topic_id)
+	end
+
+	def show_workshops(query_params, msg, param, both=false)
+		workshops = Workshop.where(query_params).order("created_at DESC")
+		if workshops.count > 0
+			if both
+				flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'"
+			else
+				flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} #{msg} '#{param.titleize}'"
+			end
+			@workshops = workshops
+		else
+			if both
+				flash[:notice] = "No workshops with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all workshops"
+			else
+				flash[:notice] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
+			end
+			@workshops = Workshop.all.order("created_at DESC")
+		end
 	end
 
 end

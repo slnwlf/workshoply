@@ -7,12 +7,20 @@
 		</div>
 		<div class="col-md-8">
 			<h2><%= @user.full_name.titleize %></h2>
-			<p>
-				<% if current_user %>
-					Email: <%= @user.email %><br>
-				<% end %>
+			<h4>
 				Location: <%= @user.location.titleize %><br>
 				Member since: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %><br>
+			</h4>
+			<p>Organization:
+				<% if @user.organization %>
+					<%= @user.organization %>
+				<% else %>
+					<% if current_user %>
+					Required for posting a workshop
+					<% else %>
+					User hasn't submitted an organization
+					<% end %>
+				<% end %>
 			</p>
 			<p>Bio: 
 				<% if @user.bio %>
@@ -29,8 +37,8 @@
 				<% if !current_user %>
 					<a href="#" class="btn btn-primary">MESSAGE</a>
 				<% else %>
-					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %> 
-					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-primary"  %>
+					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 
+					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-default"  %>
 				<% end %>
 			</div>
 			<!-- see views/devise/registrations/edit.html.erb for edit user view -->

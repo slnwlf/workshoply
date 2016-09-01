@@ -104,13 +104,14 @@ a {
 }
 
 .navbar-custom li a {
-	line-height: 50px;
+	line-height: 90px;
   font-size: 18px;
   color: #1D86FF;
+  border: none;
 }
 
 .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
-  line-height: 10px;
+  line-height: 50px;
 }
 
 .nav > li > a {

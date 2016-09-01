@@ -21,6 +21,10 @@
           <%= link_to image_tag("workshoply-logo-light.png", alt: "Workshoply"), '/', class: "navbar-brand navbar-logo" %>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/about">About</a></li>
+            <li><%= link_to "Workshops", workshops_path %></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
             <li><%= link_to "Post a Workshop", new_workshop_path, class:"btn btn-default" %> </li>
@@ -31,11 +35,9 @@
             </ul>
           </li>
           <% else %>
-          <li><a href="/about">About</a></li>
-          <li><%= link_to "Sign Up", signup_path%></li>
+          <li><%= link_to "Sign Up", signup_path, class: "btn btn-default" %></li>
           <li><%= link_to "Sign In", login_path %></li>
           <% end %>
-          <li><%= link_to "Workshops", workshops_path %></li>
         </ul>
       </div>
     </div>

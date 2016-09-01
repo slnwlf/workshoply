@@ -91,25 +91,15 @@ class WorkshopsController < ApplicationController
 	end
 
 	def show_workshops(query_params, msg, param, both=false)
-			# trying to build query string like:
-			# for location only Workshop.where('lower(location) = :location', {:location=>"melo park, ca, united states"})
-			# for topic only Workshop.where('topic_id = :topic_id', {:topic_id=>3})
-			# for both
-			# Workshop.where('location) = :location AND topic_id = :topic_id', {:location=>"melo park, ca, united states", :topic_id=>3})
-			query_string = []
-			query_params.keys.each do |key|
-				if key == :topic_id
-					query_string << key.to_s + ' = :' + key.to_s
-				else
-					query_string << 'lower(' + key.to_s + ') = :' + key.to_s
-				end
-			end
-			if query_string.length > 1
-				query_string = query_string.join(" AND ")
+		if both
+			workshops = Workshop.filter_city_and_topic(query_params[:location], query_params[:topic_id])
+		else
+			if query_params[:location]
+				workshops = Workshop.filter_city(query_params[:location])
 			else
-				query_string = query_string[0]
+				workshops = Workshop.filter_topic(query_params[:topic_id])
 			end
-			workshops = Workshop.where(query_string, query_params).order("created_at DESC")
+		end
 		if workshops.count > 0
 			if both
 				flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'"

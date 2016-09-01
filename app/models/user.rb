@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     self.mailboxer_name
   end
 
-  def mailboxer_email(object)
+  def mailboxer_email
     self.mailboxer_email
   end
   ##end mailboxer

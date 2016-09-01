@@ -46,10 +46,15 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
+.container-fluid {
+  padding: 0px;
+}
+
 .navbar-custom {
  	background-color: #fafafa;
   border-color: #fafafa;
 	height: 90px;
+  margin-bottom: 0px;
   ul.nav.navbar-nav.navbar-right {
     padding-right: 30px;
   }
@@ -142,22 +147,33 @@ a {
  	min-height: 500px;
   max-height: 500px; 
  	text-align: center;
- 	background-image: url(https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg);
+ 	background: url(https://static.pexels.com/photos/1984/black-and-white-city-man-people.jpg) no-repeat 45% 50%;
  	background-size: cover;
- 	background-repeat: no-repeat;
  	color: #fff;
+  margin-bottom: 0px;
+  h1 {
+    padding-top: 80px;
+    font-size: 4em;
+    font-weight: bold;
+    text-shadow: 1px 2px #9b9b9b
+   }
+  h2 {
+    padding-bottom: 80px;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px #9b9b9b
+   }
  }
 
-.jumbotron h1 {
- 	padding-top: 80px;
- 	font-size: 4em;
- 	font-weight: bold;
- }
-
-.jumbotron h2 {
- 	padding-bottom: 80px;
- 	font-size: 2em;
- 	font-weight: bold;
+ @media (max-width: 500px) {
+  .jumbotron {
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+  }
  }
 
 #btn-signup {

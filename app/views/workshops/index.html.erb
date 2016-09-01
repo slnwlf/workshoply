@@ -8,7 +8,7 @@
 				<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 			</div>
 			<div class="col-md-8 well">
-				<h2><%= link_to workshop.title.titleize, workshop_path(workshop) %></h2>
+				<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
 				<h4>
 					Topic: <%= workshop.topic.name.titleize %>
 					<br>
@@ -17,7 +17,7 @@
 				<div class="workshop-index-speaker clearfix">
 					<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
 					<span>
-						<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user) %></h4>
+						<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
 					</span>
 				</div>
 				<p><%= workshop.description %></p>

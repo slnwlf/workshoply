@@ -34,7 +34,7 @@
 				<% end %>
 			</p>
 			<div>
-				<% if !current_user %>
+				<% if !current_user or current_user != @user %>
 					<a href="#" class="btn btn-primary">MESSAGE</a>
 				<% else %>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 
@@ -59,7 +59,7 @@
 						Location: <%= workshop.location.titleize %>
 					</h4>
 					<p><%= workshop.description %></p>
-					<% if !current_user %>
+					<% if !current_user or current_user != @user %>
 						<div class="text-center">
 							<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
 						</div>

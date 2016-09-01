@@ -109,7 +109,6 @@ class WorkshopsController < ApplicationController
 			else
 				query_string = query_string[0]
 			end
-			byebug
 			workshops = Workshop.where(query_string, query_params).order("created_at DESC")
 		if workshops.count > 0
 			if both

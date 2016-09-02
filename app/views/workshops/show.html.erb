@@ -22,7 +22,7 @@
 						<p><%= @workshop.description %></p>
 						</div>
 						<div class="col-md-9 center-block">
-							<button class="btn btn-danger center-block">MESSAGE</button>
+							<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-danger" %>
 						</div>
 					</div>
 

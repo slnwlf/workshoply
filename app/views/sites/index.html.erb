@@ -15,44 +15,74 @@
 <!-- End Search Bar -->
 
 <!-- 9/2 -->
-
+<h1 class="text-center">Featured Workshops</h1>
 <div class="workshop-container">
 	<div class="row">
 		<div class="col-sm-12 col-md-4 col-lg-4">
 				<div class="thumbnail">
-					<%= @workshop[1].name %>
-					</div>
-					</div>
-					</div>
-					</div>
-
-
-
-<div class="workshop-container">
-<% @workshops.each do |workshop| %>
-	<div class="row">
-		<div class="col-sm-12 col-md-4 col-lg-4">
-				<div class="thumbnail">
-					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
-					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
+					<%= image_tag @workshop1.image.url(:medium), class: "img-responsive workshop-img" %>
+			<h2><%= link_to @workshop1.title.titleize, workshop_path(@workshop1), class: "workshop-title-link" %></h2>
 					<h4>
-						Topic: <%= workshop.topic.name.titleize %>
+						Topic: <%= @workshop1.topic.name.titleize %>
 						<br>
-						Location: <%= workshop.location.titleize %>
+						Location: <%= @workshop1.location.titleize %>
 					</h4>
 					<div class="workshop-index-speaker clearfix">
-						<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
+						<%= link_to image_tag(@workshop1.user.avatar.url(:thumb)), user_path(@workshop1.user), class: "tiny-thumb" %>
 						<span>
-							<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+							<h4>Speaker:<%= link_to @workshop1.user.full_name.titleize, user_path(@workshop1.user), class: "speaker-name-link" %></h4>
 						</span>
 					</div>
-					<p><%= workshop.description %></p>
+					<p><%= @workshop1.description %></p>
 					<div class="text-center">
-						<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
+						<%= link_to "View", workshop_path(@workshop1), class: "btn btn-primary" %>
 					</div>
 				</div>
 			</div>
-		<% end %>
+
+		<div class="col-sm-12 col-md-4 col-lg-4">
+				<div class="thumbnail">
+					<%= image_tag @workshop2.image.url(:medium), class: "img-responsive workshop-img" %>
+			<h2><%= link_to @workshop2.title.titleize, workshop_path(@workshop2), class: "workshop-title-link" %></h2>
+					<h4>
+						Topic: <%= @workshop2.topic.name.titleize %>
+						<br>
+						Location: <%= @workshop2.location.titleize %>
+					</h4>
+					<div class="workshop-index-speaker clearfix">
+						<%= link_to image_tag(@workshop2.user.avatar.url(:thumb)), user_path(@workshop2.user), class: "tiny-thumb" %>
+						<span>
+							<h4>Speaker:<%= link_to @workshop2.user.full_name.titleize, user_path(@workshop2.user), class: "speaker-name-link" %></h4>
+						</span>
+					</div>
+					<p><%= @workshop2.description %></p>
+					<div class="text-center">
+						<%= link_to "View", workshop_path(@workshop2), class: "btn btn-primary" %>
+					</div>
+				</div>
+			</div>
+
+		<div class="col-sm-12 col-md-4 col-lg-4">
+				<div class="thumbnail">
+					<%= image_tag @workshop3.image.url(:medium), class: "img-responsive workshop-img" %>
+			<h2><%= link_to @workshop3.title.titleize, workshop_path(@workshop3), class: "workshop-title-link" %></h2>
+					<h4>
+						Topic: <%= @workshop3.topic.name.titleize %>
+						<br>
+						Location: <%= @workshop3.location.titleize %>
+					</h4>
+					<div class="workshop-index-speaker clearfix">
+						<%= link_to image_tag(@workshop3.user.avatar.url(:thumb)), user_path(@workshop3.user), class: "tiny-thumb" %>
+						<span>
+							<h4>Speaker:<%= link_to @workshop3.user.full_name.titleize, user_path(@workshop3.user), class: "speaker-name-link" %></h4>
+						</span>
+					</div>
+					<p><%= @workshop3.description %></p>
+					<div class="text-center">
+						<%= link_to "View", workshop_path(@workshop3), class: "btn btn-primary" %>
+					</div>
+				</div>
+			</div>
 	</div>
 </div>
 

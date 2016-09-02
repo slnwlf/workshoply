@@ -35,9 +35,8 @@
 			</p>
 			<div>
 				<% if !current_user or current_user != @user %>
-				    <%= link_to "MESSAGE", new_conversation_path, class: "btn btn-primary" %>
-<!-- 					<a href="#" class="btn btn-primary">MESSAGE</a>
- -->				<% else %>
+	<% else %>
+					<a href="#" class="btn btn-primary">MESSAGE</a>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 
 					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-default"  %>
 				<% end %>

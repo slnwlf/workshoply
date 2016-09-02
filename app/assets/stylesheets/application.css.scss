@@ -27,6 +27,11 @@
  @import "users"; // for css in users.css
  @import "workshops"; // for css in workshops.css
 
+
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Lato', sans-serif;
 }
@@ -51,6 +56,30 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
+
+.nav-and-yield {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -102px; 
+}
+.nav-and-yield:after {
+  content: "";
+  display: block;
+}
+.nav-and-yield:after {
+  /* .push must be the same height as footer */
+  height: 102px; 
+}
+footer {
+  background-color: #e6e6e6;
+  padding: 40px;
+  .footer-nav {
+    display: inline; 
+    padding-right: 10px; 
+    padding-left: 10px; 
+  }
+}
+
 .container-fluid {
   padding: 0px;
 }
@@ -64,7 +93,7 @@ a {
     padding-right: 30px;
   }
   .navbar-logo img {
-    height: 50px;
+    height: 45px;
   }
   // overrided mobile navbar styling
   .navbar-header button.navbar-toggle {
@@ -408,9 +437,3 @@ ul.dropdown-menu{
 }
 
 .lt-ie9 .search input { line-height: 26px }
-
-.footer-nav {
-  display: inline; 
-  padding-right: 10px; 
-  padding-left: 10px; 
-}

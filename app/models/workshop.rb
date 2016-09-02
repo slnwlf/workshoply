@@ -17,4 +17,16 @@ class Workshop < ActiveRecord::Base
   has_attached_file :image, styles: { medium: ["600x300>", :png], thumb: ["400x200>", :png] }, default_url: ActionController::Base.helpers.asset_path('workshop.jpg')
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  def self.filter_topic(topic_id)
+	  where("topic_id = ?", topic_id)
+	end
+
+	def self.filter_city(city)
+		 where("location ILIKE ?", city)
+	end
+
+	def self.filter_city_and_topic(city, topic_id)
+		where("location ILIKE ? AND topic_id = ?", city, topic_id)
+	end
+
 end

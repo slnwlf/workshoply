@@ -87,13 +87,19 @@ class WorkshopsController < ApplicationController
 	end
 
 	def workshop_params
-		workshop_params = params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image, :topic_id)
-		workshop_params[:location] = workshop_params[:location].downcase
-		return workshop_params
+		params.require(:workshop).permit(:title, :description, :location, :user_id, :slug, :image, :topic_id)
 	end
 
 	def show_workshops(query_params, msg, param, both=false)
-		workshops = Workshop.where(query_params).order("created_at DESC")
+		if both
+			workshops = Workshop.filter_city_and_topic(query_params[:location], query_params[:topic_id])
+		else
+			if query_params[:location]
+				workshops = Workshop.filter_city(query_params[:location])
+			else
+				workshops = Workshop.filter_topic(query_params[:topic_id])
+			end
+		end
 		if workshops.count > 0
 			if both
 				flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'"

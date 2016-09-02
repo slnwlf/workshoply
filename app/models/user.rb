@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     message: "example: San Diego, CA, United States" }
   validates :organization, presence: true
   validates :bio, length: { minimum: 100, maximum: 1000,
-    too_long: "%{count} characters is the maximum allowed" }
+    too_long: "%{count} characters is the maximum allowed" }, on: :update
 
   has_attached_file :avatar, styles: { medium: ["300x300>", :png], thumb: ["100x100>", :png] }, default_url: "http://www.humanecology.rutgers.edu/images/facfaces/NO-IMAGE-AVAILABLE.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/

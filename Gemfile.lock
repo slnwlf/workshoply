@@ -55,6 +55,16 @@ GEM
       railties (>= 3.1)
     builder (3.2.2)
     byebug (9.0.5)
+    carrierwave (0.11.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+      mimemagic (>= 0.3.0)
+    chosen-rails (1.5.2)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -82,6 +92,8 @@ GEM
     execjs (2.7.0)
     font-awesome-rails (4.5.0.0)
       railties (>= 3.2, < 5.0)
+    foreigner (1.7.4)
+      activerecord (>= 3.0.0)
     friendly_id (5.0.5)
       activerecord (>= 4.0.0)
     globalid (0.3.7)
@@ -99,6 +111,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mailboxer (0.13.0)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -195,6 +211,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   bootswatch-rails
   byebug
+  chosen-rails
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails
@@ -202,6 +219,7 @@ DEPENDENCIES
   friendly_id (~> 5.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  mailboxer
   paperclip (~> 5.0.0)
   pg (~> 0.15)
   rails (= 4.2.5)

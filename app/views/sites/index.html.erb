@@ -13,7 +13,40 @@
 
 </div><br><br>
 <!-- End Search Bar -->
-<!-- Featured Workshops -->
+
+<!-- 9/2 -->
+<div class="workshop-container">
+<% @workshops.each do |workshop| %>
+	<div class="row">
+		<div class="col-sm-12 col-md-4 col-lg-4">
+				<div class="thumbnail">
+					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
+					<h4>
+						Topic: <%= workshop.topic.name.titleize %>
+						<br>
+						Location: <%= workshop.location.titleize %>
+					</h4>
+					<div class="workshop-index-speaker clearfix">
+						<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
+						<span>
+							<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+						</span>
+					</div>
+					<p><%= workshop.description %></p>
+					<div class="text-center">
+						<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+<!-- Featured Workshops --><!-- 
 <div class="workshop-container">
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
@@ -24,11 +57,11 @@
 					<h3>Talk 1 Caption</h3>
 					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
 					<!-- Modal Button -->
-					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal1">Learn more</button>
+<!-- 					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal1">Learn more</button>
 					<div id="workshopModal1" class="modal fade" role ="dialog">
-						<div class="modal-dialog modal-lg">
+						<div class="modal-dialog modal-lg"> -->
 							<!--Modal content -->
-							<div class="modal-content">
+							<!-- <div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title">Workshop 1</h4>
@@ -52,13 +85,13 @@
 				<h1>Unconscious Bias</h1>
 				<div class="caption">
 					<h3>Talk 2 Caption</h3>
-					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut. </p>
+					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut. </p> -->
 					<!-- Modal Button -->
-					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal2">Learn more</button>
+<!-- 					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal2">Learn more</button>
 					<div id="workshopModal2" class="modal fade" role ="dialog">
-						<div class="modal-dialog modal-lg">
+						<div class="modal-dialog modal-lg"> -->
 							<!--Modal content -->
-							<div class="modal-content">
+							<!-- <div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title">Workshop 2</h4>
@@ -82,13 +115,13 @@
 				<h1>Team Building</h1>
 				<div class="caption">
 					<h3>Talk 3 Caption</h3>
-					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
+					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p> -->
 					<!-- Modal Button -->
-					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal3">Learn more</button>
+					<!-- <button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal3">Learn more</button>
 					<div id="workshopModal3" class="modal fade" role ="dialog">
-						<div class="modal-dialog modal-lg">
+						<div class="modal-dialog modal-lg"> -->
 							<!--Modal content -->
-							<div class="modal-content">
+							<!-- <div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title">Workshop 3</h4>
@@ -108,7 +141,7 @@
 		</div>
 	</div>
 </div>
-</div>
+</div> --> 
 <!-- End Featured Workshops -->
 <!-- Info Section -->
 

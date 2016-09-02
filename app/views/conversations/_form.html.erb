@@ -1,9 +1,9 @@
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
       <%= f.label :recipients %>
+      <%= f.select(:recipients, User.all.collect {|p| [ p.id, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
       <!-- TODO --> 
       <!--add p.username/first_name to display -->
-      <%= f.select(:recipients, User.all.collect {|p| [ p.id ] }, {}, { multiple: true , class: "form-control" })%>
     </div>
     <div class="form-group">
       <%= f.label :subject %>

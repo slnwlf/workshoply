@@ -2,17 +2,7 @@ class User < ActiveRecord::Base
 
 	extend FriendlyId
 
-  ##mailboxer config/methods
   acts_as_messageable
-
-  def mailboxer_name
-    self.mailboxer_name
-  end
-
-  def mailboxer_email
-    self.mailboxer_email
-  end
-  ##end mailboxer
 
   ratyrate_rater
   
@@ -34,4 +24,12 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: ["300x300>", :png], thumb: ["100x100>", :png] }, default_url: "http://www.humanecology.rutgers.edu/images/facfaces/NO-IMAGE-AVAILABLE.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  def mailboxer_name
+    self.full_name
+  end
+
+  def mailboxer_email(object)
+    self.email
+  end
+  
 end

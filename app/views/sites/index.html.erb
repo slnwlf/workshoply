@@ -4,17 +4,24 @@
 		<div class="jumbotron">
 			<h1>Inspire Your Team</h1>
 			<h2>Book a game-changing onsite training session for your organization</h2>
+
+			<% if current_user %>
+				<a class="btn btn-primary btn-lg" id="btn-signup" href="/workshops">SEARCH TALKS</a>
+					<% else %>
 			<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
+					<% end %>
+
+
 		</div>
 	</section>
 	<!-- End Hero -->
 	<!-- Search Bar -->
 	<%= render "search_bar" %>
 
-</div><br><br>
+</div>
 <!-- End Search Bar -->
 
-<!-- 9/2 -->
+<!-- Featured Workshops -->
 <h1 class="text-center">Featured Workshops</h1>
 <div class="workshop-container">
 	<div class="row">
@@ -86,106 +93,5 @@
 	</div>
 </div>
 
-
-
-
-<!-- Featured Workshops --><!-- 
-<div class="workshop-container">
-	<div class="row">
-		<div class="col-sm-12 col-md-4">
-			<div class="thumbnail">
-				<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="...">
-				<h1>Leadership 101</h1>
-				<div class="caption">
-					<h3>Talk 1 Caption</h3>
-					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p>
-					<!-- Modal Button -->
-<!-- 					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal1">Learn more</button>
-					<div id="workshopModal1" class="modal fade" role ="dialog">
-						<div class="modal-dialog modal-lg"> -->
-							<!--Modal content -->
-							<!-- <div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Workshop 1</h4>
-								</div>
-								<div class="modal-body">
-									<img src="https://hd.unsplash.com/1/bag-and-hands.jpg" alt="..." width="100%">
-									<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-4">
-			<div class="thumbnail">
-				<img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/6.jpg" alt="...">
-				<h1>Unconscious Bias</h1>
-				<div class="caption">
-					<h3>Talk 2 Caption</h3>
-					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut. </p> -->
-					<!-- Modal Button -->
-<!-- 					<button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal2">Learn more</button>
-					<div id="workshopModal2" class="modal fade" role ="dialog">
-						<div class="modal-dialog modal-lg"> -->
-							<!--Modal content -->
-							<!-- <div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Workshop 2</h4>
-								</div>
-								<div class="modal-body">
-									<img src="https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/6.jpg" alt="..." width="100%">
-									<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-4">
-			<div class="thumbnail">
-				<img src="https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/83.jpg" alt="...">
-				<h1>Team Building</h1>
-				<div class="caption">
-					<h3>Talk 3 Caption</h3>
-					<p>Knausgaard gentrify irony, swag affogato twee narwhal tumblr gochujang schlitz aesthetic meh umami church-key you probably haven't heard of them. Man braid paleo 90's chicharrones yuccie you probably haven't heard of them, semiotics shoreditch franzen aesthetic truffaut.</p> -->
-					<!-- Modal Button -->
-					<!-- <button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#workshopModal3">Learn more</button>
-					<div id="workshopModal3" class="modal fade" role ="dialog">
-						<div class="modal-dialog modal-lg"> -->
-							<!--Modal content -->
-							<!-- <div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Workshop 3</h4>
-								</div>
-								<div class="modal-body">
-									<img src="https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/83.jpg" alt="..." width="100%">
-									<p>Vegan fashion axe cold-pressed, farm-to-table vice affogato bitters art party heirloom tote bag asymmetrical jean shorts. Ennui distillery bushwick meh. Next level selfies art party vegan mustache. Squid organic authentic, flexitarian blog VHS kitsch 3 wolf moon +1 austin humblebrag paleo fingerstache. Jean shorts post-ironic green juice venmo. Post-ironic yuccie vice, schlitz bushwick swag XOXO helvetica shoreditch ethical cliche. Cred dreamcatcher poutine trust fund, occupy tacos direct trade brunch normcore asymmetrical artisan distillery.</p>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div> --> 
-<!-- End Featured Workshops -->
-<!-- Info Section -->
 
 </div>

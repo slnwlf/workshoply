@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen-jquery
 //= require bootstrap-sprockets
 //= require bootstrap-select-1.10.0/bootstrap-select.min
 //= require_tree .

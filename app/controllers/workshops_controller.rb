@@ -13,7 +13,7 @@ class WorkshopsController < ApplicationController
 				# see show_workshops(query_params, msg, param, both=false) in private
 				show_workshops({topic_id: topic.id}, "with topic", params[:topic])
 			else
-				flash[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
+				flash.now[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
 				@workshops = Workshop.all.order("created_at DESC")
 			end
 		elsif params[:topic].blank? and !params[:location].blank?
@@ -37,10 +37,10 @@ class WorkshopsController < ApplicationController
 	def create
 		@workshop = current_user.workshops.create(workshop_params)
 		if @workshop.save
-			flash[:notice] = "Successfully create a workshop."
+			flash.now[:notice] = "Successfully create a workshop."
 			redirect_to workshop_path(@workshop)
 		else
-			flash[:error] = @workshop.errors.full_messages.join(", ")
+			flash.now[:error] = @workshop.errors.full_messages.join(", ")
 			redirect_to new_workshop_path
 		end
 
@@ -48,7 +48,7 @@ class WorkshopsController < ApplicationController
 
 	def edit
 		unless current_user == @workshop.user
-			flash[:error] = "You can only edit your own posted workshop."
+			flash.now[:error] = "You can only edit your own posted workshop."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -56,15 +56,15 @@ class WorkshopsController < ApplicationController
 	def update
 		if current_user == @workshop.user
 			if @workshop.update_attributes(workshop_params)
-				flash[:notice] = "Successfully edit the workshop."
+				flash.now[:notice] = "Successfully edit the workshop."
 				redirect_to workshop_path(@workshop)
 			else
-				flash[:notice] = @workshop.errors.full_messages.join(", ")
+				flash.now[:notice] = @workshop.errors.full_messages.join(", ")
 				redirect_to edit_workshop_path(@workshop)
 				
 			end
 		else
-			flash[:error] = "You can only edit your own posted workshop."
+			flash.now[:error] = "You can only edit your own posted workshop."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -72,10 +72,10 @@ class WorkshopsController < ApplicationController
 	def destroy
 		if current_user == @workshop.user
 			@workshop.destroy
-			flash[:notice] = "Successfully delete the workshop."
+			flash.now[:notice] = "Successfully delete the workshop."
 			redirect_to workshops_path
 		else
-			flash[:error] = "You can only delete your own posted workshop."
+			flash.now[:error] = "You can only delete your own posted workshop."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -102,16 +102,16 @@ class WorkshopsController < ApplicationController
 		end
 		if workshops.count > 0
 			if both
-				flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'"
+				flash.now[:notice] = "Found #{pluralize(workshops.count, 'workshop')} with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'"
 			else
-				flash[:notice] = "Found #{pluralize(workshops.count, 'workshop')} #{msg} '#{param.titleize}'"
+				flash.now[:notice] = "Found #{pluralize(workshops.count, 'workshop')} #{msg} '#{param.titleize}'"
 			end
 			@workshops = workshops
 		else
 			if both
-				flash[:notice] = "No workshops with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all workshops"
+				flash.now[:notice] = "No workshops with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all workshops"
 			else
-				flash[:notice] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
+				flash.now[:notice] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
 			end
 			@workshops = Workshop.all.order("created_at DESC")
 		end

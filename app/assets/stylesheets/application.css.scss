@@ -222,6 +222,12 @@ footer {
 
 .workshop-container {
  	margin: 0 50px;
+  .thumbnail.featured-workshop {
+    min-height: 550px;
+    h3 {
+      font-size: 22px;
+    }
+  }
  }
 
 .info-container {

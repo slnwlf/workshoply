@@ -1,97 +1,49 @@
 <div class="container-fluid">
-	<!-- Hero Image -->
 	<section id="hero-image">
 		<div class="jumbotron">
 			<h1>Inspire Your Team</h1>
 			<h2>Book a game-changing onsite training session for your organization</h2>
-
 			<% if current_user %>
 				<a class="btn btn-primary btn-lg" id="btn-signup" href="/workshops">SEARCH TALKS</a>
 					<% else %>
-			<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
-					<% end %>
-
-
+				<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
+			<% end %>
 		</div>
 	</section>
-	<!-- End Hero -->
 	<!-- Search Bar -->
 	<%= render "search_bar" %>
 
-</div>
-<!-- End Search Bar -->
+	<!-- Featured Workshops -->
+	<h1 class="text-center">Featured Workshops</h1>
 
-<!-- Featured Workshops -->
-<h1 class="text-center">Featured Workshops</h1>
-<div class="workshop-container">
-	<div class="row">
-		<div class="col-sm-12 col-md-4 col-lg-4">
-				<div class="thumbnail">
-					<%= image_tag @workshop1.image.url(:medium), class: "img-responsive workshop-img" %>
-			<h2><%= link_to @workshop1.title.titleize, workshop_path(@workshop1), class: "workshop-title-link" %></h2>
-					<h4>
-						Topic: <%= @workshop1.topic.name.titleize %>
-						<br>
-						Location: <%= @workshop1.location.titleize %>
-					</h4>
-					<div class="workshop-index-speaker clearfix">
-						<%= link_to image_tag(@workshop1.user.avatar.url(:thumb)), user_path(@workshop1.user), class: "tiny-thumb" %>
-						<span>
-							<h4>Speaker:<%= link_to @workshop1.user.full_name.titleize, user_path(@workshop1.user), class: "speaker-name-link" %></h4>
-						</span>
-					</div>
-					<p><%= @workshop1.description %></p>
-					<div class="text-center">
-						<%= link_to "View", workshop_path(@workshop1), class: "btn btn-primary" %>
+	<div class="workshop-container">
+		<div class="row">
+			<% @featured_workshops.each do |workshop| %>
+				<div class="col-sm-12 col-md-4 col-lg-4">
+					<div class="thumbnail featured-workshop">
+						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+						<div class="featured-workshop-title-wrapper">
+							<h3><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h3>
+						</div>
+						<h4>
+							Topic: <%= workshop.topic.name.titleize %>
+							<br>
+							Location: <%= workshop.location.titleize %>
+						</h4>
+						<div class="workshop-index-speaker clearfix">
+							<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
+							<span>
+								<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+							</span>
+						</div>
+						<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %></p>
+						<div class="text-center view-btn-wrapper">
+							<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
+						</div>
 					</div>
 				</div>
-			</div>
-
-		<div class="col-sm-12 col-md-4 col-lg-4">
-				<div class="thumbnail">
-					<%= image_tag @workshop2.image.url(:medium), class: "img-responsive workshop-img" %>
-			<h2><%= link_to @workshop2.title.titleize, workshop_path(@workshop2), class: "workshop-title-link" %></h2>
-					<h4>
-						Topic: <%= @workshop2.topic.name.titleize %>
-						<br>
-						Location: <%= @workshop2.location.titleize %>
-					</h4>
-					<div class="workshop-index-speaker clearfix">
-						<%= link_to image_tag(@workshop2.user.avatar.url(:thumb)), user_path(@workshop2.user), class: "tiny-thumb" %>
-						<span>
-							<h4>Speaker:<%= link_to @workshop2.user.full_name.titleize, user_path(@workshop2.user), class: "speaker-name-link" %></h4>
-						</span>
-					</div>
-					<p><%= @workshop2.description %></p>
-					<div class="text-center">
-						<%= link_to "View", workshop_path(@workshop2), class: "btn btn-primary" %>
-					</div>
-				</div>
-			</div>
-
-		<div class="col-sm-12 col-md-4 col-lg-4">
-				<div class="thumbnail">
-					<%= image_tag @workshop3.image.url(:medium), class: "img-responsive workshop-img" %>
-			<h2><%= link_to @workshop3.title.titleize, workshop_path(@workshop3), class: "workshop-title-link" %></h2>
-					<h4>
-						Topic: <%= @workshop3.topic.name.titleize %>
-						<br>
-						Location: <%= @workshop3.location.titleize %>
-					</h4>
-					<div class="workshop-index-speaker clearfix">
-						<%= link_to image_tag(@workshop3.user.avatar.url(:thumb)), user_path(@workshop3.user), class: "tiny-thumb" %>
-						<span>
-							<h4>Speaker:<%= link_to @workshop3.user.full_name.titleize, user_path(@workshop3.user), class: "speaker-name-link" %></h4>
-						</span>
-					</div>
-					<p><%= @workshop3.description %></p>
-					<div class="text-center">
-						<%= link_to "View", workshop_path(@workshop3), class: "btn btn-primary" %>
-					</div>
-				</div>
-			</div>
+			<% end %>
+		</div>
 	</div>
-</div>
-
 
 </div>

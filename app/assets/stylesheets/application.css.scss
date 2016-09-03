@@ -98,11 +98,11 @@ footer {
   // overrided mobile navbar styling
   .navbar-header button.navbar-toggle {
     // change style hamburger button
-    margin-top: 15px;
+    margin-top: 20px;
     background-color: #efefef;
     border: 1.5px solid #aeaeae;
     border-radius: 5px;
-    padding: 5px;
+    padding: 15px;
     .icon-bar {
       width: 25px;
     }
@@ -114,6 +114,9 @@ footer {
     border-width: 3px;
     @media (max-width: 767px) {
       margin-top: 10px;
+      box-shadow: 2px 2px 2px #b9b9b9;
+      -webkit-box-shadow: 2px 2px 2px #b9b9b9;
+      -moz-box-shadow: 2px 2px 2px #b9b9b9;
       ul.nav.navbar-nav.navbar-right {
         padding: 0px;
       }

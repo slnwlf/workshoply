@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   #home page routes
   get "/about", to: "sites#about"
 
-  resources :workshops
+  resources :workshops do 
+    resources :reviews, only: [:create, :update, :destroy]
+  end
 
   resources :users, only: [:show, :update, :edit]
 

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   friendly_id :full_name, use: :slugged
   has_many :workshops, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

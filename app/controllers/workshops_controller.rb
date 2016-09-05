@@ -28,6 +28,7 @@ class WorkshopsController < ApplicationController
 
 	def show
 		# see workshop method in private
+		@review = Review.new
 	end
 
 	def new
@@ -109,9 +110,9 @@ class WorkshopsController < ApplicationController
 			@workshops = workshops
 		else
 			if both
-				flash.now[:notice] = "No workshops with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all workshops"
+				flash.now[:error] = "No workshops with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all workshops"
 			else
-				flash.now[:notice] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
+				flash.now[:error] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
 			end
 			@workshops = Workshop.all.order("created_at DESC")
 		end

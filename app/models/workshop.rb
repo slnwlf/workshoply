@@ -8,6 +8,7 @@ class Workshop < ActiveRecord::Base
   friendly_id :title, use: :slugged
 	belongs_to :user
 	belongs_to :topic
+	has_many :comments, dependent: :destroy
 
 	validates :title, presence: true
 	validates :description, presence: true

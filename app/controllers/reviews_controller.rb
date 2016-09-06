@@ -16,14 +16,19 @@ class ReviewsController < ApplicationController
 	
 	def create
 		if current_user != @workshop.user
-			@review = @workshop.reviews.create(review_params)
-			if @review.save
-				current_user.reviews << @review
-				flash[:notice] = "Successfully post your review."
-				redirect_to workshop_path(@workshop)
+			if params[:score].empty?
+				flash[:error] = "Please rate the talk."
+				redirect_to new_workshop_review_path(@workshop)
 			else
-				flash.now[:error] = @review.errors.full_messages.join(", ")
-				redirect_to workshop_path(@workshop)
+				@review = @workshop.reviews.create(review_params)
+				if @review.save
+					current_user.reviews << @review
+					flash[:notice] = "Successfully post your review."
+					redirect_to workshop_path(@workshop)
+				else
+					flash[:error] = @review.errors.full_messages.join(", ")
+					redirect_to new_workshop_review_path(@workshop)
+				end
 			end
 		else
 			flash[:error] = "You can't review your own talk."

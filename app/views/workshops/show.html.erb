@@ -55,50 +55,47 @@
 
 			<!-- Reviews -->
 			<div class="container">
-
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<%= link_to "Write a Review", new_workshop_review_path(@workshop), class: "btn btn-danger btn-review" %>
 					</div>
 				</div>
 
-				<% if @reviews.count > 0 %>
-					<% if @current_user_review %>
-						<h4>Your review:</h4>
-						<div class="row">
-							<div class="span4 review-box">
-								<div class="workshop-index-speaker clearfix">
-									<%= link_to image_tag(@current_user_review.user.avatar.url(:thumb)), user_path(@current_user_review.user), class: "tiny-thumb" %>
-									<span>
-										<h4 class="speaker-name-link"><%= @current_user_review.user.full_name.titleize %>
-											<br>
-											<%= rating_for_user @workshop, @current_user_review.user, "rating", disabled: true, readonly: true %>
-										</h4>
-										<p><%= @current_user_review.text %></p>
-									</span>
-								</div>
+				<% if @current_user_review %>
+					<h4>Your review:</h4>
+					<div class="row">
+						<div class="span4 review-box">
+							<div class="workshop-index-speaker clearfix">
+								<%= link_to image_tag(@current_user_review.user.avatar.url(:thumb)), user_path(@current_user_review.user), class: "tiny-thumb" %>
+								<span>
+									<h4 class="speaker-name-link"><%= @current_user_review.user.full_name.titleize %>
+										<br>
+										<%= rating_for_user @workshop, @current_user_review.user, "rating", disabled: true, readonly: true %>
+									</h4>
+									<p><%= @current_user_review.text %></p>
+								</span>
 							</div>
 						</div>
-						<hr>
-					<% end %>
-					<% @reviews.each do |review| %>
-						<div class="row">
-							<div class="span4 review-box">
-								<div class="workshop-index-speaker clearfix">
-									<%= link_to image_tag(review.user.avatar.url(:thumb)), user_path(review.user), class: "tiny-thumb" %>
-									<span>
-										<h4 class="speaker-name-link"><%= review.user.full_name.titleize %>
-											<br>
-											<%= rating_for_user @workshop, review.user, "rating", disabled: true, readonly: true %>
-										</h4>
-										<p><%= review.text %></p>
-									</span>
-								</div>
-							</div>
-						</div>
-					<% end %>
+					</div>
+					<hr>
 				<% end %>
-
+				
+				<% @reviews.each do |review| %>
+					<div class="row">
+						<div class="span4 review-box">
+							<div class="workshop-index-speaker clearfix">
+								<%= link_to image_tag(review.user.avatar.url(:thumb)), user_path(review.user), class: "tiny-thumb" %>
+								<span>
+									<h4 class="speaker-name-link"><%= review.user.full_name.titleize %>
+										<br>
+										<%= rating_for_user @workshop, review.user, "rating", disabled: true, readonly: true %>
+									</h4>
+									<p><%= review.text %></p>
+								</span>
+							</div>
+						</div>
+					</div>
+				<% end %>
 			</div>
 			
 		</div>

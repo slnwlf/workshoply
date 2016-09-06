@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get "/about", to: "sites#about"
 
   resources :workshops do 
-    resources :reviews, only: [:create, :update, :destroy]
+    resources :reviews
   end
 
   resources :users, only: [:show, :update, :edit]

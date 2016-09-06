@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
 	before_action :authenticate_user!, :workshop
+
+	def new
+		@review =  Review.new
+	end
 	
 	def create
+		byebug
 		if current_user != @workshop.user
 			@review = @workshop.reviews.create(review_params)
 			if @review.save
@@ -13,7 +18,7 @@ class ReviewsController < ApplicationController
 				redirect_to workshop_path(@workshop)
 			end
 		else
-			flash.now[:notice] = "As a speaker, you can't write a review for your own workshop."
+			flash[:error] = "You can't review your own talk."
 			redirect_to workshop_path(@workshop)
 		end
 	end

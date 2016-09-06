@@ -28,7 +28,12 @@ class WorkshopsController < ApplicationController
 
 	def show
 		# see workshop method in private
-		@review = Review.new
+		if current_user
+			@reviews = @workshop.reviews.where('user_id != ?', current_user.id)
+			@current_user_review = @workshop.reviews.where(user_id: current_user.id).first
+		else
+			@reviews = @workshop.reviews
+		end
 	end
 
 	def new

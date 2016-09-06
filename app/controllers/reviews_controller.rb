@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 			@review = @workshop.reviews.create(review_params)
 			if @review.save
 				current_user.reviews << @review
-				flash.now[:notice] = "Successfully post your review."
+				flash[:notice] = "Successfully post your review."
 				redirect_to workshop_path(@workshop)
 			else
 				flash.now[:error] = @review.errors.full_messages.join(", ")

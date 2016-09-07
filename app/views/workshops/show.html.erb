@@ -72,6 +72,7 @@
 										<%= rating_for_user @workshop, @current_user_review.user, "rating", disabled: true, readonly: true %>
 									</h4>
 									<%= link_to "Edit", edit_workshop_review_path(@workshop, @current_user_review) %>
+									<%= link_to "Delete", workshop_review_path(@workshop, @current_user_review), method: :delete, data: {confirm: "Are you sure?"} %>
 								</span>
 							</div>
 							<p><%= @current_user_review.text %></p>
@@ -90,9 +91,10 @@
 										<br>
 										<%= rating_for_user @workshop, review.user, "rating", disabled: true, readonly: true %>
 									</h4>
-									<p><%= review.text %></p>
+									<%= time_ago_in_words(review.created_at) %> ago
 								</span>
 							</div>
+							<p><%= review.text %></p>
 						</div>
 					</div>
 				<% end %>

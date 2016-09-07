@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+	include ReviewsHelper
 	before_action :authenticate_user!, :workshop
 	before_action :review, only: [:edit, :update, :destroy]
 
@@ -53,6 +54,22 @@ class ReviewsController < ApplicationController
 				flash[:error] = @review.errors.full_messages.join(", ")
 				redirect_to edit_workshop_review_path(@workshop, @review)
 			end
+		else
+			flash[:error] = "You can only edit your own review."
+			redirect_to workshop_path(@workshop)
+		end
+	end
+
+	def destroy
+		if current_user_reviewed? and current_user == @review.user
+			# clear user rating, update average rating score
+			clear_rating(current_user, "rating", @workshop)  #<<< see ReviewsHelper
+			@review.destroy
+			flash[:notice] = "Successfully delete your review."
+			redirect_to workshop_path(@workshop)
+		else
+			flash[:error] = "You can only delete your own review."
+			redirect_to workshop_path(@workshop)
 		end
 	end
 

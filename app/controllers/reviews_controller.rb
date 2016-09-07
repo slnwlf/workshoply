@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 	before_action :authenticate_user!, :workshop
+	before_action :review, only: [:edit, :update, :destroy]
 
 	def new
 		if current_user_reviewed?
@@ -36,6 +37,25 @@ class ReviewsController < ApplicationController
 		end
 	end
 
+	def edit
+		unless current_user_reviewed? and current_user == @review.user
+			flash[:error] = "You can only edit your own review."
+			redirect_to workshop_path(@workshop)
+		end
+	end
+
+	def update
+		if current_user_reviewed? and current_user == @review.user
+			if @review.update_attributes(review_params)
+				flash[:notice] = "Successfully edit your review."
+				redirect_to workshop_path(@workshop)
+			else
+				flash[:error] = @review.errors.full_messages.join(", ")
+				redirect_to edit_workshop_review_path(@workshop, @review)
+			end
+		end
+	end
+
 	private
 
 	def review_params
@@ -52,6 +72,10 @@ class ReviewsController < ApplicationController
 		else
 			false
 		end
+	end
+
+	def review
+		@review = Review.where({user_id: current_user.id, workshop_id: @workshop.id}).first
 	end
 
 end

@@ -2,11 +2,14 @@
 .speaker-name-link:hover, .speaker-name-link:focus, .speaker-name-link:active {
 	text-decoration: none;
 }
+.speaker-name-link {
+	margin-bottom: 5px;
+}
 // workshops index
 .workshop-index-speaker {
 	margin-bottom: 15px;
 	.tiny-thumb img {
-		height: 50px;
+		height: 75px;
 		float: left;
 		margin-right: 15px;
 	}
@@ -39,6 +42,9 @@ select#workshop_topic_id {
 		min-width: 55px;
 	}
 }
+img.raty-cancel {
+  display: none;
+}
 // end Trung
 
 p {
@@ -56,4 +62,13 @@ div.btn.btn-danger {
 
 #workshop-description p{
 	max-width: 70%;
+}
+
+.review-container {
+	position: relative;
+}
+.review-buttons-wrapper {
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }

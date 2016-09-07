@@ -1,94 +1,105 @@
 <div class="container">
 	<div class="container-fluid">
 		<div class="row">
+
 			<div class="col-xs-12 col-md-9">
 				<div class="workshop-box center-block">
-<!-- 					<div class="gap-40px"></div> -->
 					<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 					<% if current_user == @workshop.user %>
-					<div class="edit-delete-workshop-btn-wrapper">
-						<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary edit-workshop-btn" do %>
-						<%= fa_icon "pencil-square-o " %>
-						<% end %>
-						<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger delete-workshop-btn" do %>
-						<%= fa_icon "trash-o " %>
-						<% end %>
-					</div>
+						<div class="edit-delete-workshop-btn-wrapper">
+							<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary edit-workshop-btn" do %>
+								<%= fa_icon "pencil-square-o " %>
+							<% end %>
+							<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger delete-workshop-btn" do %>
+								<%= fa_icon "trash-o " %>
+							<% end %>
+						</div>
 					<% end %>
-					<h1><%= @workshop.title.titleize %></h1>
+					<h2><%= @workshop.title.titleize %></h2>
+
 					<div class="container">
 						<h4>Speaker:<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %></h4>
 						<div id="workshop-description">
-						<p><%= @workshop.description %></p>
+							<p><%= @workshop.description %></p>
 						</div>
 						<div class="col-md-9 center-block">
-							<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-danger" %>
+							<% if !current_user or current_user != @workshop.user %>
+								<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-primary" %>
+							<% end %>
 						</div>
 					</div>
 
-						<div class="col-md-3">
-							<div id="rating-box">
+					<div class="col-md-3">
+						<div id="rating-box">
 							<div class="row">
 								<div class="small-2 large-4 columns">
-									<% if current_user %>
-									Rate Workshop: <%= rating_for @workshop, "rating", disable_after_rate: false, enable_half: true, half_show: true, path: 'cancel_on'%>
-									<div id="hintDiv"></div
-									<% end %>
+									Overall Rating: <%= rating_for @workshop, "rating", disabled: true, readonly: true %>
 								</div>
-							</div>
-							</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			<!-- this part will be replace with @workshop.user.about later >>> Trung -->
-			<!-- add user.first_name + user.last_name -->
-			<!-- add user.location  -->
-			<!-- add user.first_name + user.last_name -->
-<div class="container">
-		<div class="row">
-				<div class="span4">
-					<h3>About the Speaker</h3>
-					<img src="https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg"/>
-					<div class="content-heading"><h4>Jane Doe</h4></div>
-					<p>San Francisco, CA</p>
-					<p>Jane Doe is the Bay Area's leading expert on unconcious bias in the workplace.</p>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<h3>About the Speaker</h3>
+						<%= image_tag(@workshop.user.avatar.url(:thumb), style: "height: 100px") %>
+						<div class="content-heading"><h4><%= @workshop.user.full_name.titleize %></h4></div>
+						<p><%= @workshop.user.location.titleize %></p>
+						<p><%= @workshop.user.bio %></p>
+					</div>
+				</div><br>
+			</div>
+
+			<!-- Reviews -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<%= link_to "Write a Review", new_workshop_review_path(@workshop), class: "btn btn-danger btn-review" %>
+					</div>
 				</div>
-			</div><br>
+
+				<% if @current_user_review %>
+					<h4>Your review:</h4>
+					<div class="row review-container">
+						<div class="span4 review-box">
+							<div class="workshop-index-speaker clearfix">
+								<%= link_to image_tag(@current_user_review.user.avatar.url(:thumb)), user_path(@current_user_review.user), class: "tiny-thumb" %>
+								<span>
+									<h4 class="speaker-name-link"><%= @current_user_review.user.full_name.titleize %>
+										<%= rating_for_user @workshop, @current_user_review.user, "rating", disabled: true, readonly: true %>
+									</h4>
+									<%= link_to "Edit", edit_workshop_review_path(@workshop, @current_user_review) %>
+									<%= link_to "Delete", workshop_review_path(@workshop, @current_user_review), method: :delete, data: {confirm: "Are you sure?"} %>
+								</span>
+							</div>
+							<p><%= @current_user_review.text %></p>
+						</div>
+					</div>
+					<hr>
+				<% end %>
+
+				<% @reviews.each do |review| %>
+					<div class="row review-container">
+						<div class="span4 review-box">
+							<div class="workshop-index-speaker clearfix">
+								<%= link_to image_tag(review.user.avatar.url(:thumb)), user_path(review.user), class: "tiny-thumb" %>
+								<span>
+									<h4 class="speaker-name-link"><%= review.user.full_name.titleize %>
+										<br>
+										<%= rating_for_user @workshop, review.user, "rating", disabled: true, readonly: true %>
+									</h4>
+									<%= time_ago_in_words(review.created_at) %> ago
+								</span>
+							</div>
+							<p><%= review.text %></p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			
 		</div>
-
-
-
-<!-- Reviews -->
-<div class="container">
-<div class="row">
-	<div class="col-md-12 text-center">
-		<div class="btn btn-primary btn-review">Write a Review</div>
 	</div>
-</div>
-<div class="row">
-	<div class="span4 review-box">
-		<img style="float:left;clear:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/mattsince87/128.jpg"/>
-		<div class="content-heading">
-			<h4>Brian Jones</h4> <!--this will be User.first_name -->
-		</div>
-		<p>This is a review. This is a review. This is a review. This is a review.</p>
-	</div>
-</div>
-<div class="row">
-	<div class="span4 review-box">
-		<img style="float:left;clear:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/erondu/128.jpg"/>
-		<div class="content-heading"><h4>Adam Smith</h4></div>
-		<p>This is a review. This is a review. This is a review. This is a review.</p>
-	</div>
-</div>
-<div class="row">
-	<div class="span4 review-box">
-		<img style="float:left;clear:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"/>
-		<div class="content-heading"><h4>Kelly Anderson</h4></div>
-		<p>This is a review. This is a review. This is a review. This is a review.</p>
-	</div>
-</div>
-</div>
-</div>
 </div>

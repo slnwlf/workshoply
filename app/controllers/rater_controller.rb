@@ -1,13 +1,22 @@
 class RaterController < ApplicationController
+	before_action :authenticate_user!
 
   def create
-    if user_signed_in?
-      obj = params[:klass].classify.constantize.find(params[:id])
-      obj.rate params[:score].to_f, current_user, params[:dimension]
+  	if workshop and workshop.user != current_user
+	    obj = params[:klass].classify.constantize.find(params[:id])
+	    obj.rate params[:score].to_f, current_user, params[:dimension]
+	    render :json => true
+	  else
+	  	render :json => false
+	  end
+  end
 
-      render :json => true
-    else
-      render :json => false
-    end
+  private
+  def workshop
+  	if params[:klass] == "Workshop"
+  		Workshop.find(params[:id])
+  	else
+  		nil
+  	end
   end
 end

@@ -17,7 +17,7 @@
 					<% end %>
 					<h1><%= @workshop.title.titleize %></h1>
 					<div class="container">
-						<h3>Speaker: <%= @workshop.user.full_name.titleize %></h3>
+						<h4>Speaker:<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %></h4>
 						<div id="workshop-description">
 						<p><%= @workshop.description %></p>
 						</div>

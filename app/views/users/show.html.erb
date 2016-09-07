@@ -35,6 +35,9 @@
 			</p>
 			<div>
 				<% if !current_user or current_user != @user %>
+					<div class="col-md-9 center-block">
+							<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-danger" %>
+						</div>
 	<% else %>
 					<a href="#" class="btn btn-primary">MESSAGE</a>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 

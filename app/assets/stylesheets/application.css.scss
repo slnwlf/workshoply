@@ -91,7 +91,7 @@ footer {
 .navbar-custom {
  	background-color: #fafafa;
   border-color: #fafafa;
-	height: 90px;
+	height: 50px;
   margin-bottom: 0px;
   ul.nav.navbar-nav.navbar-right {
     padding-right: 30px;
@@ -150,7 +150,7 @@ footer {
 }
 
 .navbar-custom li a {
-	line-height: 90px;
+	line-height: 50px;
   font-size: 18px;
   color: #1D86FF;
   border: none;
@@ -182,6 +182,9 @@ footer {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 0;
+}
+.navbar-brand {
+  padding: 0 0 8px 4px;
 }
 
 .jumbotron {

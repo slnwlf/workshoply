@@ -24,7 +24,7 @@
 						</div>
 						<div class="col-md-9 center-block">
 							<% if !current_user or current_user != @workshop.user %>
-								<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-primary" %>
+								<%= link_to "MESSAGE", new_conversation_path(workshop: @workshop), class: "btn btn-primary" %>
 							<% end %>
 						</div>
 					</div>

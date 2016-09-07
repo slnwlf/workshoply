@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="review-header">
+		<div class="featured-workshop-title-wrapper">
+			<h3><%= link_to @workshop.title.titleize, workshop_path(@workshop), class: "workshop-title-link" %></h3>
+		</div>
+		<h4>
+			Topic: <%= @workshop.topic.name.titleize %>
+			<br>
+			Location: <%= @workshop.location.titleize %>
+		</h4>
+		<div class="workshop-index-speaker clearfix">
+			<%= link_to image_tag(@workshop.user.avatar.url(:thumb)), user_path(@workshop.user), class: "tiny-thumb" %>
+			<span>
+				<h4>Speaker:<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %></h4>
+			</span>
+		</div>
+	</div>
+	<div class="review-form-wrapper">
+		<%= form_for [@workshop, @review] do |f| %>
+    	<div class="rate-wrapper">
+    		Rate Workshop: <%= rating_for_user @workshop, current_user, "rating", disable_after_rate: false, cancel: false %>
+    	</div>
+    	<div class="field">
+    		<%= f.label :text, "Your review:" %>
+    		<%= f.text_area :text, class: "form-control", rows: "5" %>
+    	</div>
+    	<br>
+    	<div class="actions">
+    		<%= f.submit "#{action_name == 'new' ? 'Submit' : 'Update'}", class: "btn btn-primary" %>	
+	      <%= link_to "Cancel", :back, :class => "btn btn-default" %>
+    	</div>
+    	<br>	
+    	<div class="note">
+    		<p class="small text-muted">* You can always edit or remove reviews later.</p>
+    	</div>
+	  <% end %>
+	</div>
+</div>

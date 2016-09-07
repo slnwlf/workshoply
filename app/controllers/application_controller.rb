@@ -3,6 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :configure_devise_permitted_parameters, if: :devise_controller?
+  before_filter :set_return_path 
+
+  def set_return_path
+    unless devise_controller? || request.xhr? || !request.get?
+      session["user_return_to"] = request.url
+    end
+  end
 
   def auth_user
     if !user_signed_in?
@@ -22,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    user_path(current_user)
+    session["user_return_to"] || user_path(current_user)
   end
 
   #mailboxer
@@ -38,6 +45,13 @@ class ApplicationController < ActionController::Base
     @conversation ||= mailbox.conversations.find(params[:id])
   end
 
-
+  protected
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to login_path, :notice => 'Sign in to continue.'
+    end
+  end
 
 end

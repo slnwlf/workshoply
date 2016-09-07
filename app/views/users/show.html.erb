@@ -38,8 +38,7 @@
 					<div class="col-md-9 center-block">
 							<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-danger" %>
 						</div>
-	<% else %>
-					<a href="#" class="btn btn-primary">MESSAGE</a>
+		<% else %>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 
 					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-default"  %>
 				<% end %>

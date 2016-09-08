@@ -3,6 +3,7 @@ class ConversationsController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
+    @recipient = recipient
 	end
 
 	def create
@@ -37,12 +38,22 @@ class ConversationsController < ApplicationController
 
   private
 
-  def conversation_params
-  	params.require(:conversation).permit(:subject, :body, recipients:[])
-		end
+    def conversation_params
+      params.require(:conversation).permit(:subject, :body, recipients:[])
+    end
 
-	def message_params
-		params.require(:message).permit(:body, :subject)
-	end
+    def message_params
+      params.require(:message).permit(:body, :subject)
+    end
+
+    def recipient
+      if params[:speaker]
+        [User.friendly.find(params[:speaker])]
+      elsif params[:workshop]
+        [Workshop.friendly.find(params[:workshop]).user]
+      else
+        nil
+      end
+    end
 
 	end

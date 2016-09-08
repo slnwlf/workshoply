@@ -18,17 +18,16 @@
 					<h2><%= @workshop.title.titleize %></h2>
 
 					<div class="container">
-						<h3>Speaker: <%= @workshop.user.full_name.titleize %></h3>
+						<h4>Speaker:<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %></h4>
 						<div id="workshop-description">
 							<p><%= @workshop.description %></p>
 						</div>
 						<div class="col-md-9 center-block">
 							<% if !current_user or current_user != @workshop.user %>
-								<%= link_to "MESSAGE", new_conversation_path, class: "btn btn-primary" %>
+								<%= link_to "MESSAGE", new_conversation_path(workshop: @workshop), class: "btn btn-primary" %>
 							<% end %>
 						</div>
 					</div>
-
 					<div class="col-md-3">
 						<div id="rating-box">
 							<div class="row">

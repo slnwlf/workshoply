@@ -42,6 +42,11 @@ select#workshop_topic_id {
 		min-width: 55px;
 	}
 }
+.user-rating-wrapper {
+	.star img {
+		height: 22px;
+	}
+}
 img.raty-cancel {
   display: none;
 }

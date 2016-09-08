@@ -69,7 +69,9 @@
 								<%= link_to image_tag(@current_user_review.user.avatar.url(:thumb)), user_path(@current_user_review.user), class: "tiny-thumb" %>
 								<span>
 									<h4 class="speaker-name-link"><%= @current_user_review.user.full_name.titleize %>
-										<%= rating_for_user @workshop, @current_user_review.user, "rating", disabled: true, readonly: true %>
+										<div class="user-rating-wrapper">
+											<%= rating_for_user @workshop, @current_user_review.user, "rating", disabled: true, readonly: true %>
+										</div>										
 									</h4>
 									<%= link_to "Edit", edit_workshop_review_path(@workshop, @current_user_review) %>
 									<%= link_to "Delete", workshop_review_path(@workshop, @current_user_review), method: :delete, data: {confirm: "Are you sure?"} %>
@@ -89,7 +91,9 @@
 								<span>
 									<h4 class="speaker-name-link"><%= review.user.full_name.titleize %>
 										<br>
-										<%= rating_for_user @workshop, review.user, "rating", disabled: true, readonly: true %>
+										<div class="user-rating-wrapper">
+											<%= rating_for_user @workshop, review.user, "rating", disabled: true, readonly: true %>
+										</div>
 									</h4>
 									<%= time_ago_in_words(review.created_at) %> ago
 								</span>

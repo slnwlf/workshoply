@@ -1,3 +1,6 @@
+.workshop-show {
+	padding-bottom: 30px;
+}
 .workshop-title-link:hover, .workshop-title-link:focus, .workshop-title-link:active,
 .speaker-name-link:hover, .speaker-name-link:focus, .speaker-name-link:active {
 	text-decoration: none;
@@ -42,6 +45,11 @@ select#workshop_topic_id {
 		min-width: 55px;
 	}
 }
+.user-rating-wrapper {
+	.star img {
+		height: 22px;
+	}
+}
 img.raty-cancel {
   display: none;
 }
@@ -59,9 +67,23 @@ div.btn.btn-danger {
 #speaker-box {
 	margin-top: 18px;
 }
-
-#workshop-description p{
-	max-width: 70%;
+span.h4-big {
+	font-size: 26px;
+	padding-bottom: 10px;
+}
+br.br-big {
+	font-size: 26px;
+}
+#workshop-description p {
+	text-align: justify;
+}
+.speaker-bio {
+	text-align: justify;
+}
+@media (min-width: 991px) {
+	#workshop-description p{
+		padding-right: 30px;
+	}
 }
 
 .review-container {
@@ -71,4 +93,22 @@ div.btn.btn-danger {
 	position: absolute;
 	top: 0px;
 	right: 0px;
+}
+.overall-rating-wrapper {
+	margin-bottom: 10px;
+	.review-btn-wrapper {
+		height: 53px;
+	}
+	.review-btn-wrapper:before {
+    content: ' ';
+    display: inline-block;
+
+    height: 90%;
+	}
+}
+.msg-btn-wrapper {
+	margin: 10px 0px;
+}
+hr.hr-medium {
+	width: 90%;
 }

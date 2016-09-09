@@ -93,22 +93,23 @@ footer {
 .navbar-custom {
  	background-color: #fafafa;
   border-color: #fafafa;
-	height: 50px;
+	height: 60px;
   margin-bottom: 0px;
   ul.nav.navbar-nav.navbar-right {
     padding-right: 30px;
   }
   .navbar-logo img {
+    margin-top: 3px;
     height: 45px;
   }
   // overrided mobile navbar styling
   .navbar-header button.navbar-toggle {
     // change style hamburger button
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: #efefef;
     border: 1.5px solid #aeaeae;
     border-radius: 5px;
-    padding: 15px;
+    padding: 12px;
     .icon-bar {
       width: 25px;
     }
@@ -152,7 +153,7 @@ footer {
 }
 
 .navbar-custom li a {
-	line-height: 50px;
+	line-height: 60px;
   font-size: 18px;
   color: #1D86FF;
   border: none;

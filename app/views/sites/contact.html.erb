@@ -1,12 +1,12 @@
-<div class="container" id="contact">
+<div class="container-fluid" id="contact">
 		<div class="row text-center">
-		<div class="col-md-8 col-md-offset-2 well">
+		<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 	<h1>CONTACT US</h1>
 		<h3>Questions? Comments? We would love to hear from you.</h3>
 		<div class="col-md-4">
 		<%= fa_icon "envelope-o 3x" %>
 		<h4>EMAIL</h4>
-		<p>hello.bigtalker@gmail.com</p>
+		<%= mail_to "hello.bigtalker@gmail.com" %>
 	</div>
 		<div class="col-md-4">
 		<%= fa_icon "map-marker 3x" %>
@@ -19,10 +19,12 @@
 			<p>123-456-7890</p>
 		</div>
 	</div>
+</div>
 
-<div class="container">
 <div class="row">
-	<div class="col-sm-12 col-md-9">
+	<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+		<div class="contact-form-wrap">
+
 	<h3>Or Send Us a Message</h3>
 		<%= form_for @message do |f| %>
   	<% if @message.errors.any? %>
@@ -62,7 +64,8 @@
 		    <%= f.submit 'Send', class: 'button' %>
 		  </div>
 		<% end %>
-	</div>
 </div>
 </div>
 </div>
+</div>
+</section>

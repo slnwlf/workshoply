@@ -1,59 +1,68 @@
-<!-- <div class="row">
-			<div class="col-md-6 col-md-offset-3 well">
-				<div class="text-center">
-					<h1>Contact Us</h1>
-				</div>
-		<fieldset>
-				<div class="field">
-				</div>
-				<br>
-				<div class="field">
-				</div>
-			</fieldset>
-			<br>
-		<fieldset>
-			<div class="field text-center">
-				</div>
-		</fieldset>
+<div class="container" id="contact">
+		<div class="row text-center">
+		<div class="col-md-8 col-md-offset-2 well">
+	<h1>CONTACT US</h1>
+		<h3>Questions? Comments? We would love to hear from you.</h3>
+		<div class="col-md-4">
+		<%= fa_icon "envelope-o 3x" %>
+		<h4>EMAIL</h4>
+		<p>hello.bigtalker@gmail.com</p>
 	</div>
-</div> -->
+		<div class="col-md-4">
+		<%= fa_icon "map-marker 3x" %>
+		<h4>LOCATION</h4>
+		<p>San Francisco, CA</p>
+	</div>
+		<div class="col-md-4">
+		<%= fa_icon "mobile 3x" %>
+			<h4>PHONE</h4>
+			<p>123-456-7890</p>
+		</div>
+	</div>
 
-<%= form_for @message do |f| %>
-  <% if @message.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
-      </h2>
-
-      <ul>
-        <% @message.errors.full_messages.each do |msg| %>
+<div class="container">
+<div class="row">
+	<div class="col-sm-12 col-md-9">
+	<h3>Or Send Us a Message</h3>
+		<%= form_for @message do |f| %>
+  	<% if @message.errors.any? %>
+    	<div id="error_explanation">
+      	<h2>
+       	 <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
+      	</h2>
+      	<ul>
+        	<% @message.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-        <% end %>
-      <ul>
-    </div>
-  <% end %>
+        	<% end %>
+      	</ul>
+    	</div>
+  	<% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+		  <div class="field">
+		    <%= f.label :name %>
+		    <%= f.text_field :name %>
+		  </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
+		  <div class="field">
+		    <%= f.label :email %>
+		    <%= f.email_field :email %>
+		  </div>
 
-  <div class="field">
-    <%= f.label :subject %>
-    <%= f.text_field :subject %>
-  </div>
+		  <div class="field">
+		    <%= f.label :subject %>
+		    <%= f.text_field :subject %>
+		  </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+		  <div class="field">
+		    <%= f.label :message %>
+		    <%= f.text_area :content %>
+		  </div>
 
-  <div class="actions">
-    <%= f.submit 'Send', class: 'button' %>
-  </div>
-<% end %>
+		  <div class="actions">
+		    <%= f.submit 'Send', class: 'button' %>
+		  </div>
+		<% end %>
+	</div>
+</div>
+</div>
+</div>

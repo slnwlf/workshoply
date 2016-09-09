@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   post '/rate' => 'rater#create', :as => 'rate'
   root to: 'sites#index'
 
@@ -43,5 +44,7 @@ Rails.application.routes.draw do
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
+  #incoming message route
+  resources :messages, only: [:new, :create]
 
 end

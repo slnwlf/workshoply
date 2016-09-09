@@ -1,5 +1,5 @@
-<div class="container-fluid" id="contact">
-		<div class="row text-center">
+<div class="container-fluid">
+		<div class="row text-center" id="contact">
 		<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 	<h1>CONTACT US</h1>
 		<h3>Questions? Comments? We would love to hear from you.</h3>
@@ -53,13 +53,13 @@
 		    <%= f.text_field :subject %>
 		  </div>
 
-		  <div class="field">
+		  <div class="field" id="message-label">
 		    <%= f.label :message %><br>
 		    <%= f.text_area :content %>
 		  </div>
 
 		  <div class="actions">
-		    <%= f.submit 'Send', class: 'button' %>
+		    <%= f.submit 'Send', class: 'button btn-primary' %>
 		  </div>
 		<% end %>
 		</div>

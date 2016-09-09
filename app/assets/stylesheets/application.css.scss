@@ -240,6 +240,14 @@ footer {
 
 .contact-container {
  	background-color: #ff5d4e;
+  height: 180px;
+
+
+ }
+
+ #btn-contact {
+    vertical-align:center;
+  line-height: 100%;
  }
 
 .modal-dialog h4{
@@ -437,15 +445,19 @@ ul.dropdown-menu{
 
 .lt-ie9 .search input { line-height: 26px }
 
+#contact {
+  margin-bottom: 100px;
+}
 .contact-form-wrap {
     width: 100%;
     background: #fde26c;
+    padding-top:20px;
 }
 
-input {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    width: 50%;
-    height: 50px;
+.field input {
+    width: 40%;
+    height: 40px;
+}
+#message-label input {
+  width: 50%;
 }

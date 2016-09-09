@@ -224,8 +224,7 @@ footer {
 
 #btn-signup {
     padding: 10px 22px;
-    font-size: 28px;
-    line-height: 1.5;
+    font-size: 21px;
     border-radius: 0;
 }
 
@@ -439,6 +438,14 @@ ul.dropdown-menu{
 .lt-ie9 .search input { line-height: 26px }
 
 .contact-form-wrap {
-    padding: 30px;
+    width: 100%;
     background: #fde26c;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 50%;
+    height: 50px;
 }

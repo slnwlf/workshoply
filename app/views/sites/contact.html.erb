@@ -22,11 +22,9 @@
 </div>
 
 <div class="row">
-	<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-		<div class="contact-form-wrap">
-
+		<div class="contact-form-wrap text-center">
 	<h3>Or Send Us a Message</h3>
-		<%= form_for @message do |f| %>
+		<%= form_for @message, :html => { :style => 'background-color:#fde26c;' } do |f| %>
   	<% if @message.errors.any? %>
     	<div id="error_explanation">
       	<h2>
@@ -41,22 +39,22 @@
   	<% end %>
 
 		  <div class="field">
-		    <%= f.label :name %>
+		    <%= f.label :name %><br>
 		    <%= f.text_field :name %>
 		  </div>
 
 		  <div class="field">
-		    <%= f.label :email %>
+		    <%= f.label :email %><br>
 		    <%= f.email_field :email %>
 		  </div>
 
 		  <div class="field">
-		    <%= f.label :subject %>
+		    <%= f.label :subject %><br>
 		    <%= f.text_field :subject %>
 		  </div>
 
 		  <div class="field">
-		    <%= f.label :message %>
+		    <%= f.label :message %><br>
 		    <%= f.text_area :content %>
 		  </div>
 
@@ -64,8 +62,7 @@
 		    <%= f.submit 'Send', class: 'button' %>
 		  </div>
 		<% end %>
+		</div>
 </div>
 </div>
 </div>
-</div>
-</section>

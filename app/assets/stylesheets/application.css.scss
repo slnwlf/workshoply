@@ -239,15 +239,13 @@ footer {
  }
 
 .contact-container {
- 	background-color: #ff5d4e;
-  height: 180px;
+ 	background-color: #e84e4a;
+  height: 220px;
 
 
  }
 
  #btn-contact {
-    vertical-align:center;
-  line-height: 100%;
  }
 
 .modal-dialog h4{
@@ -450,7 +448,7 @@ ul.dropdown-menu{
 }
 .contact-form-wrap {
     width: 100%;
-    background: #fde26c;
+    background: #e84e4a;
     padding-top:20px;
 }
 
@@ -465,6 +463,9 @@ ul.dropdown-menu{
 textarea  {
   width: 40%;
   height: 110px;
+  border-radius: 3px;
+  border:none;
+  font-size: 24px;
 }
 
 .icons {
@@ -473,4 +474,13 @@ textarea  {
 
 .icons p, a{
   font-size:18px;
+}
+
+#btn-contact.btn.btn-primary {
+  width: 100px;
+  margin-top: 70px;
+  width: 240px;
+  height: 60px;
+  font-size: 28px;
+  border: none;
 }

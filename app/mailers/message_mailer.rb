@@ -1,6 +1,6 @@
 class MessageMailer < ApplicationMailer
 
-	default :to => "sbrks3@gmail.com"
+	default :to => "hello.bigtalker@gmail.com"
 	def message_me(msg)
 		@msg = msg
 

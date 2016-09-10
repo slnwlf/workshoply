@@ -28,6 +28,7 @@
  @import "workshops"; // for css in workshops.css
  @import "conversations"; // for css in conversations.css
  @import "mailbox"; // for css in mailbox.css
+ @import "font-awesome"; // font-awesome icon support
 
 html, body {
   height: 100%;
@@ -224,8 +225,7 @@ footer {
 
 #btn-signup {
     padding: 10px 22px;
-    font-size: 28px;
-    line-height: 1.5;
+    font-size: 21px;
     border-radius: 0;
 }
 
@@ -239,8 +239,14 @@ footer {
   }
  }
 
-.info-container {
- 	background-color: #e9e9e9;
+.contact-container {
+ 	background-color: #e84e4a;
+  height: 220px;
+
+
+ }
+
+ #btn-contact {
  }
 
 .modal-dialog h4{
@@ -259,28 +265,10 @@ footer {
     margin: 20px auto;
 }
 
-/* Five Star rating button */
-// .rating {
-//   unicode-bidi: bidi-override;
-//   direction: rtl;
-//   float: left;
-// }
-// .rating > span {
-//   display: inline-block;
-//   position: relative;
-//   width: 1.1em;
-// }
-// .rating > span:hover:before,
-// .rating > span:hover ~ span:before {
-//    content: "\2605";
-//    position: absolute;
-//    cursor: pointer;
-// }
-
-// .btn-rate {
-//   margin:10px 0 0 20px;
-// }
-/* End Five Star rating button */
+#contact-form{
+  float: right;
+  margin-right:5%;
+}
 
 #reviews-box {
     height: 120px;
@@ -455,3 +443,45 @@ ul.dropdown-menu{
 }
 
 .lt-ie9 .search input { line-height: 26px }
+
+#contact {
+  margin-bottom: 100px;
+}
+.contact-form-wrap {
+    width: 100%;
+    background: #e84e4a;
+    padding-top:20px;
+}
+
+.field input {
+    width: 40%;
+    height: 40px;
+    border-radius: 3px;
+    border:none;
+    font-size: 24px;
+
+}
+textarea  {
+  width: 40%;
+  height: 110px;
+  border-radius: 3px;
+  border:none;
+  font-size: 24px;
+}
+
+.icons {
+  margin-top:20px;
+}
+
+.icons p, a{
+  font-size:18px;
+}
+
+#btn-contact.btn.btn-primary {
+  width: 100px;
+  margin-top: 70px;
+  width: 240px;
+  height: 60px;
+  font-size: 28px;
+  border: none;
+}

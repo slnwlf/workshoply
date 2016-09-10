@@ -1,0 +1,67 @@
+<div class="container-fluid">
+		<div class="row text-center" id="contact">
+		<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+	<h1>CONTACT US</h1>
+		<h3>Questions? Comments? We would love to hear from you.</h3>
+		<div class="col-md-4 icons">
+		<%= fa_icon "envelope-o 3x" %>
+		<h4>EMAIL</h4>
+		<%= mail_to "hello.bigtalker@gmail.com" %>
+	</div>
+		<div class="col-md-4 icons">
+		<%= fa_icon "map-marker 3x" %>
+		<h4>LOCATION</h4>
+		<p>San Francisco, CA</p>
+	</div>
+		<div class="col-md-4 icons">
+		<%= fa_icon "mobile 3x" %>
+			<h4>PHONE</h4>
+			<p>123-456-7890</p>
+		</div>
+	</div>
+</div>
+
+<div class="row text-center">
+		<div class="contact-form-wrap">
+	<h3>Or Send Us a Message</h3>
+		<%= form_for @message, :html => { :style => 'background-color:#e84e4a;' } do |f| %>
+  	<% if @message.errors.any? %>
+	    	<div id="error_explanation">
+	      	<h2>
+	       	 <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
+	      	</h2>
+	      	<ul>
+	        	<% @message.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        	<% end %>
+	      	</ul>
+	    	</div>
+  	<% end %>
+			  <div class="field">
+			    <%= f.label :name %><br>
+			    <%= f.text_field :name %>
+			  </div>
+
+			  <div class="field">
+			    <%= f.label :email %><br>
+			    <%= f.email_field :email %>
+			  </div>
+
+			  <div class="field">
+			    <%= f.label :subject %><br>
+			    <%= f.text_field :subject %>
+			  </div>
+
+			  <div class="field" id="message-label">
+			    <%= f.label :message %><br>
+			    <%= f.text_area :content %>
+			  </div>
+
+			  <div class="actions">
+			    <%= f.submit 'Send', class: 'button btn-primary' %>
+			  </div>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

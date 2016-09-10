@@ -15,7 +15,6 @@
 
 	<!-- Featured Workshops -->
 	<h1 class="text-center">Featured Workshops</h1>
-
 	<div class="workshop-container">
 		<div class="row">
 			<% @featured_workshops.each do |workshop| %>
@@ -45,5 +44,16 @@
 			<% end %>
 		</div>
 	</div>
-
+	<!-- End Featured Workshops -->
+	<div class="contact-container">
+	<div class="row">
+		<div class="col-sm-12">
+		<div class="text-center">
+				<%= link_to "Contact Us", contact_path, class:"btn btn-primary", id: "btn-contact" %>
+			</div>
+		</div>
+	</div>
 </div>
+
+	<!-- Contact Us -->
+	</div>

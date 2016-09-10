@@ -21,48 +21,47 @@
 	</div>
 </div>
 
-<div class="row">
-		<div class="contact-form-wrap text-center">
+<div class="row text-center">
+		<div class="contact-form-wrap">
 	<h3>Or Send Us a Message</h3>
 		<%= form_for @message, :html => { :style => 'background-color:#e84e4a;' } do |f| %>
   	<% if @message.errors.any? %>
-    	<div id="error_explanation">
-      	<h2>
-       	 <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
-      	</h2>
-      	<ul>
-        	<% @message.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        	<% end %>
-      	</ul>
-    	</div>
+	    	<div id="error_explanation">
+	      	<h2>
+	       	 <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
+	      	</h2>
+	      	<ul>
+	        	<% @message.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        	<% end %>
+	      	</ul>
+	    	</div>
   	<% end %>
+			  <div class="field">
+			    <%= f.label :name %><br>
+			    <%= f.text_field :name %>
+			  </div>
 
-		  <div class="field">
-		    <%= f.label :name %><br>
-		    <%= f.text_field :name %>
-		  </div>
+			  <div class="field">
+			    <%= f.label :email %><br>
+			    <%= f.email_field :email %>
+			  </div>
 
-		  <div class="field">
-		    <%= f.label :email %><br>
-		    <%= f.email_field :email %>
-		  </div>
+			  <div class="field">
+			    <%= f.label :subject %><br>
+			    <%= f.text_field :subject %>
+			  </div>
 
-		  <div class="field">
-		    <%= f.label :subject %><br>
-		    <%= f.text_field :subject %>
-		  </div>
+			  <div class="field" id="message-label">
+			    <%= f.label :message %><br>
+			    <%= f.text_area :content %>
+			  </div>
 
-		  <div class="field" id="message-label">
-		    <%= f.label :message %><br>
-		    <%= f.text_area :content %>
-		  </div>
-
-		  <div class="actions">
-		    <%= f.submit 'Send', class: 'button btn-primary' %>
-		  </div>
-		<% end %>
+			  <div class="actions">
+			    <%= f.submit 'Send', class: 'button btn-primary' %>
+			  </div>
+			<% end %>
+			</div>
 		</div>
-</div>
-</div>
+	</div>
 </div>

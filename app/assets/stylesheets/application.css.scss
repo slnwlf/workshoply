@@ -445,47 +445,47 @@ ul.dropdown-menu{
 .lt-ie9 .search input { line-height: 26px }
 
 #contact {
-  margin-bottom: 100px;
-}
+  h1, h3{
+    padding-bottom:26px;
+  }
+  .contact-info {
+    padding: 40px 0px 70px 0px;
+  }
+  .contact-form-wrap {
+      background: #e84e4a;
+      padding: 50px 0;
+      .row {
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+  }
 
-#contact h1, h3{
-  padding-bottom:26px;
-}
-.contact-form-wrap {
-    width: 100%;
-    background: #e84e4a;
-    padding-top:20px;
-}
+  .field input {
+      height: 40px;
+      border:none;
+      font-size: 18px;
 
-.field input {
-    width: 40%;
-    height: 40px;
-    border-radius: 3px;
+  }
+  textarea  {
     border:none;
     font-size: 24px;
+  }
 
-}
-textarea  {
-  width: 40%;
-  height: 110px;
-  border-radius: 3px;
-  border:none;
-  font-size: 24px;
-}
+  .icons {
+    margin-top:20px;
+  }
 
-.icons {
-  margin-top:20px;
-}
-
-.icons p, a{
-  font-size:18px;
+  .icons p, a{
+    font-size:18px;
+  }
 }
 
 #btn-contact.btn.btn-primary {
-  width: 100px;
-  margin-top: 70px;
-  width: 240px;
-  height: 60px;
-  font-size: 28px;
-  border: none;
-}
+    width: 100px;
+    margin-top: 70px;
+    width: 240px;
+    height: 60px;
+    font-size: 28px;
+    border: none;
+  }
+

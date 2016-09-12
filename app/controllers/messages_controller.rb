@@ -1,7 +1,4 @@
 class MessagesController < ApplicationController
-  def new
-  	@message = Message.new
-  end
 
   def create
     @message = Message.new(message_params)
@@ -9,7 +6,8 @@ class MessagesController < ApplicationController
       MessageMailer.message_me(@message).deliver_now
       redirect_to contact_path, notice: "Thank you for your message."
     else
-      render :new
+      flash[:error] = @message.errors.full_messages.join(", ")
+      redirect_to contact_path
     end
   end
 

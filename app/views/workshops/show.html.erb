@@ -17,7 +17,7 @@
 				<h4>
 					<span class="h4-big">Topic: <%= @workshop.topic.name.titleize %></span><br class="br-big">
 					Location: <%= @workshop.location.titleize %><br>
-					Speaker:<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %>
+					Speaker: <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %>
 					</h4>
 				<div class="row clearfix overall-rating-wrapper">
 					<div class="col-sm-7">
@@ -29,8 +29,8 @@
 					</div>
 					<% if !@current_user_review %>
 						<div class="col-sm-5 review-btn-wrapper">
-							<%= link_to new_workshop_review_path(@workshop), class: "btn btn-danger btn-review" do %>
-								<%= fa_icon('star') %> Write a Review
+							<%= link_to new_workshop_review_path(@workshop), class: "btn btn-primary btn-review" do %>
+								Write a Review
 							<% end %>
 						</div>
 					<% end %>

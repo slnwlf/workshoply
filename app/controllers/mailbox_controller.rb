@@ -9,6 +9,7 @@ class MailboxController < ApplicationController
 	def sent
 		@sent = mailbox.sentbox
 		@active = :sent
+
 	end
 
 	def trash

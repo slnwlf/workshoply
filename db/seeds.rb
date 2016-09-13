@@ -15,7 +15,7 @@ users = User.create([
 		password: 'dave12345', 
 		password_confirmation: 'dave12345',
 		organization: "Amazon",
-		location: "melo park, ca, united states",
+		location: "menlo park, ca, united states",
 		bio: "Lorem ipsum dolor sit amet, mei at reque salutandi, petentium sapientem deseruisse vix ea. Eam cu malis perpetua, eam ex mutat aperiri. Ad nonumy scripserit has, duo nulla sonet deterruisset ad, mei eros scriptorem cu. Erant ornatus nonumes ne mea, sed justo delectus perpetua ei."
 	}, 
 	{

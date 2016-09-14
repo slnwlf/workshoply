@@ -17,7 +17,7 @@ class Workshop < ActiveRecord::Base
 
   has_attached_file :image, 
   	styles: { medium: "600x300>", thumb: "400x200>" },
-  	default_url: ->(attachment) { ActionController::Base.helpers.asset_path('workshop.jpg') } 
+  	default_url: "https://s3-us-west-1.amazonaws.com/bigtalker/assets/images/workshop.jpg"
   validates_attachment_content_type :image, content_type: ['image/gif', 'image/jpeg', 'image/png', 'image/x-ms-bmp']
 
   def self.filter_topic(topic_id)

@@ -1,9 +1,69 @@
 // Place all the styles related to the mailbox controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-.btn-success {
-	margin-bottom: 10px;
-	margin-left: 10px;
+ul.delete-conversation-wrapper {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 10px;
+	li {
+		.delete-conversation-btn {
+			text-align: left;
+	    line-height: 25px;
+	    font-size: 18px;
+			width: 100%;
+			padding: 0px 15px;
+		}
+	}
+}
+.inbox-folder-wrapper {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.inbox-folder {
+	.compose-btn {
+		text-align: left;
+		line-height: 25px;
+		font-size: 18px;
+	}
+	.compose-btn:focus, .compose-btn:hover, .compose-btn:active {
+		background-color: #379b15;
+	}
+}
+.inbox-msg {
+	border-bottom: 1px solid #DDDDDD;
+  padding: 5px 0;
+	a.msg {
+		.msg-truncate {
+			margin-left: 10px;
+		}
+		.msg-date {
+			float: right;
+		}
+		@media (max-width: 767px) {
+			.msg-truncate {
+				margin-left: 0px;
+			}
+		}	
+	}
+}
+.inbox-msg:last-child {
+	border-bottom: none;
+}
+ul.inbox-folder {
+	li {
+		line-height: 25px;
+		font-size: 18px;
+		padding: 0 5px;
+	}
+}
+.media {
+	.media-object {
+		height: 64px;
+	}
+	.msg {
+		text-decoration: none;
+	}
+	p {
+		margin-bottom: 0px;
+	}
 }

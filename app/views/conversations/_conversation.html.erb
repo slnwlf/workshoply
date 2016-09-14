@@ -1,16 +1,18 @@
-<div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">
-      <%= conversation.originator.id %> <br>
-      <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
-    <%= truncate conversation.messages.last.body, length: 145 %>
-    <%= link_to "View", conversation_path(conversation)  %>
+<div class="row inbox-msg">
+  <div class="col-xs-12">
+    <div class="media">
+      <%= link_to conversation_path(conversation), class: 'msg' do %>
+        <div class="col-sm-2">
+          <%= User.find(Mailboxer::Message.where(conversation_id: conversation.id).first.sender_id).full_name %>
+        </div>
+        <div class="col-sm-10">
+          <h4 class="media-heading">
+            <% is_read = Mailboxer::Receipt.where(notification_id: Mailboxer::Notification.where(conversation_id: conversation.id).last.id).first.is_read %>
+            <small><span style="<%= is_read ? '' : 'color: #353535; font-weight: bold;' %>"> <%= truncate(conversation.subject, length: 50, separator: ' ') %></span> <br class="visible-xs"><span class="msg-truncate"><%= truncate(conversation.messages.last.body, length: 50, separator: ' ') %></span><br class="visible-xs"><span class="msg-date"></b><%= conversation.messages.last.created_at.strftime("%m-%d-%y") %></span></small>
+          </h4>
+          <p><small></small></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

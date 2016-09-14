@@ -58,7 +58,10 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
-
+.zero-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 .nav-and-yield {
   min-height: 100%;
   /* equal to footer height */
@@ -116,7 +119,7 @@ footer {
     }
   }
   ul.nav.navbar-nav.navbar-right {
-    padding-right: 30px;
+    margin: 0px;
   }
   .navbar-logo img {
     margin-top: 3px;

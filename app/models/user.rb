@@ -22,8 +22,10 @@ class User < ActiveRecord::Base
   validates :bio, length: { minimum: 100, maximum: 1000,
     too_long: "%{count} characters is the maximum allowed" }, on: :update
 
-  has_attached_file :avatar, styles: { medium: ["300x300>", :png], thumb: ["100x100>", :png] }, default_url: "http://www.humanecology.rutgers.edu/images/facfaces/NO-IMAGE-AVAILABLE.jpg"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  has_attached_file :avatar, 
+    styles: { medium: "300x300>", thumb: "100x100>" }, 
+    default_url: "https://s3-us-west-1.amazonaws.com/bigtalker/assets/images/no-image.jpg"
+  validates_attachment_content_type :avatar, content_type: ['image/gif', 'image/jpeg', 'image/png', 'image/x-ms-bmp']
 
   def mailboxer_name
     self.full_name

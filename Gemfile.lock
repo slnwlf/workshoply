@@ -45,6 +45,12 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.6.2)
       execjs
+    aws-sdk (2.6.0)
+      aws-sdk-resources (= 2.6.0)
+    aws-sdk-core (2.6.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.6.0)
+      aws-sdk-core (= 2.6.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -102,6 +108,7 @@ GEM
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jmespath (1.3.1)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -208,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 2.3)
   bootstrap-sass (~> 3.3.6)
   bootswatch-rails
   byebug
@@ -230,6 +238,9 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.5

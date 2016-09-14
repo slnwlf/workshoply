@@ -22,12 +22,12 @@
             <%= link_to image_tag("big-talker-logo-bold2.png", alt: "Big Talker"), '/', class: "navbar-brand navbar-logo" %>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
+            <ul class="nav navbar-nav navbar-right">
               <li><a href="/about">About</a></li>
               <li><%= link_to "Talks", workshops_path %></li>
               <li><%= link_to "Contact", contact_path %></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+           <!--  </ul> -->
+            <!-- <ul class="nav navbar-nav navbar-right"> -->
               <% if current_user %>
               <li><%= link_to "Post a Talk", new_workshop_path, class:"btn btn-default" %> </li>
               <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.full_name.titleize %> <span class="caret"></span></a>

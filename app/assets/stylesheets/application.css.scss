@@ -34,30 +34,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  font-family: 'Lato', sans-serif;
-}
-
-h1 {
-    font-family: 'Lato', sans-serif;
-}
-
-h2 {
-    font-family: 'Roboto', sans-serif;
-}
-
-h3{
-  font-family: 'Lato', sans-serif;
-}
-
-p {
-  font-family: 'Lato', sans-serif;
-}
-
-a {
-  font-family: 'Roboto', sans-serif;
-}
-
 
 .nav-and-yield {
   min-height: 100%;
@@ -114,7 +90,7 @@ footer {
   }
   .navbar-collapse {
     // style navbar collapse when click hamburger button
-    background-color: #fafafa;
+    // background-color: #fafafa;
     border-color: #fff;
     border-width: 3px;
     @media (max-width: 767px) {
@@ -151,7 +127,7 @@ footer {
 }
 
 .navbar-custom li a {
-	line-height: 60px;
+	line-height: 59px;
   font-size: 18px;
   // color: #1D86FF;
   border: none;

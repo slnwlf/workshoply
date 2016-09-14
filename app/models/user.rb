@@ -24,8 +24,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, 
     styles: { medium: "300x300>", thumb: "100x100>" }, 
-    default_url: "http://www.humanecology.rutgers.edu/images/facfaces/NO-IMAGE-AVAILABLE.jpg",
-    path: "/images/:id/:style.:extension"
+    default_url: "http://www.humanecology.rutgers.edu/images/facfaces/NO-IMAGE-AVAILABLE.jpg"
   validates_attachment_content_type :avatar, content_type: ['image/gif', 'image/jpeg', 'image/png', 'image/x-ms-bmp']
 
   def mailboxer_name

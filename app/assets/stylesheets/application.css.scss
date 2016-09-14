@@ -91,8 +91,6 @@ footer {
 }
 
 .navbar-custom {
- 	background-color: #fafafa;
-  border-color: #fafafa;
 	height: 60px;
   margin-bottom: 0px;
   ul.nav.navbar-nav.navbar-right {
@@ -106,8 +104,8 @@ footer {
   .navbar-header button.navbar-toggle {
     // change style hamburger button
     margin-top: 10px;
-    background-color: #efefef;
-    border: 1.5px solid #aeaeae;
+    // background-color: #efefef;
+    // border: 1.5px solid #aeaeae;
     border-radius: 5px;
     padding: 12px;
     .icon-bar {
@@ -143,19 +141,19 @@ footer {
   .navbar-nav > .open > a, 
   .navbar-nav > .open > a:hover, 
   .navbar-nav > .open > a:focus {
-    background-color: #2780E3 !important;
+    // background-color: #2780E3 !important;
     color: #fff !important;
   }
   // end overrided mobile navbar styling
 }
 .navbar-nav >li > a {
-	color: #1D86FF !important;
+	// color: #1D86FF !important;
 }
 
 .navbar-custom li a {
 	line-height: 60px;
   font-size: 18px;
-  color: #1D86FF;
+  // color: #1D86FF;
   border: none;
 }
 
@@ -172,7 +170,7 @@ footer {
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #fff;
-    background-color: #e9e9e9;
+    // background-color: #e9e9e9;
 }
 
 .navbar-toggle {
@@ -488,4 +486,43 @@ ul.dropdown-menu{
     font-size: 28px;
     border: none;
   }
+
+  /*new navbar */
+  #header.navbar--white {
+    background-color: #FFF;
+    border: 1px solid rgba(70,76,89,.1);
+}
+#header {
+    background-color: #474B59;
+    border: none;
+    margin: 0;
+    padding: 5px 20px;
+    z-index: 100;
+}
+.headroom {
+    -webkit-transition: transform 200ms linear;
+    -o-transition: transform 200ms linear;
+    transition: transform 200ms linear;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
 

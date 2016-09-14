@@ -95,6 +95,26 @@ footer {
   border-color: #fafafa;
 	height: 60px;
   margin-bottom: 0px;
+  .inbox-li {
+    i#envelope {
+      font-size: 22px;
+    }
+    span#inbox-notification {
+      position: absolute;
+      background-color: #FB404B;
+      text-align: center;
+      border-radius: 10px;
+      min-width: 20px;
+      padding: 0 5px;
+      height: 20px;
+      font-size: 12px;
+      color: #FFFFFF;
+      font-weight: bold;
+      line-height: 20px;
+      top: 10px;
+      left: 26px;
+    }
+  }
   ul.nav.navbar-nav.navbar-right {
     padding-right: 30px;
   }

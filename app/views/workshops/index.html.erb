@@ -4,12 +4,13 @@
 	<br>	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+
 				<% @workshops.each do |workshop| %>
+		<div class="col-md-12 thumbnail">
 				<div class="col-md-4">
 					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				</div>
-				<div class="col-md-8 well">
+				<div class="col-md-8">
 					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
 					<h4>
 						Topic: <%= workshop.topic.name.titleize %>
@@ -22,10 +23,11 @@
 							<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
 						</span>
 					</div>
-					<p><%= workshop.description %></p>
+					<p><%= truncate(workshop.description, length: 240, separator: ' ') %> <%= link_to "Read More", workshop_path(workshop)%></p>
 					<div class="text-center">
 						<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
 					</div>
+				</div>
 				</div>
 				<% end %>
 			</div>

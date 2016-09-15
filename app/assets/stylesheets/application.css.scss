@@ -55,12 +55,15 @@ html, body {
   height: 102px; 
 }
 footer {
-  background-color: #e6e6e6;
+  background-color: #2780e3;
   padding: 40px;
   .footer-nav {
     display: inline; 
     padding-right: 10px; 
     padding-left: 10px; 
+  }
+  a{
+    color:#fff;
   }
 }
 
@@ -235,8 +238,11 @@ footer {
   }
  }
 
+.workshop-index {
+  margin: 10px 10px;
+}
 .contact-container {
- 	background-color: #e84e4a;
+ 	background-color: #111;
   height: 220px;
 
 
@@ -448,7 +454,7 @@ ul.dropdown-menu{
     padding: 40px 0px 70px 0px;
   }
   .contact-form-wrap {
-      background: #e84e4a;
+      background: #111;
       padding: 50px 0;
       .row {
         margin-left: 0px;

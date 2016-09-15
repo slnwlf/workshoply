@@ -15,7 +15,7 @@
           <%= render 'conversations/form' %>
           <% else %>
             <% if messages.count > 0 %>
-              <%= render partial: 'conversations/conversation', collection: messages %>
+              <%= render partial: 'conversations/conversation', collection: messages, locals: {sent_view: sent_view ? true : false, inbox_view: inbox_view ? true : false} %>
             <% else %>
               <h4 class="text-center"><small>You don't have any messages.</small></h4>
             <% end %>

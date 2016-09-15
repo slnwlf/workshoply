@@ -1,6 +1,9 @@
 // Place all the styles related to the mailbox controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.mailbox-view {
+	margin-top: 30px;
+}
 ul.delete-conversation-wrapper {
 	list-style-type: none;
 	padding: 0;

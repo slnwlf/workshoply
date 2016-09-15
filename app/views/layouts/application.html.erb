@@ -30,66 +30,72 @@
             <!-- <ul class="nav navbar-nav navbar-right"> -->
               <% if current_user %>
               <li><%= link_to "Post a Talk", new_workshop_path, class:"btn btn-default" %> </li>
+              <li class="inbox-li">
+                <%= link_to mailbox_inbox_path do %>
+                  <%= fa_icon "envelope", id: "envelope" %> <span style="<%= unread_messages_count > 0 ? 'margin-left: 3px;' : ''%>">Inbox</span>
+                  <% if unread_messages_count > 0 %>
+                    <span id="inbox-notification"><%= unread_messages_count %></span>
+                  <% end %>
+                <% end %>
+              </li>
               <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.full_name.titleize %> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", user_path(current_user) %></li>
-                <li><%= link_to "Inbox", mailbox_inbox_path %></li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", user_path(current_user) %></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
             <% else %>
-            <li><%= link_to "Sign Up", signup_path, class: "btn btn-default" %></li>
-            <li><%= link_to "Sign In", login_path %></li>
+              <li><%= link_to "Sign Up", signup_path, class: "btn btn-default" %></li>
+              <li><%= link_to "Sign In", login_path %></li>
             <% end %>
           </ul>
         </div>
-
     </nav>
-    <!-- Devise Flash MSG -->
-    <div class="notice-error-msg">
-      <% if notice.present? %>
-      <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
-        <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
-        <p>
-          <%= notice %>
-        </p>
-      </div>
-      <% elsif alert.present? %>
-      <div class="alert alert-danger devise-msg">
-        <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
-        <p>
-          <%= alert %>
-        </p>
-      </div>
-      <% end %>
-      <% flash.each do |name, msg| %>
-      <% if name == 'error' %>
+      <!-- Devise Flash MSG -->
       <div class="notice-error-msg">
-        <div class="alert remind-msg alert-danger">
+        <% if notice.present? %>
+        <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
           <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
           <p>
-            <%= msg %>
+            <%= notice %>
           </p>
         </div>
+        <% elsif alert.present? %>
+        <div class="alert alert-danger devise-msg">
+          <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+          <p>
+            <%= alert %>
+          </p>
+        </div>
+        <% end %>
+        <% flash.each do |name, msg| %>
+        <% if name == 'error' %>
+        <div class="notice-error-msg">
+          <div class="alert remind-msg alert-danger">
+            <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+            <p>
+              <%= msg %>
+            </p>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
       </div>
-      <% end %>
-      <% end %>
-    </div>
-    <!-- end Devise Flash MSG -->
+      <!-- end Devise Flash MSG -->
 
-    <div class="yield-wrapper">
-      <%= yield %>
+      <div class="yield-wrapper">
+        <%= yield %>
+      </div>
     </div>
-  </div>
 
-  <footer class="text-center">
-    <li class="footer-nav"><%= link_to "About Big Talker", about_path %></li>
-    <li class="footer-nav"><a href ="/">Copyright 2016</a></li>
-    <li class="footer-nav"><a href ="/">Terms and Conditions</a></li>
-  </footer>
-  <!-- rails js files -->
-  <%= javascript_include_tag 'application' %>
-  <!-- geocomplete -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdEksj2K9pX7vBO8_jZgjFZk4jvWQQI0o&libraries=places"></script>
-</body>
+    <footer class="text-center">
+      <li class="footer-nav"><%= link_to "About Big Talker", about_path %></li>
+      <li class="footer-nav"><a href ="/">Copyright 2016</a></li>
+      <li class="footer-nav"><a href ="/">Terms and Conditions</a></li>
+    </footer>
+    <!-- rails js files -->
+    <%= javascript_include_tag 'application' %>
+    <!-- geocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdEksj2K9pX7vBO8_jZgjFZk4jvWQQI0o&libraries=places"></script>
+  </body>
 </html>

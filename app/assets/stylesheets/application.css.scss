@@ -35,6 +35,12 @@ html, body {
 }
 
 
+
+.zero-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .nav-and-yield {
   min-height: 100%;
   /* equal to footer height */
@@ -69,8 +75,28 @@ footer {
 .navbar-custom {
 	height: 60px;
   margin-bottom: 0px;
+  .inbox-li {
+    i#envelope {
+      font-size: 22px;
+    }
+    span#inbox-notification {
+      position: absolute;
+      background-color: #FB404B;
+      text-align: center;
+      border-radius: 10px;
+      min-width: 20px;
+      padding: 0 5px;
+      height: 20px;
+      font-size: 12px;
+      color: #FFFFFF;
+      font-weight: bold;
+      line-height: 20px;
+      top: 10px;
+      left: 26px;
+    }
+  }
   ul.nav.navbar-nav.navbar-right {
-    padding-right: 30px;
+    margin: 0px;
   }
   .navbar-logo img {
     margin-top: 3px;

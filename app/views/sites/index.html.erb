@@ -20,7 +20,7 @@
 			<% @featured_workshops.each do |workshop| %>
 				<div class="col-sm-12 col-md-4 col-lg-4">
 					<div class="thumbnail featured-workshop">
-						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img vertical-align" %>
 						<div class="featured-workshop-title-wrapper">
 							<h3><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h3>
 						</div>

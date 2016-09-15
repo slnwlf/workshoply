@@ -6,11 +6,11 @@
 		<div class="row">
 
 				<% @workshops.each do |workshop| %>
-		<div class="col-md-12 workshop-index">
+		<div class="col-md-12 thumbnail">
 				<div class="col-md-4">
 					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				</div>
-				<div class="col-md-8 well">
+				<div class="col-md-8">
 					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
 					<h4>
 						Topic: <%= workshop.topic.name.titleize %>
@@ -27,6 +27,7 @@
 					<div class="text-center">
 						<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
 					</div>
+				</div>
 				</div>
 				<% end %>
 			</div>

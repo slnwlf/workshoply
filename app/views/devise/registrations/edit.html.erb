@@ -11,12 +11,12 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.label :current_password, "Old password" %>
+          <%= f.label :current_password, "Old Password" %>
           <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
         </div>
         <br>
         <div class="field">
-          <%= f.label :password, "New password" %>
+          <%= f.label :password, "New Password" %>
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>
@@ -24,7 +24,7 @@
         </div>
         <br>
         <div class="field">
-          <%= f.label :password_confirmation, "Confirm new password" %>
+          <%= f.label :password_confirmation, "Confirm New Password" %>
           <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
         </div>
         <br>

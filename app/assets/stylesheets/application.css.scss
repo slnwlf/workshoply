@@ -241,10 +241,13 @@ footer {
 .workshop-index {
   margin: 10px 10px;
 }
+
+.workshop-show {
+  margin-top: 10px;
+}
 .contact-container {
  	background-color: #111;
   height: 220px;
-
 
  }
 
@@ -288,8 +291,9 @@ footer {
   margin-bottom:20px;
 }
 
-#btn-dropdown{
 
+.btn-danger {
+  margin-bottom: 0px;
 }
 
 ul.dropdown-menu{

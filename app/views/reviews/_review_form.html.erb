@@ -21,7 +21,7 @@
     		Rate Workshop: <%= rating_for_user @workshop, current_user, "rating", disable_after_rate: false, cancel: false %>
     	</div>
     	<div class="field">
-    		<%= f.label :text, "Your review:" %>
+    		<%= f.label :text, "Your Review (minimum 40 characters):" %>
     		<%= f.text_area :text, class: "form-control", rows: "5" %>
     	</div>
     	<br>

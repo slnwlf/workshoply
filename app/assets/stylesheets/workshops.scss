@@ -38,11 +38,10 @@ select#workshop_topic_id {
 	position: relative;
 }
 .edit-delete-workshop-btn-wrapper {
-	position: absolute;
 	top: 0px;
 	right: 0px;
 	.edit-workshop-btn, .delete-workshop-btn {
-		min-width: 55px;
+		min-width: 45px;
 	}
 }
 .user-rating-wrapper {

@@ -18,20 +18,19 @@ class ReviewsController < ApplicationController
 	
 	def create
 		if current_user != @workshop.user
-			if params[:score].empty?
-				flash[:error] = "Please rate the talk."
-				redirect_to new_workshop_review_path(@workshop)
-			else
+			# if params[:score].empty?
+			# 	flash[:error] = "Please rate the talk."
+			# 	redirect_to new_workshop_review_path(@workshop)
+			# else
 				@review = @workshop.reviews.create(review_params)
 				if @review.save
 					current_user.reviews << @review
-					flash[:notice] = "Successfully post your review."
+					flash[:notice] = "Success! Your review has been posted."
 					redirect_to workshop_path(@workshop)
 				else
 					flash[:error] = @review.errors.full_messages.join(", ")
 					redirect_to new_workshop_review_path(@workshop)
 				end
-			end
 		else
 			flash[:error] = "You can't review your own talk."
 			redirect_to workshop_path(@workshop)
@@ -48,7 +47,7 @@ class ReviewsController < ApplicationController
 	def update
 		if current_user_reviewed? and current_user == @review.user
 			if @review.update_attributes(review_params)
-				flash[:notice] = "Successfully edit your review."
+				flash[:notice] = "Successfully edited your review."
 				redirect_to workshop_path(@workshop)
 			else
 				flash[:error] = @review.errors.full_messages.join(", ")
@@ -65,7 +64,7 @@ class ReviewsController < ApplicationController
 			# clear user rating, update average rating score
 			clear_rating(current_user, "rating", @workshop)  #<<< see ReviewsHelper
 			@review.destroy
-			flash[:notice] = "Successfully delete your review."
+			flash[:notice] = "Successfully deleted your review."
 			redirect_to workshop_path(@workshop)
 		else
 			flash[:error] = "You can only delete your own review."

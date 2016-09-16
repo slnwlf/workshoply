@@ -3,16 +3,6 @@
 		<div class="col-md-9">
 			<div class="workshop-box center-block">
 				<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
-				<% if current_user == @workshop.user %>
-					<div class="edit-delete-workshop-btn-wrapper">
-						<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary edit-workshop-btn" do %>
-							<%= fa_icon "pencil-square-o " %>
-						<% end %>
-						<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger delete-workshop-btn" do %>
-							<%= fa_icon "trash-o " %>
-						<% end %>
-					</div>
-				<% end %>
 				<h2><%= @workshop.title.titleize %></h2>
 				<h4>
 					<span class="h4-big">Topic: <%= @workshop.topic.name.titleize %></span><br class="br-big">
@@ -28,17 +18,21 @@
 						</div>
 					</div>
 					
-					<% if current_user != @workshop.user %>
-						<div class="col-sm-5 review-btn-wrapper">
-							<%= link_to "WRITE A REVIEW", new_workshop_review_path(@workshop), class: "btn btn-primary btn-review" %>
+	<% if current_user != @workshop.user %>
+		<div class="col-sm-5 review-btn-wrapper">
+				<%= link_to "WRITE A REVIEW", new_workshop_review_path(@workshop), class: "btn btn-primary btn-review" %>
 							<% else %>
-								<%= link_to "Edit", edit_workshop_path(@workshop, @current_user), class: "edit-workshop-btn" %>
-								<%= link_to "Delete", workshop_path(@workshop, @current_user), class: "delete-workshop-btn", method: :delete, data: {confirm: "Are you sure you want to delete your talk?"} %>
-
-						</div>
-					<% end %>
-				</div>
-				<div id="workshop-description">
+						<div class="edit-delete-workshop-btn-wrapper">
+						<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary" do %>
+							<%= fa_icon "pencil-square-o " %>
+						<% end %>
+						<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure you want to delete your talk?"}, class: "btn btn-danger" do %>
+							<%= fa_icon "trash-o " %>
+						<% end %>
+						<% end %>
+					</div>
+					</div>
+		<div id="workshop-description">
 					<p><%= simple_format(@workshop.description) %></p>
 				</div>
 			</div>

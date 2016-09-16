@@ -27,11 +27,14 @@
 							</div>
 						</div>
 					</div>
-					<% if !@current_user_review %>
+					
+					<% if current_user != @workshop.user %>
 						<div class="col-sm-5 review-btn-wrapper">
-							<%= link_to new_workshop_review_path(@workshop), class: "btn btn-primary btn-review" do %>
-								Write a Review
-							<% end %>
+							<%= link_to "WRITE A REVIEW", new_workshop_review_path(@workshop), class: "btn btn-primary btn-review" %>
+							<% else %>
+								<%= link_to "Edit", edit_workshop_path(@workshop, @current_user), class: "edit-workshop-btn" %>
+								<%= link_to "Delete", workshop_path(@workshop, @current_user), class: "delete-workshop-btn", method: :delete, data: {confirm: "Are you sure you want to delete your talk?"} %>
+
 						</div>
 					<% end %>
 				</div>

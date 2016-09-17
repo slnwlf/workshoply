@@ -50,7 +50,7 @@
 	<% if !current_user or current_user != @user %>
 			<h3 class="text-center"><%= @user.full_name %>'s Workshops</h3><br>
 		<% else %>
-			<h3 class="text-center">My Workshops</h3><br>
+			<h3 class="text-center">My Talks</h3><br>
 	<% end %>
 		<div class="col-md-12">
 			<% @user.workshops.each do |workshop| %>

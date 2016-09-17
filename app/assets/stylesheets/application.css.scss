@@ -231,7 +231,8 @@ footer {
 .workshop-container {
  	margin: 0 50px;
   .thumbnail.featured-workshop {
-    min-height: 550px;
+    // min-height: 550px;
+    max-height: 550px;
     h3 {
       font-size: 22px;
     }
@@ -241,6 +242,10 @@ footer {
  .thumbnail>img, .thumbnail a>img {
 
     height: 200px;
+}
+
+a.workshop-title-link {
+  max-height: 10px;
 }
 
 .workshop-index {

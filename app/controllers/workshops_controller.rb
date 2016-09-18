@@ -43,10 +43,10 @@ class WorkshopsController < ApplicationController
 	def create
 		@workshop = current_user.workshops.create(workshop_params)
 		if @workshop.save
-			flash.now[:notice] = "Successfully create a workshop."
+			flash[:notice] = "Successfully create a workshop."
 			redirect_to workshop_path(@workshop)
 		else
-			flash.now[:error] = @workshop.errors.full_messages.join(", ")
+			flash[:error] = @workshop.errors.full_messages.join(", ")
 			redirect_to new_workshop_path
 		end
 
@@ -54,7 +54,7 @@ class WorkshopsController < ApplicationController
 
 	def edit
 		unless current_user == @workshop.user
-			flash.now[:error] = "You can only edit your own posted workshop."
+			flash[:error] = "You can only edit your own posted workshop."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -62,15 +62,15 @@ class WorkshopsController < ApplicationController
 	def update
 		if current_user == @workshop.user
 			if @workshop.update_attributes(workshop_params)
-				flash.now[:notice] = "Successfully edit the workshop."
+				flash[:notice] = "Successfully edit the workshop."
 				redirect_to workshop_path(@workshop)
 			else
-				flash.now[:notice] = @workshop.errors.full_messages.join(", ")
+				flash[:notice] = @workshop.errors.full_messages.join(", ")
 				redirect_to edit_workshop_path(@workshop)
 				
 			end
 		else
-			flash.now[:error] = "You can only edit your own posted workshop."
+			flash[:error] = "You can only edit your own posted workshop."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -78,10 +78,10 @@ class WorkshopsController < ApplicationController
 	def destroy
 		if current_user == @workshop.user
 			@workshop.destroy
-			flash.now[:notice] = "Successfully delete the workshop."
+			flash[:notice] = "Successfully delete the workshop."
 			redirect_to workshops_path
 		else
-			flash.now[:error] = "You can only delete your own posted workshop."
+			flash[:error] = "You can only delete your own posted workshop."
 			redirect_to workshop_path(@workshop)
 		end
 	end

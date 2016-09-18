@@ -42,6 +42,11 @@ $(function() {
 	if ($(".location-input")[0]) {
 		var autocomplere = new google.maps.places.Autocomplete($(".location-input")[0], options);
 	}
+
+  // notice and error disappears in 10 seconds
+  $(".notice-error-msg .alert").fadeTo(10000, 1000).fadeOut(1000, function() {
+    $(this).alert('close');
+  });
 });
 
 function getJsonFromUrl() {

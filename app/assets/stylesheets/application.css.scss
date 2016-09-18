@@ -537,4 +537,37 @@ ul.dropdown-menu{
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
     display: block;
 }
-
+.notice-error-msg {
+  div.alert {
+    margin-bottom: 0px!important;
+  }
+}
+.pagination-wrapper {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+.pagination-ui {
+  a {
+    padding: 3px 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+    border: 1px solid #dddddd;
+    color: #0063dc;
+    text-decoration: none;
+  }
+  em.current {
+    padding: 3px 5px;
+    font-style: normal;
+    font-weight: bold;
+    color: #ff0084;
+  }
+  span.previous_page.disabled, span.next_page.disabled {
+    padding: 3px;
+    color: #aaaaaa;
+  }
+  a:hover, a:active, a:focus {
+    border-color: #003366;
+    background: #2780e3;
+    color: white;
+  }
+}

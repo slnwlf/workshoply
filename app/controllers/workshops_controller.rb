@@ -6,7 +6,7 @@ class WorkshopsController < ApplicationController
 
 	def index
 		if params[:topic].blank? and params[:location].blank?
-			@workshops = Workshop.all.order("created_at DESC")
+			@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
 		elsif !params[:topic].blank? and params[:location].blank?
 			topic = Topic.find_by(name: params[:topic].downcase)
 			if topic
@@ -14,7 +14,7 @@ class WorkshopsController < ApplicationController
 				show_workshops({topic_id: topic.id}, "with topic", params[:topic])
 			else
 				flash.now[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
-				@workshops = Workshop.all.order("created_at DESC")
+				@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
 			end
 		elsif params[:topic].blank? and !params[:location].blank?
 			show_workshops({location: params[:location].downcase}, "in", params[:location])
@@ -98,12 +98,12 @@ class WorkshopsController < ApplicationController
 
 	def show_workshops(query_params, msg, param, both=false)
 		if both
-			workshops = Workshop.filter_city_and_topic(query_params[:location], query_params[:topic_id])
+			workshops = Workshop.filter_city_and_topic(query_params[:location], query_params[:topic_id]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
 		else
 			if query_params[:location]
-				workshops = Workshop.filter_city(query_params[:location])
+				workshops = Workshop.filter_city(query_params[:location]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
 			else
-				workshops = Workshop.filter_topic(query_params[:topic_id])
+				workshops = Workshop.filter_topic(query_params[:topic_id]).paginate(page: params[:page], per_page: 10).order("created_at DESC")
 			end
 		end
 		if workshops.count > 0
@@ -119,7 +119,7 @@ class WorkshopsController < ApplicationController
 			else
 				flash.now[:error] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
 			end
-			@workshops = Workshop.all.order("created_at DESC")
+			@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
 		end
 	end
 

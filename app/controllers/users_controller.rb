@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	before_action :find_user
 
 	def show
+		@workshops = @user.workshops.paginate(page: params[:page], per_page: 5).order("created_at DESC")
 	end
 
 	def edit

@@ -25,6 +25,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 
 gem 'bootswatch-rails'
+gem 'will_paginate', '~> 3.1.0'
 
 gem 'devise'
 

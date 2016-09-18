@@ -56,14 +56,14 @@
     <div class="notice-error-msg">
       <% if notice.present? %>
       <div class="alert devise-msg <%= params[:controller] == 'plans' ? 'alert-warning animated bounceInUp' : 'alert-info' %>">
-        <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+        <a aria-label="close" class="close" data-dismiss="alert" href="#">&times;</a>
         <p>
           <%= notice %>
         </p>
       </div>
       <% elsif alert.present? %>
       <div class="alert alert-danger devise-msg">
-        <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+        <a aria-label="close" class="close" data-dismiss="alert" href="#">&times;</a>
         <p>
           <%= alert %>
         </p>
@@ -73,7 +73,7 @@
       <% if name == 'error' %>
       <div class="notice-error-msg">
         <div class="alert remind-msg alert-danger">
-          <a aria-label="close" class="close" data-dismiss="alert" href="#" style="padding-top: 10px">&times;</a>
+          <a aria-label="close" class="close" data-dismiss="alert" href="#">&times;</a>
           <p>
             <%= msg %>
           </p>

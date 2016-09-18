@@ -10,6 +10,7 @@ class Workshop < ActiveRecord::Base
 	belongs_to :topic
 	has_many :reviews, dependent: :destroy
 
+	validates :topic_id, presence: true
 	validates :title, presence: true
 	validates :description, presence: true
 	validates :location, presence: true, format: { with: /\A[a-zA-Z][a-zA-Z,\s]+[a-zA-Z], [a-zA-Z]{2}, [a-zA-Z][a-zA-Z,\s]+[a-zA-Z]\z/,

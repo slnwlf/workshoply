@@ -33,6 +33,10 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="text-center pagination-wrapper">
+		<%= will_paginate @workshops, class: "pagination-ui" %>
+	</div>
 </div>
 <%= javascript_tag do %>
 	var useJsonFromUrl = true;

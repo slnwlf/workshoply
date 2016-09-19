@@ -239,15 +239,23 @@ footer {
 }
 
 .workshop-container {
- 	margin: 0 50px;
+ 	// margin: 0 50px;
   .thumbnail.featured-workshop {
-    // min-height: 550px;
-    max-height: 550px;
+    // max-height: 520px;
     h3 {
       font-size: 22px;
     }
   }
  }
+
+ .row.match-my-cols {
+  overflow: hidden;
+ }
+
+.row.match-my-cols [class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
 
  .thumbnail>img, .thumbnail a>img {
 

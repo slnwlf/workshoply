@@ -239,7 +239,7 @@ footer {
 }
 
 .workshop-container {
- 	// margin: 0 50px;
+ 	margin: 0 50px;
   .thumbnail.featured-workshop {
     // max-height: 520px;
     h3 {
@@ -248,18 +248,9 @@ footer {
   }
  }
 
- .row.match-my-cols {
-  overflow: hidden;
- }
-
-.row.match-my-cols [class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-}
 
  .thumbnail>img, .thumbnail a>img {
-
-    height: 200px;
+    height: 210px;
 }
 
 a.workshop-title-link {

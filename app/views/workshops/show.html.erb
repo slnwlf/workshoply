@@ -41,7 +41,7 @@
 	</div>
 </div>
 <% if current_user != @workshop.user %>
-	<div class="col-md-4">
+	<div class="col-md-4 well">
 		<div class="span4">
 			<h3>About the Speaker</h3>
 				<%= image_tag(@workshop.user.avatar.url(:thumb), style: "height: 100px") %>

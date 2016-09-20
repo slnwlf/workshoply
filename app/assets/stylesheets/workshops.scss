@@ -74,8 +74,13 @@ span.h4-big {
 br.br-big {
 	font-size: 26px;
 }
+
+#workshop-description {
+	text-align:center;
+}
 #workshop-description p {
-	text-align: justify;
+	display: inline-block;
+	text-align:justify;
 }
 .speaker-bio {
 	text-align: justify;

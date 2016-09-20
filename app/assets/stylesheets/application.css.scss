@@ -44,7 +44,7 @@ html, body {
 .nav-and-yield {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -102px; 
+  margin-bottom: -80px; 
 }
 .nav-and-yield:after {
   content: "";
@@ -52,10 +52,10 @@ html, body {
 }
 .nav-and-yield:after {
   /* .push must be the same height as footer */
-  height: 102px; 
+  height: 40px; 
 }
 footer {
-  background-color: #2780e3;
+  background-color: #fff;
   padding: 40px;
   .footer-nav {
     display: inline; 
@@ -63,7 +63,7 @@ footer {
     padding-left: 10px; 
   }
   a{
-    color:#fff;
+    color:#3f4652;
   }
 }
 
@@ -257,7 +257,7 @@ a.workshop-title-link {
   margin-top: 10px;
 }
 .contact-container {
- 	background-color: #111;
+ 	background-color: #3f4652;
   height: 220px;
 
  }

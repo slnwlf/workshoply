@@ -3,7 +3,7 @@
 		<h1>CONTACT US</h1>
 		<h3>Questions? Comments? We would love to hear from you.</h3>
 		<div class="col-md-4 icons">
-			<%= fa_icon "envelope-o 3x" %>
+			<%= fa_icon "envelope-o 3x", :html => { :style =>  'color:red' } %>
 			<h4>EMAIL</h4>
 			<%= mail_to "hello.bigtalker@gmail.com" %>
 		</div>
@@ -22,7 +22,7 @@
 	<div class="row contact-form-wrap zero-margin">
 		<div class="col-md-6 col-md-offset-3">
 			<h3 class="text-center" style="color:#fff">Send Us a Message</h3>
-				<%= form_for @message, :html => { :style => 'background-color:#111; color:#fff' } do |f| %>
+				<%= form_for @message, :html => { :style =>  'color:#fff' } do |f| %>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="field form-group">

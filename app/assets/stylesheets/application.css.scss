@@ -34,8 +34,6 @@ html, body {
   height: 100%;
 }
 
-
-
 .zero-margin {
   margin-left: 0px;
   margin-right: 0px;
@@ -55,7 +53,7 @@ html, body {
   height: 102px; 
 }
 footer {
-  background-color: #2780e3;
+  background-color: #fff;
   padding: 40px;
   .footer-nav {
     display: inline; 
@@ -63,7 +61,7 @@ footer {
     padding-left: 10px; 
   }
   a{
-    color:#fff;
+    color:#2780e3;
   }
 }
 
@@ -268,7 +266,7 @@ a.workshop-title-link {
   margin-top: 10px;
 }
 .contact-container {
- 	background-color: #111;
+ 	background-color: #3f4652;
   height: 220px;
 
  }
@@ -480,7 +478,7 @@ ul.dropdown-menu{
     padding: 40px 0px 70px 0px;
   }
   .contact-form-wrap {
-      background: #111;
+      background: #3f4652;
       padding: 50px 0;
       .row {
         margin-left: 0px;
@@ -592,4 +590,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 .btn-send {
   width: 24%;
   margin: 0 auto;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #3f4652;
+    border-color: #222222;
+}
+
+.fa-envelope-o:before, .fa-map-marker:before, .fa-mobile-phone:before {
+  color: #3f4652;
 }

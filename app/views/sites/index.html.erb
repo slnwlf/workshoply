@@ -4,44 +4,43 @@
 			<h1>Inspire Your Team</h1>
 			<h2>Book a game-changing onsite training session for your organization</h2>
 			<% if current_user %>
-				<a class="btn btn-primary btn-lg" id="btn-signup" href="/workshops">SEARCH TALKS</a>
-					<% else %>
-				<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
+			<a class="btn btn-primary btn-lg" id="btn-signup" href="/workshops">SEARCH TALKS</a>
+			<% else %>
+			<a class="btn btn-primary btn-lg" id="btn-signup" href="/signup">SIGN UP</a>
 			<% end %>
 		</div>
 	</section>
 	<!-- Search Bar -->
 	<%= render "search_bar" %>
-
 	<!-- Featured Talks -->
 	<h1 class="text-center">Featured Talks</h1>
 	<div class="workshop-container">
 		<div class="row">
 			<% @featured_workshops.each do |workshop| %>
-				<div class="col-sm-12 col-md-4 col-lg-4">
+			<div class="col-sm-12 col-md-4 col-lg-4">
 					<div class="thumbnail featured-workshop">
 						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img vertical-align" %>
 						<div class="featured-workshop-title-wrapper">
 							<h3><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h3>
 						</div>
-						<h4>
+							<h4>
 							Topic: <%= workshop.topic.name.titleize %>
 							<br>
-							Location: <%= workshop.location.titleize %>
-						</h4>
-						<div class="workshop-index-speaker clearfix">
-							<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
-							<span>
-								<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
-							</span>
-						</div>
-						<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %></p>
-						<div class="text-center view-btn-wrapper">
-							<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
-						</div>
+							</h4>
+							<div class="workshop-index-speaker clearfix">
+								<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
+								<span>
+									<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+								</span>
+							</div>
+							<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %></p>
+							<div class="text-center view-btn-wrapper">
+								<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
+							</div>
 					</div>
 				</div>
-			<% end %>
+<!-- 			</div>
+ -->			<% end %>
 		</div>
 	</div>
 	<!-- End Featured Workshops -->
@@ -50,5 +49,4 @@
 			<%= link_to "Contact Us", contact_path, class:"btn btn-primary", id: "btn-contact" %>
 		</div>
 	</div>
-
 </div>

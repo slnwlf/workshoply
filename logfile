@@ -1,0 +1,26 @@
+LOG:  database system was shut down at 2016-09-18 21:42:04 PDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "workshoply_development" does not exist
+ERROR:  database "workshoply_development" already exists
+STATEMENT:  CREATE DATABASE "workshoply_development" ENCODING = 'unicode'
+ERROR:  database "workshoply_test" already exists
+STATEMENT:  CREATE DATABASE "workshoply_test" ENCODING = 'unicode'
+FATAL:  database "sambrooks" does not exist
+FATAL:  database "sambrooks" does not exist
+FATAL:  database "sambrooks" does not exist
+FATAL:  database "sambrooks" does not exist
+FATAL:  database "sambrooks" does not exist
+ERROR:  database "workshoply_development" already exists
+STATEMENT:  CREATE DATABASE "workshoply_development" ENCODING = 'unicode'
+ERROR:  database "workshoply_test" already exists
+STATEMENT:  CREATE DATABASE "workshoply_test" ENCODING = 'unicode'
+ERROR:  database "workshoply_development" already exists
+STATEMENT:  CREATE DATABASE "workshoply_development" ENCODING = 'unicode'
+ERROR:  database "workshoply_test" already exists
+STATEMENT:  CREATE DATABASE "workshoply_test" ENCODING = 'unicode'
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

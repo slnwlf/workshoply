@@ -33,6 +33,7 @@ select#workshop_topic_id {
 }
 .workshop-img {
 	margin: 0 auto;
+	padding-top:25px;
 }
 .workshop-box.center-block {
 	position: relative;
@@ -73,8 +74,13 @@ span.h4-big {
 br.br-big {
 	font-size: 26px;
 }
+
+#workshop-description {
+	text-align:center;
+}
 #workshop-description p {
-	text-align: justify;
+	display: inline-block;
+	text-align:justify;
 }
 .speaker-bio {
 	text-align: justify;
@@ -111,3 +117,12 @@ br.br-big {
 hr.hr-medium {
 	width: 90%;
 }
+
+.formthumbnail {
+	margin-top: 20px;
+	h2 {
+		text-align: center;
+	}
+
+}
+

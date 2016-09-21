@@ -47,7 +47,7 @@ class WorkshopsController < ApplicationController
 			redirect_to workshop_path(@workshop)
 		else
 			flash[:error] = @workshop.errors.full_messages.join(", ")
-			redirect_to new_workshop_path
+			render :new
 		end
 
 	end
@@ -66,7 +66,7 @@ class WorkshopsController < ApplicationController
 				redirect_to workshop_path(@workshop)
 			else
 				flash[:notice] = @workshop.errors.full_messages.join(", ")
-				redirect_to edit_workshop_path(@workshop)
+				render :edit
 				
 			end
 		else

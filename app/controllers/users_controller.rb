@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 			redirect_to user_path(current_user)
 		else
 			flash[:error] = @user.errors.full_messages.join(", ")
-			redirect_to edit_user_path(current_user)
+			render :edit
 		end
 	end
 

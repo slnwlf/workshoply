@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 					redirect_to workshop_path(@workshop)
 				else
 					flash[:error] = @review.errors.full_messages.join(", ")
-					render new_workshop_review_path(@workshop)
+					render :new
 				end
 		else
 			flash[:error] = "You can't review your own talk."
@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
 				redirect_to workshop_path(@workshop)
 			else
 				flash[:error] = @review.errors.full_messages.join(", ")
-				redirect_to edit_workshop_review_path(@workshop, @review)
+				render :edit
 			end
 		else
 			flash[:error] = "You can only edit your own review."

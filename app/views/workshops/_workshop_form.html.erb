@@ -25,6 +25,27 @@
     <%= f.text_field :location, :class => "form-control location-input" %>
   </div>
   <div class="field">
+    <%= f.label :duration do %>
+      Duration
+    <% end %>
+    <br />
+    <%= f.text_area :duration, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :format do %>
+      Format
+    <% end %>
+    <br />
+    <%= f.text_area :format, :class => "form-control" %>
+  </div>
+    <div class="field">
+    <%= f.label :expected_outcomes do %>
+      Expected Outcomes
+    <% end %>
+    <br />
+    <%= f.text_area :expected_outcomes, :class => "form-control", rows: "5" %>
+  </div>
+  <div class="field">
     <%= f.label :image do %>
       Image <span class="optional-text">(optional):</span>
     <% end %>

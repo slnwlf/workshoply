@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921170822) do
+ActiveRecord::Schema.define(version: 20160921173026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,8 @@ ActiveRecord::Schema.define(version: 20160921170822) do
     t.datetime "image_updated_at"
     t.integer  "topic_id"
     t.string   "duration"
+    t.string   "format"
+    t.string   "expected_outcomes"
   end
 
   add_index "workshops", ["slug"], name: "index_workshops_on_slug", unique: true, using: :btree

@@ -14,7 +14,7 @@
 					Speaker: <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %><br>
 					Duration: <%= @workshop.duration %><br>
 					Format: <%= @workshop.format %><br>
-					Expected Outcomes: <%= @workshop.expected_outcomes %>
+					Expected Outcomes: <%= @workshop.expected_outcomes %><br>
 					Price: $ <%= @workshop.price %>
 			</h4>
 		<% if current_user == @workshop.user %>

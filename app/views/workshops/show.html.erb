@@ -15,6 +15,7 @@
 					Duration: <%= @workshop.duration %><br>
 					Format: <%= @workshop.format %><br>
 					Expected Outcomes: <%= @workshop.expected_outcomes %>
+					Price: $ <%= @workshop.price %>
 			</h4>
 		<% if current_user == @workshop.user %>
 			<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary" do %>

@@ -4,17 +4,20 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>You have a new reply: <%= @subject %></h1>
     <p>
-      You have received a new reply:
+      Sender: <%= raw @message.sender.full_name.titleize %>
     </p>
-    <blockquote>
-      <p>
-        <%= raw @message.body %>
-      </p>
-    </blockquote>
     <p>
-      Visit <%= link_to root_url, root_url %> and go to your inbox for more info.
+      Subject: <%= raw @message.subject %>
     </p>
+    <p>Message:</p>
+    <p>
+      <i><%= simple_format(raw @message.body) %></i>
+    </p>
+    <p>
+      Click here <%= link_to mailbox_inbox_url, mailbox_inbox_path %> to go to your Inbox on BigTalker.
+    </p>
+    <p>BigTalker Team</p>
+    <p>*** This is an automatically generated email, please do not reply ***</p>
   </body>
 </html>

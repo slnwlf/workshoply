@@ -7,7 +7,7 @@
 		</div>
 		<div class="col-md-8">
 			<h2><%= @user.full_name.titleize %></h2>
-			<h4>
+			<h4><%= link_to "Speaker Website", "http://#{@user.link_to_bio}", target: "_blank", rel: "nofollow" %><br>
 				Location: <%= @user.location.titleize %><br>
 				Member since: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %><br>
 			</h4><br>
@@ -24,7 +24,9 @@
 			</p>
 			<p>Bio: 
 				<% if @user.bio %>
-					<%= @user.bio %>
+					<%= @user.bio %><br>
+
+
 				<% else %>
 					<% if current_user %>
 						Required for posting workshop.

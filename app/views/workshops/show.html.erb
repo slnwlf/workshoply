@@ -28,8 +28,8 @@
 		<div class="row clearfix overall-rating-wrapper">
 			<div class="col-sm-7">
 				<div id="rating-box">
-					<div class="small-2 large-4 columns">
-						<h4><%= pluralize(@workshop.reviews.count, 'review') %> <%= @workshop.reviews.count == 0 ? ' - Be first to review.' : '' %></h4>
+					<div class="col-sm-10">
+						<h4><%= pluralize(@workshop.reviews.count, 'review') %> <%= @workshop.reviews.count == 0 ? ' - Be the first to review.' : '' %></h4>
 								<%= rating_for @workshop, "rating", disabled: true, readonly: true, id: "trunghuynh" %>
 								<br>
 								<% if current_user != @workshop.user %>

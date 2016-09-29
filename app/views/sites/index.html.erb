@@ -15,7 +15,7 @@
 	<div class="workshop-container">
 		<div class="row">
 			<% @featured_workshops.each do |workshop| %>
-				<div class="col-sm-12 col-md-4 col-lg-4">
+				<div class="col-sm-10 col-md-4 col-lg-4 ft-box">
 					<div class="thumbnail featured-workshop">
 						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img vertical-align" %>
 						<div class="featured-workshop-title-wrapper">
@@ -41,6 +41,12 @@
 		</div>
 	</div><hr>
 	<!-- End Featured Workshops -->
+<div id="one-true" class="group">
+  <div class="col"><h3>I am listed first in source order.</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>
+  <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
+  <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>
+</div>
+
 	<div class="contact-container">
 		<div class="text-center">
 			<%= link_to "Contact Us", contact_path, class:"btn btn-primary", id: "btn-contact" %>

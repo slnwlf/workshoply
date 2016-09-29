@@ -1,0 +1,8 @@
+
+<!-- pulled from line 7 of _search_bar.html.erb -->
+<div class="col-sm-4 search-location-wrapper">
+	<div class="form-group">
+		<p>Location:</p>
+		<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "titleize"), prompt: "Choose a city", class: "selectpicker form-group", hidden: true %>
+	</div>
+</div>

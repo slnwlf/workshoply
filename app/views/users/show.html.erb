@@ -5,13 +5,13 @@
 				<%= image_tag @user.avatar.url(:medium), class: "avatar-img", style: "max-width: 300px;" %>
 			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 user-info">
 			<h2><%= @user.full_name.titleize %></h2>
-			<h4><%= link_to "Speaker Website", "http://#{@user.link_to_bio}", target: "_blank", rel: "nofollow" %><br>
-				Location: <%= @user.location.titleize %><br>
-				Member since: <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %><br>
-			</h4><br>
-			<p>Organization:
+			<ul>
+				<li><h4><%= link_to "Speaker Website", "http://#{@user.link_to_bio}", target: "_blank", rel: "nofollow" %></h4></li>
+				<li><%= @user.location.titleize %></li>
+				<li>Member since <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></li>
+			<li><p>Organization:
 				<% if @user.organization %>
 					<%= @user.organization %>
 				<% else %>
@@ -21,12 +21,10 @@
 					User hasn't submitted an organization
 					<% end %>
 				<% end %>
-			</p>
-			<p>Bio: 
+			</p></li>
+			<li><p>Bio: 
 				<% if @user.bio %>
 					<%= @user.bio %><br>
-
-
 				<% else %>
 					<% if current_user %>
 						Required for posting workshop.
@@ -34,7 +32,7 @@
 						User hasn't added bio yet.
 					<% end %>
 				<% end %>
-			</p>
+			</p></li>
 			<div>
 				<% if !current_user or current_user != @user %>
 					<div class="col-md-9 center-block">

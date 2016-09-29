@@ -18,11 +18,11 @@
 					Price: $ <%= @workshop.price %>
 			</h4>
 		<% if current_user == @workshop.user %>
-			<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary" do %>
+			<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
 			<%= fa_icon "pencil-square-o " %>
 		<% end %>
-		<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure you want to delete your talk?"}, class: "btn btn-danger" do %>
-			<%= fa_icon "trash-o " %>
+		<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure you want to delete your talk?"}, class: "btn btn-danger btn-delete" do %>
+			  <%= fa_icon "trash-o" %>
 			<% end %>
 			<% end %> 
 		<div class="row clearfix overall-rating-wrapper">

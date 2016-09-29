@@ -14,12 +14,12 @@
         </div>
         <br>
         <div class="field">
-          <%= f.label :full_name %><br />
+          <%= f.label :full_name, "Full Name" %><br />
           <%= f.text_field :full_name, autofocus: true, :class => "form-control" %>
         </div>
         <div class="field">
           <%= f.label :email %><br />
-          <p class="small">An e-mail confirmation email will be sent if change email.</p>
+          <p class="small">A confirmation email will be sent if you change your email.</p>
           <%= f.email_field :email, :class => "form-control" %>
         </div>
         <div class="field">
@@ -31,15 +31,15 @@
           <%= f.text_field :location, :class => "form-control location-input" %>
         </div>
         <div class="field">
-          <%= f.label :bio, "Bio (100-1000 characters)" %><br />
+          <%= f.label :bio, "Bio (40-1000 characters)" %><br />
           <% if !@user.bio %>
            <p class="small">Required for posting a workshop.</p>
           <% end %>
-          <%= f.text_area :bio, :class => "form-control", :rows => "5" %>
+          <%= f.text_area :bio, :class => "form-control", :rows => "4" %>
         </div>
         <div class="field">
-          <%= f.label :link_to_bio, "Link to Bio" %><br />
-          <%= f.text_area :link_to_bio, :class => "form-control" %>
+          <%= f.label :link_to_bio, "Link to Bio (inser hyperlink)" %><br />
+          <%= f.text_field :link_to_bio, :class => "form-control", :placeholder => "e.g. www.google.com" %>
         </div>
         <br>
         <div class="actions">

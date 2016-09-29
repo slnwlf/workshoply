@@ -8,7 +8,9 @@
 		<div class="col-md-8 user-info">
 			<h2><%= @user.full_name.titleize %></h2>
 			<ul>
-				<li><h4><%= link_to "Speaker Website", "http://#{@user.link_to_bio}", target: "_blank", rel: "nofollow" %></h4></li>
+				<% if @user.link_to_bio %>
+				<li>Website: <%= link_to @user.link_to_bio, "http://#{@user.link_to_bio}", target: "_blank", rel: "nofollow" %></li>
+				<% end %>
 				<li><%= @user.location.titleize %></li>
 				<li>Member since <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></li>
 			<li><p>Organization:

@@ -78,7 +78,7 @@ class WorkshopsController < ApplicationController
 	def destroy
 		if current_user == @workshop.user
 			@workshop.destroy
-			flash[:notice] = "Your talk was successfully deleted."
+			flash[:notice] = "Your talk has been deleted."
 			redirect_to workshops_path
 		else
 			flash[:error] = "You can only delete your own talk."

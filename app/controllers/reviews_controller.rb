@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 				@review = @workshop.reviews.create(review_params)
 				if @review.save
 					current_user.reviews << @review
-					flash[:notice] = "Success! Your review has been posted."
+					flash[:notice] = "Your review has been posted."
 					redirect_to workshop_path(@workshop)
 				else
 					flash[:error] = @review.errors.full_messages.join(", ")
@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
 	def update
 		if current_user_reviewed? and current_user == @review.user
 			if @review.update_attributes(review_params)
-				flash[:notice] = "Successfully edited your review."
+				flash[:notice] = "Your review was successfully edited."
 				redirect_to workshop_path(@workshop)
 			else
 				flash[:error] = @review.errors.full_messages.join(", ")
@@ -64,7 +64,7 @@ class ReviewsController < ApplicationController
 			# clear user rating, update average rating score
 			clear_rating(current_user, "rating", @workshop)  #<<< see ReviewsHelper
 			@review.destroy
-			flash[:notice] = "Successfully deleted your review."
+			flash[:notice] = "Your review has been deleted."
 			redirect_to workshop_path(@workshop)
 		else
 			flash[:error] = "You can only delete your own review."

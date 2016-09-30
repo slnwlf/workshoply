@@ -12,9 +12,9 @@ class UsersController < ApplicationController
 	def update
 		if @user.update_attributes(user_params)
 			if also_change_email?
-				flash[:notice] = "Successfully update profile. You will receive an email to confirm your new email."
+				flash[:notice] = "Your profile was successfully updated. You will receive an email to confirm your new email."
 			else
-				flash[:notice] = "Successfully update profile."
+				flash[:notice] = "Your profile was successfully updated."
 			end
 			redirect_to user_path(current_user)
 		else
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-	  params.require(:user).permit(:full_name, :email, :avatar, :bio, :location, :organization)
+	  params.require(:user).permit(:full_name, :email, :avatar, :bio, :location, :organization, :link_to_bio)
 	end
 
 	def also_change_email?

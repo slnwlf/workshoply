@@ -1,8 +1,18 @@
 .search-section {
-	background-color: #e9e9e9;
+	background-color: #3f4652;
 }
+
+.btn-search {
+	margin-left: 10px;
+	width: 100px;
+}
+
 .search-bar-form {
   padding: 20px;
+}
+
+.search-location-wrapper .bootstrap-select button.btn.dropdown-toggle.btn-default, .search-topic-wrapper .bootstrap-select button.btn.dropdown-toggle.btn-default {
+
 }
 button#site-workshops-filter {
 	width: 100%;

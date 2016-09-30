@@ -13,7 +13,7 @@ class WorkshopsController < ApplicationController
 				# see show_workshops(query_params, msg, param, both=false) in private
 				show_workshops({topic_id: topic.id}, "with topic", params[:topic])
 			else
-				flash.now[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all workshops."
+				flash.now[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all talks."
 				@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
 			end
 		elsif params[:topic].blank? and !params[:location].blank?
@@ -43,7 +43,7 @@ class WorkshopsController < ApplicationController
 	def create
 		@workshop = current_user.workshops.create(workshop_params)
 		if @workshop.save
-			flash[:notice] = "Successfully create a workshop."
+			flash[:notice] = "Your talk was successfully created."
 			redirect_to workshop_path(@workshop)
 		else
 			flash[:error] = @workshop.errors.full_messages.join(", ")
@@ -54,7 +54,7 @@ class WorkshopsController < ApplicationController
 
 	def edit
 		unless current_user == @workshop.user
-			flash[:error] = "You can only edit your own posted workshop."
+			flash[:error] = "You can only edit your own posted talk."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -62,7 +62,7 @@ class WorkshopsController < ApplicationController
 	def update
 		if current_user == @workshop.user
 			if @workshop.update_attributes(workshop_params)
-				flash[:notice] = "Successfully edit the workshop."
+				flash[:notice] = "Your talk was successfully edited."
 				redirect_to workshop_path(@workshop)
 			else
 				flash[:notice] = @workshop.errors.full_messages.join(", ")
@@ -70,7 +70,7 @@ class WorkshopsController < ApplicationController
 				
 			end
 		else
-			flash[:error] = "You can only edit your own posted workshop."
+			flash[:error] = "You can only edit your own talk."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -78,10 +78,10 @@ class WorkshopsController < ApplicationController
 	def destroy
 		if current_user == @workshop.user
 			@workshop.destroy
-			flash[:notice] = "Successfully delete the workshop."
+			flash[:notice] = "Your talk has been deleted."
 			redirect_to workshops_path
 		else
-			flash[:error] = "You can only delete your own posted workshop."
+			flash[:error] = "You can only delete your own talk."
 			redirect_to workshop_path(@workshop)
 		end
 	end
@@ -115,9 +115,9 @@ class WorkshopsController < ApplicationController
 			@workshops = workshops
 		else
 			if both
-				flash.now[:error] = "No workshops with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all workshops"
+				flash.now[:error] = "No talks with topic '#{params[:topic].titleize}' in '#{params[:location].titleize}'. Showing all talks."
 			else
-				flash.now[:error] = "No workshops #{msg} '#{param.titleize}'. Showing all workshops."
+				flash.now[:error] = "No talks #{msg} '#{param.titleize}'. Showing all talks."
 			end
 			@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
 		end

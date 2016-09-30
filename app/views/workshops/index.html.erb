@@ -14,8 +14,6 @@
 					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
 					<h4>
 						Topic: <%= workshop.topic.name.titleize %>
-						<br>
-						Location: <%= workshop.location.titleize %>
 					</h4>
 					<div class="workshop-index-speaker clearfix">
 						<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>

@@ -10,12 +10,11 @@
 			<h2><%= @workshop.title.titleize %></h2>
 			<h4>
 				<span class="h4-big">Topic: <%= @workshop.topic.name.titleize %></span><br class="br-big">
-					Location: <%= @workshop.location.titleize %><br>
-					Speaker: <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %><br>
-					Duration: <%= @workshop.duration %><br>
-					Format: <%= @workshop.format %><br>
-					Expected Outcomes: <%= @workshop.expected_outcomes %><br>
-					Price: $ <%= @workshop.price %>
+					<strong>Speaker:</strong> <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %><br>
+					<strong>Duration:</strong> <%= @workshop.duration %><br>
+					<strong>Format:</strong> <%= @workshop.format %><br>
+					<strong>Expected Outcomes:</strong> <%= @workshop.expected_outcomes %><br>
+					<strong>Price:</strong> $ <%= @workshop.price %>
 			</h4>
 		<% if current_user == @workshop.user %>
 			<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>

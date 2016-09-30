@@ -5,52 +5,45 @@
   </div>
   <div class="field">
     <%= f.label :title do %>
-    	Title <span class="required-text">(required):</span>
+    	Title*:<span class="required-text"></span>
     <% end %>
     <br />
     <%= f.text_field :title, autofocus: true, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description do %>
-    	Description* (50 Character Min.) <span class="required-text"></span>
+    	Description* (50 Character Min.): <span class="required-text"></span>
     <% end %>
     <br />
     <%= f.text_area :description, :class => "form-control", rows: "5" %>
-  </div>
-  <div class="field">
-    <%= f.label :location do %>
-    	Location <span class="required-text">(required):</span>
-    <% end %>
-    <br />
-    <%= f.text_field :location, :class => "form-control location-input" %>
   </div>
   <div class="field">
     <%= f.label :duration do %>
       Duration
     <% end %>
     <br />
-    <%= f.text_area :duration, :class => "form-control" %>
+    <%= f.text_field :duration, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :format do %>
       Format
     <% end %>
     <br />
-    <%= f.text_area :format, :class => "form-control" %>
+    <%= f.text_field :format, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :expected_outcomes do %>
       Expected Outcomes
     <% end %>
     <br />
-    <%= f.text_area :expected_outcomes, :class => "form-control", rows: "5" %>
+    <%= f.text_field :expected_outcomes, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :price do %>
       Price
     <% end %>
     <br />
-    <%= f.text_area :price, :class => "form-control" %>
+    <%= f.text_field :price, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :image do %>

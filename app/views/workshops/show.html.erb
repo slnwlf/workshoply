@@ -10,7 +10,6 @@
 			<h2><%= @workshop.title.titleize %></h2>
 			<h4>
 				<span class="h4-big">Topic: <%= @workshop.topic.name.titleize %></span><br class="br-big">
-					Location: <%= @workshop.location.titleize %><br>
 					Speaker: <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %><br>
 					Duration: <%= @workshop.duration %><br>
 					Format: <%= @workshop.format %><br>

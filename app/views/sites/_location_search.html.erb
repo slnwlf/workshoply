@@ -6,3 +6,27 @@
 		<%= select_tag :location, options_from_collection_for_select(Workshop.all.group_by(&:location).keys, "to_s", "titleize"), prompt: "Choose a city", class: "selectpicker form-group", hidden: true %>
 	</div>
 </div>
+
+<!-- pulled from index method in workshop controller -->
+
+	def index
+		if params[:topic].blank? and params[:location].blank?
+			@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+		elsif !params[:topic].blank? and params[:location].blank?
+			topic = Topic.find_by(name: params[:topic].downcase)
+			if topic
+				# see show_workshops(query_params, msg, param, both=false) in private
+				show_workshops({topic_id: topic.id}, "with topic", params[:topic])
+			else
+				flash.now[:notice] = "No results match topic '#{params[:topic].titleize}'. Showing all talks."
+				@workshops = Workshop.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+			end
+		elsif params[:topic].blank? and !params[:location].blank?
+			show_workshops({location: params[:location].downcase}, "in", params[:location])
+		elsif !params[:topic].blank? and !params[:location].blank?
+			topic = Topic.find_by(name: params[:topic].downcase)
+			if topic 
+				show_workshops({location: params[:location].downcase, topic_id: topic.id}, nil, nil, true)
+			end
+		end
+	end

@@ -11,11 +11,10 @@ class Workshop < ActiveRecord::Base
 	has_many :reviews, dependent: :destroy
 
 	validates :topic_id, presence: true
-	validates :price, :numericality => { :greater_than_or_equal_to => 0 }
+	# validates :price, :numericality => { :greater_than_or_equal_to => 0 }
 	validates :title, presence: true
 	validates :description, presence: true
-	validates :location, presence: true, format: { with: /\A[a-zA-Z][a-zA-Z,\s]+[a-zA-Z], [a-zA-Z]{2}, [a-zA-Z][a-zA-Z,\s]+[a-zA-Z]\z/,
-    message: "example: San Diago, CA, United States" }
+
 
   has_attached_file :image, 
   	styles: { medium: "600x300>", thumb: "400x200>" },

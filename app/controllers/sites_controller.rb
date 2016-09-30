@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   def index
-  	@featured_workshops = [Workshop.find(1), Workshop.find(3), Workshop.find(5)]
+  	@featured_workshops = [Workshop.find(31), Workshop.find(27), Workshop.find(24)]
   end
 
   def about

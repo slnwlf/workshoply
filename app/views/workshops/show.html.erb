@@ -47,10 +47,10 @@
 	<div class="col-md-4 well">
 		<div class="span4">
 			<h3>About the Speaker</h3>
-				<%= image_tag(@workshop.user.avatar.url(:thumb), style: "height: 100px") %>
+				<%= image_tag(@workshop.user.avatar.url(:thumb), style: "height: 100px") %><br>
 			<h4>
-				<%= @workshop.user.full_name.titleize %><br>
-				<%= @workshop.user.location.titleize %>
+				<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %></h4>
+				<h4><%= @workshop.user.location.titleize %>
 			</h4>
 	<% if !current_user or current_user != @workshop.user %>
 		<div class="msg-btn-wrapper">

@@ -63,8 +63,6 @@
 					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
 					<h4>
 						Topic: <%= workshop.topic.name.titleize %>
-						<br>
-						Location: <%= workshop.location.titleize %>
 					</h4>
 					<p><%= simple_format(truncate(workshop.description, length: 200, seprator: ' ')) %></p>
 					<% if !current_user or current_user != @user %>

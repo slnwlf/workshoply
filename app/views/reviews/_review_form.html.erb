@@ -5,8 +5,6 @@
 		</div>
 		<h4>
 			Topic: <%= @workshop.topic.name.titleize %>
-			<br>
-			Location: <%= @workshop.location.titleize %>
 		</h4>
 		<div class="workshop-index-speaker clearfix">
 			<%= link_to image_tag(@workshop.user.avatar.url(:thumb)), user_path(@workshop.user), class: "tiny-thumb" %>

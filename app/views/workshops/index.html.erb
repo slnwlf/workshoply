@@ -1,41 +1,38 @@
 <div class="container-fluid">
 	<%= render "sites/search_bar" %>
 	<br>
-	<br>	
 	<div class="container">
 		<div class="row">
-
-				<% @workshops.each do |workshop| %>
-		<div class="col-md-12 thumbnail">
+			<% @workshops.each do |workshop| %>
+			<div class="col-md-12 thumbnail">
 				<div class="col-md-4">
 					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				</div>
 				<div class="col-md-8">
-					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
-					<h4>
-						Topic: <%= workshop.topic.name.titleize %>
-					</h4>
+					<h2><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h2>
+					<p>
+						Category: <strong><%= workshop.topic.name.titleize %></strong>
+					</p>
+					<div>
+						<p><%= truncate(workshop.description, length: 340, separator: ' ') %> <%= link_to "Read More", workshop_path(workshop)%></p>
+					</div>
 					<div class="workshop-index-speaker clearfix">
-						<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
 						<span>
-							<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+							<p>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></p>
 						</span>
 					</div>
-					<p><%= truncate(workshop.description, length: 240, separator: ' ') %> <%= link_to "Read More", workshop_path(workshop)%></p>
 					<div class="text-center">
 						<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
 					</div>
 				</div>
-				</div>
-				<% end %>
 			</div>
+			<% end %>
 		</div>
 	</div>
-
-	<div class="text-center pagination-wrapper">
-		<%= will_paginate @workshops, class: "pagination-ui" %>
-	</div>
+</div>
+<div class="text-center pagination-wrapper">
+	<%= will_paginate @workshops, class: "pagination-ui" %>
 </div>
 <%= javascript_tag do %>
-	var useJsonFromUrl = true;
+var useJsonFromUrl = true;
 <% end %>

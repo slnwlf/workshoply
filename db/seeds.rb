@@ -43,6 +43,14 @@ topics = Topic.create([
 	{name: "creativity techniques"}
 ])
 
+
+formats = Format.create([
+	{name: "Lecture"},
+	{name: "Seminar"},
+	{name: "Workshop"}
+])
+
+
 # DO NOT DELETE THIS - TRUNG
 titles = ["Diam Torquatos Assueverit", "Tibique Vivendum Prodesset Id Sea", "legere corrumpit vis ne", "Legere Corrumpit Vis Ne", "Vivendum Prodess etgere Corrumpit", "Vivendum Prodess Etgere Corrumpit"]
 

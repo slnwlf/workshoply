@@ -8,9 +8,11 @@ class Workshop < ActiveRecord::Base
   friendly_id :title, use: :slugged
 	belongs_to :user
 	belongs_to :topic
+	belongs_to :format
 	has_many :reviews, dependent: :destroy
 
 	validates :topic_id, presence: true
+	validates :format_id, presence: true
 	validates :price, :numericality => { :greater_than_or_equal_to => 0 }
 	validates :title, presence: true
 	validates :description, presence: true

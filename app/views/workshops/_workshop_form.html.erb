@@ -24,13 +24,12 @@
     <br />
     <%= f.text_field :duration, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :format do %>
-      Format
-    <% end %>
-    <br />
-    <%= f.text_field :format, :class => "form-control" %>
-  </div>
+    <div class="field">
+      <%= f.label :format_id  %>
+      <%= f.collection_select :format_id, Format.all, :id, :titleize_name, {prompt: "Choose a Format"}, class: "form-control dropdown-toggle" %>
+   </div>
+
+
   <div class="field">
     <%= f.label :expected_outcomes do %>
       Expected Outcomes

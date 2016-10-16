@@ -29,6 +29,7 @@ users = User.create([
 	}
 ])
 
+Topic.destroy_all
 topics = Topic.create([
 	{name: "teamwork"},
 	{name: "leadership skills"},
@@ -40,16 +41,35 @@ topics = Topic.create([
 	{name: "presentation skills"},
 	{name: "cross-cultural knowledge"},
 	{name: "ethics"},
-	{name: "creativity techniques"}
+	{name: "creativity techniques"},
+	{name: "other"}
 ])
 
+Format.destroy_all
 
 formats = Format.create([
-	{name: "Lecture"},
+	{name: "Lecture with Q&A"},
 	{name: "Seminar"},
-	{name: "Workshop"}
+	{name: "Hands-on Workshop"}
 ])
 
+Price.destroy_all
+prices= Price.create([
+	{name: "<$500"},
+	{name: "$1000+"},
+	{name: "$5000+"},
+	{name: "Contact us for a quote"}
+])
+
+# durations= Duration.create([
+# 	{name: "1 hour"},
+# 	{name: "2 hours"},
+# 	{name: "Half day"},
+# 	{name: "Full day"},
+# 	{name: "2 Days"},
+# 	{name: "3 Days"},
+# 	{name: "4 Days"}
+# ])
 
 # DO NOT DELETE THIS - TRUNG
 titles = ["Diam Torquatos Assueverit", "Tibique Vivendum Prodesset Id Sea", "legere corrumpit vis ne", "Legere Corrumpit Vis Ne", "Vivendum Prodess etgere Corrumpit", "Vivendum Prodess Etgere Corrumpit"]
@@ -60,7 +80,6 @@ description = 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem a
 	Workshop.create({
 		title: titles[rand(1..6) - 1],
 		description: description,
-		location: User.find(rand(1..3)).location,
 		user_id: rand(1..3),
 		topic_id: rand(1..11),
 	})

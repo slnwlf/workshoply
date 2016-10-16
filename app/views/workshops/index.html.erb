@@ -11,7 +11,7 @@
 				<div class="col-md-8">
 					<h2><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h2>
 					<p>
-						Category: <strong><%= workshop.topic.name.titleize %></strong>
+						Category: <strong><%= workshop.topic.name.titleize if workshop.topic %></strong>
 					</p>
 					<div>
 						<p><%= truncate(workshop.description, length: 340, separator: ' ') %> <%= link_to "Read More", workshop_path(workshop)%></p>

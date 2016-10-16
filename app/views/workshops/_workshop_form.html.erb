@@ -28,8 +28,6 @@
       <%= f.label :format_id  %>
       <%= f.collection_select :format_id, Format.all, :id, :titleize_name, {prompt: "Choose a Format"}, class: "form-control dropdown-toggle" %>
    </div>
-
-
   <div class="field">
     <%= f.label :expected_outcomes do %>
       Expected Outcomes
@@ -38,12 +36,9 @@
     <%= f.text_field :expected_outcomes, :class => "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :price do %>
-      Price
-    <% end %>
-    <br />
-    <%= f.text_field :price, :class => "form-control" %>
-  </div>
+      <%= f.label :price_id  %>
+      <%= f.collection_select :price_id, Price.all, :id, :titleize_name, {prompt: "Choose a Price"}, class: "form-control dropdown-toggle" %>
+   </div>
   <div class="field">
     <%= f.label :image do %>
       Image <span class="optional-text">(optional):</span>

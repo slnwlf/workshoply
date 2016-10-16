@@ -29,8 +29,8 @@ users = User.create([
 	}
 ])
 
-Topic.destroy_all
-topics = Topic.create([
+
+topics = [
 	{name: "teamwork"},
 	{name: "leadership skills"},
 	{name: "communication skills"},
@@ -43,33 +43,49 @@ topics = Topic.create([
 	{name: "ethics"},
 	{name: "creativity techniques"},
 	{name: "other"}
-])
+]
 
-Format.destroy_all
+topics.each do |topic| 
+	Topic.find_or_create_by(topic)
+end
 
-formats = Format.create([
+
+formats = [
 	{name: "Lecture with Q&A"},
 	{name: "Seminar"},
 	{name: "Hands-on Workshop"}
-])
+]
 
-Price.destroy_all
-prices= Price.create([
+formats.each do |format|
+	Format.find_or_create_by(format)
+end
+
+
+prices = [
 	{name: "<$500"},
 	{name: "$1000+"},
 	{name: "$5000+"},
 	{name: "Contact us for a quote"}
-])
+]
 
-# durations= Duration.create([
-# 	{name: "1 hour"},
-# 	{name: "2 hours"},
-# 	{name: "Half day"},
-# 	{name: "Full day"},
-# 	{name: "2 Days"},
-# 	{name: "3 Days"},
-# 	{name: "4 Days"}
-# ])
+prices.each do |price|
+	Price.find_or_create_by(price)
+end
+
+
+durations = [
+	{name: "1 hour"},
+	{name: "2 hours"},
+	{name: "Half day"},
+	{name: "Full day"},
+	{name: "2 Days"},
+	{name: "3 Days"},
+	{name: "4 Days"}
+]
+
+durations.each do |duration|
+	Duration.find_or_create_by(duration)
+end
 
 # DO NOT DELETE THIS - TRUNG
 titles = ["Diam Torquatos Assueverit", "Tibique Vivendum Prodesset Id Sea", "legere corrumpit vis ne", "Legere Corrumpit Vis Ne", "Vivendum Prodess etgere Corrumpit", "Vivendum Prodess Etgere Corrumpit"]

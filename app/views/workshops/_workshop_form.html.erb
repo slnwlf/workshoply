@@ -17,13 +17,10 @@
     <br />
     <%= f.text_area :description, :class => "form-control", rows: "5" %>
   </div>
-  <div class="field">
-    <%= f.label :duration do %>
-      Duration
-    <% end %>
-    <br />
-    <%= f.text_field :duration, :class => "form-control" %>
-  </div>
+    <div class="field">
+      <%= f.label :duration_id  %>
+      <%= f.collection_select :duration_id, Duration.all, :id, :titleize_name, {prompt: "Choose a Duration"}, class: "form-control dropdown-toggle" %>
+   </div>
     <div class="field">
       <%= f.label :format_id  %>
       <%= f.collection_select :format_id, Format.all, :id, :titleize_name, {prompt: "Choose a Format"}, class: "form-control dropdown-toggle" %>

@@ -98,12 +98,6 @@ ActiveRecord::Schema.define(version: 20161016220035) do
     t.datetime "updated_at"
   end
 
-  create_table "prices", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-  end
-
   create_table "rates", force: :cascade do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
@@ -194,7 +188,6 @@ ActiveRecord::Schema.define(version: 20161016220035) do
     t.string   "expected_outcomes"
     t.integer  "price"
     t.integer  "format_id"
-    t.integer  "price_id"
     t.integer  "duration_id"
   end
 

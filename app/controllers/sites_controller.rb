@@ -1,6 +1,10 @@
 class SitesController < ApplicationController
   def index
-  	@featured_workshops = [Workshop.find(31), Workshop.find(27), Workshop.find(24)]
+  	if Rails.env.production?
+	  	@featured_workshops = [Workshop.find(31), Workshop.find(27), Workshop.find(24)]
+	  else
+	  	@featured_workshops = Workshop.order("RANDOM()").limit(3)
+	  end
   end
 
   def about

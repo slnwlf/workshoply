@@ -4,15 +4,13 @@
     <%= f.collection_select :topic_id, Topic.all, :id, :titleize_name, {prompt: "Choose a topic"}, class: "form-control dropdown-toggle" %>
   </div>
   <div class="field">
-    <%= f.label :title do %>
-    	Title*:<span class="required-text"></span>
-    <% end %>
+    <%= f.label :title %>
     <br />
     <%= f.text_field :title, autofocus: true, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description do %>
-    	Description* (50 Character Min.): <span class="required-text"></span>
+    	Description (50 Character Min.): 
     <% end %>
     <br />
     <%= f.text_area :description, :class => "form-control", rows: "5" %>
@@ -26,16 +24,15 @@
       <%= f.collection_select :format_id, Format.all, :id, :titleize_name, {prompt: "Choose a Format"}, class: "form-control dropdown-toggle" %>
    </div>
   <div class="field">
-    <%= f.label :expected_outcomes do %>
-      Expected Outcomes
-    <% end %>
-    <br />
+    <%= f.label :expected_outcomes %>
+    <br>
     <%= f.text_field :expected_outcomes, :class => "form-control" %>
   </div>
   <div class="field">
-      <%= f.label :price_id  %>
-      <%= f.collection_select :price_id, Price.all, :id, :titleize_name, {prompt: "Choose a Price"}, class: "form-control dropdown-toggle" %>
-   </div>
+    <%= f.label :price  %>
+    <br>
+    <%= f.text_field :price, :class => "form-control" %>
+ </div>
   <div class="field">
     <%= f.label :image do %>
       Image <span class="optional-text">(optional):</span>

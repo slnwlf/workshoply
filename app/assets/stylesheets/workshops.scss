@@ -125,6 +125,15 @@ hr.hr-medium {
 	}
 
 }
+.required-label {
+	color: #d04108;
+}
+
+.new_workshop, .edit_workshop {
+	label {
+		color: #656565;
+	}
+}
 
 // .btn-edit, .btn-delete {
 // 	width: 10px;

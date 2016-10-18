@@ -12,12 +12,14 @@ class Workshop < ActiveRecord::Base
 	belongs_to :duration
 	has_many :reviews, dependent: :destroy
 
-	# validates :topic_id, presence: true
-	# validates :format_id, presence: true
-	# validates :duration_id, presence: true
-	# validates :price, :numericality => { :greater_than_or_equal_to => 0 }
-	# validates :title, presence: true
-	# validates :description, presence: true
+	validates :topic_id, presence: true
+	validates :title, presence: true
+	validates :description, presence: true
+	validates :duration_id, presence: true
+	validates :format_id, presence: true
+	validates :expected_outcomes, presence: true
+	validates :price, :numericality => { :greater_than_or_equal_to => 1 }
+	
 
 
   has_attached_file :image, 

@@ -1,35 +1,47 @@
 <%= form_for @workshop, html: { multipart: true } do |f| %>
   <div class="field">
-    <%= f.label :topic_id  %>
+    <%= f.label :topic_id do %>
+      Topic<span class="required-label">*</span>
+    <% end %>
     <%= f.collection_select :topic_id, Topic.all, :id, :titleize_name, {prompt: "Choose a topic"}, class: "form-control dropdown-toggle" %>
   </div>
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :title do %>
+      Title<span class="required-label">*</span>
+    <% end %>
     <br />
     <%= f.text_field :title, autofocus: true, :class => "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description do %>
-    	Description (50 Character Min.): 
+    	Description (50 Character Min.)<span class="required-label">*</span>
     <% end %>
     <br />
     <%= f.text_area :description, :class => "form-control", rows: "5" %>
   </div>
     <div class="field">
-      <%= f.label :duration_id  %>
+      <%= f.label :duration_id do %>
+        Duration<span class="required-label">*</span>
+      <% end %>
       <%= f.collection_select :duration_id, Duration.all, :id, :titleize_name, {prompt: "Choose a Duration"}, class: "form-control dropdown-toggle" %>
    </div>
     <div class="field">
-      <%= f.label :format_id  %>
+      <%= f.label :format_id do %>
+        Format<span class="required-label">*</span>
+      <% end %>
       <%= f.collection_select :format_id, Format.all, :id, :titleize_name, {prompt: "Choose a Format"}, class: "form-control dropdown-toggle" %>
    </div>
   <div class="field">
-    <%= f.label :expected_outcomes %>
+    <%= f.label :expected_outcomes do %>
+      Expected Outcomes<span class="required-label">*</span>
+    <% end %>
     <br>
     <%= f.text_field :expected_outcomes, :class => "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :price  %>
+    <%= f.label :price do %>
+      Price<span class="required-label">*</span>
+    <% end %>
     <br>
     <%= f.text_field :price, :class => "form-control" %>
  </div>
@@ -40,8 +52,11 @@
     <br />
     <%= f.file_field :image, :class => "form-control" %>
   </div>
+  <div class="note">
+    <br>
+    <p><span class="required-label">*</span> required field</p>
+  </div>
   <div class="actions text-center">
-  	<br>
-    <%= f.submit "Create", :class => "btn btn-primary" %>
+    <%= f.submit "#{params[:action] == "edit" ? "Edit" : "Create"}", :class => "btn btn-primary", style: "    width: 150px;" %>
   </div>
 <% end %>

@@ -93,7 +93,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def workshop_params
-		params.require(:workshop).permit(:title, :description, :user_id, :slug, :image, :topic_id, :duration, :price, :format, :expected_outcomes)
+		params.require(:workshop).permit(:title, :description, :user_id, :image, :price, :topic_id, :format_id, :duration_id, :expected_outcomes)
 	end
 
 	def show_workshops(query_params, msg, param, both=false)

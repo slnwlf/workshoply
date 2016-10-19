@@ -5,12 +5,12 @@
 				<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				<h2><%= @workshop.title.titleize %></h2>
 				<h4>
-				<span class="h4-big">Topic: <%= @workshop.topic.name.titleize %></span><br class="br-big">
+				<span class="h4-big">Topic: <%= @workshop.topic.name.titleize if @workshop.topic %></span><br class="br-big">
 				<strong>Speaker:</strong> <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %><br>
-				<strong>Duration:</strong> <%= @workshop.duration %><br>
-				<strong>Format:</strong> <%= @workshop.format %><br>
+				<strong>Duration:</strong> <%= @workshop.duration.name.titleize if @workshop.duration %><br>
+				<strong>Format:</strong> <%= @workshop.format.name.titleize if @workshop.format %><br>
 				<strong>Expected Outcomes:</strong> <%= @workshop.expected_outcomes %><br>
-				<strong>Price:</strong> $ <%= @workshop.price %>
+				<strong>Price:</strong> <%= number_to_currency(@workshop.price, precision: 0) %><br>
 				</h4>
 				<% if current_user == @workshop.user %>
 				<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>

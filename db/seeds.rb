@@ -1,4 +1,3 @@
-# DO NOT DELETE THIS - TRUNG
 users = User.create([
 	{
 		full_name: 'Sam Brooks', 
@@ -29,7 +28,8 @@ users = User.create([
 	}
 ])
 
-topics = Topic.create([
+
+topics = [
 	{name: "teamwork"},
 	{name: "leadership skills"},
 	{name: "communication skills"},
@@ -40,20 +40,52 @@ topics = Topic.create([
 	{name: "presentation skills"},
 	{name: "cross-cultural knowledge"},
 	{name: "ethics"},
-	{name: "creativity techniques"}
-])
+	{name: "creativity techniques"},
+	{name: "other"}
+]
 
-# DO NOT DELETE THIS - TRUNG
+topics.each do |topic| 
+	Topic.find_or_create_by(topic)
+end
+
+
+formats = [
+	{name: "Lecture with Q&A"},
+	{name: "Seminar"},
+	{name: "Hands-on Workshop"}
+]
+
+formats.each do |format|
+	Format.find_or_create_by(format)
+end
+
+durations = [
+	{name: "1 hour"},
+	{name: "2 hours"},
+	{name: "Half day"},
+	{name: "Full day"},
+	{name: "2 Days"},
+	{name: "3 Days"},
+	{name: "4 Days"}
+]
+
+durations.each do |duration|
+	Duration.find_or_create_by(duration)
+end
+
 titles = ["Diam Torquatos Assueverit", "Tibique Vivendum Prodesset Id Sea", "legere corrumpit vis ne", "Legere Corrumpit Vis Ne", "Vivendum Prodess etgere Corrumpit", "Vivendum Prodess Etgere Corrumpit"]
 
 description = 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet, consectetur, adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur'
 
 20.times do |x|
 	Workshop.create({
+		topic_id: rand(1..11),
 		title: titles[rand(1..6) - 1],
 		description: description,
-		location: User.find(rand(1..3)).location,
 		user_id: rand(1..3),
-		topic_id: rand(1..11),
+		duration_id: rand(1..7),
+		format_id: rand(1..3),
+		price: rand(1..20) * 100,
+		expected_outcomes: "Voluptatem accusantium doloremque laudant"
 	})
 end

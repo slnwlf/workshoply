@@ -22,7 +22,7 @@
 							<h3><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h3>
 						</div>
 							<h4>
-							Topic: <%= workshop.topic.name.titleize %>
+							Topic: <%= workshop.topic.name.titleize if workshop.topic %>
 							<br>
 							</h4>
 							<div class="workshop-index-speaker clearfix">

@@ -1,22 +1,21 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "http://www.bigtalker.io"
 
+SitemapGenerator::Sitemap.public_path = 'tmp/sitemaps/'
+
 SitemapGenerator::Sitemap.create do
 
-  add '/about', :changefreq => 'weekly'
+
   add '/workshops', :changefreq => 'daily'
-
-  #Add all talks
+    #Add all talks
   Workshop.find_each do |workshop|
-    add workshop_path(workshop), :lastmod => article.updated_at
+    add workshop_path(workshop), :lastmod => workshop.updated_at, :changefreq => 'daily'
   end
-
+  add '/about'
   add '/workshops/new'
-  add '/contact', :changefreq => 'weekly'
-  add '/signup', :changefreq => 'weekly'
+  add '/contact'
+  add '/signup'
   add '/signin', priority: 0.0
-
-
 
   # Put links creation logic here.
   #

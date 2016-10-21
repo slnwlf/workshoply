@@ -5,17 +5,18 @@ SitemapGenerator::Sitemap.public_path = 'tmp/sitemaps/'
 
 SitemapGenerator::Sitemap.create do
 
-
   add '/workshops', :changefreq => 'daily'
     #Add all talks
   Workshop.find_each do |workshop|
-    add workshop_path(workshop), :lastmod => workshop.updated_at, :changefreq => 'daily'
+    add workshop_path(workshop.slug), :lastmod => workshop.updated_at, 
+    :changefreq => 'daily'
   end
   add '/about'
   add '/workshops/new'
   add '/contact'
   add '/signup'
   add '/signin', priority: 0.0
+end
 
   # Put links creation logic here.
   #
@@ -39,4 +40,3 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
-end

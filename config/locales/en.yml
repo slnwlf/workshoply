@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
   mailboxer:
     message_mailer:
-      subject_new: "You have a new message from %{sender}"
-      subject_reply: "You have a new reply from %{sender}"
+      subject_new: "You have a new message from %{sender} via BigTalker"
+      subject_reply: "You have a new reply from %{sender} via BigTalker"
     notification_mailer:
-      subject: "You have new notification: %{subject}"
+      subject: "You have new notification on BigTalker: %{subject}"

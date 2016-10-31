@@ -1,7 +1,24 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.example.com"
+SitemapGenerator::Sitemap.default_host = "http://www.bigtalker.io"
+
+# SitemapGenerator.create_index = true
+
+SitemapGenerator::Sitemap.public_path = 'tmp/sitemaps/'
 
 SitemapGenerator::Sitemap.create do
+
+  add '/workshops', :changefreq => 'daily'
+  #add all talks
+  Workshop.find_each do |workshop|
+    add workshop_path(workshop.slug), :lastmod => workshop.updated_at,
+    :changefreq => 'daily'
+  end
+  add '/about'
+  add '/workshops/new'
+  add '/contact'
+  add '/signup'
+  add '/signin', priority: 0.0
+end
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
@@ -24,4 +41,4 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
-end
+

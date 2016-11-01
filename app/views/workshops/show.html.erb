@@ -49,7 +49,7 @@
 				</h4>
 				<% if !current_user or current_user != @workshop.user %>
 				<div class="msg-btn-wrapper">
-					<%= link_to "MESSAGE", new_conversation_path(workshop: @workshop), class: "btn btn-primary msg-btn" %>
+					<%= link_to "REQUEST TO BOOK", new_conversation_path(workshop: @workshop), class: "btn btn-primary msg-btn" %>
 				</div>
 				<% end %>
 				<p class="speaker-bio"><%= simple_format(@workshop.user.bio) %></p>

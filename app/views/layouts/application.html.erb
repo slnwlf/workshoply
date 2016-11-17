@@ -36,9 +36,13 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "About", about_path, class: "#{params[:action] == 'about' ? 'btn btn-default' : ''}" %></li>
+            <li><a class="dropdown-toggle <%= params[:controller] == "users" and params[:action] == "show" and current_user.slug == params[:id] ? 'btn btn-default' : '' %>" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "About", about_path, class: "#{params[:action] == 'about' ? 'btn btn-default' : ''}" %></li>
+              <li><%= link_to "Contact", contact_path, class: "#{params[:action] == 'contact' ? 'btn btn-default' : ''}" %></li>
+              <li><a href="https://blog.bigtalker.io/">Blog</a></li>
+            </ul>
             <li><%= link_to "Talks", workshops_path, class: "#{params[:controller] == "workshops" and params[:action] == "index" ? 'btn btn-default' : ''}" %></li>
-            <li><%= link_to "Contact", contact_path, class: "#{params[:action] == 'contact' ? 'btn btn-default' : ''}" %></li>
             <!--  </ul> -->
             <!-- <ul class="nav navbar-nav navbar-right"> -->
             <% if current_user %>
@@ -106,7 +110,7 @@
   <footer class="text-center">
     <li class="footer-nav"><%= link_to "About Big Talker", about_path %></li>
     <li class="footer-nav"><a href ="/">Copyright 2016</a></li>
-    <li class="footer-nav"><a href ="/">Terms and Conditions</a></li>
+    <li class="footer-nav"><a href ="https://blog.bigtalker.io/">Blog</a></li>
     <li class="footer-nav"><a href ="http://www.twitter.com/bigtalker_io" target="_blank"><%= fa_icon "twitter 2x" %></a></li>
   </footer>
   <!-- rails js files -->

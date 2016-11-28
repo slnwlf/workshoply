@@ -43,6 +43,32 @@
 						    <%= f.label :subject %><br>
 						    <%= f.text_field :subject, required: true, class: "form-control" %>
 						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="field form-group">
+						    <%= f.label 'budget (optional)' %><br>
+						    <%= f.text_field :content, class: "form-control" %>
+						  </div>
+						</div>
+						<div class="col-sm-6">
+							<div class="field form-group">
+						    <%= f.label 'duration (optional)' %><br>
+						    <%= f.text_field :content, class: "form-control" %>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+						 	<div class="field form-group">
+						    <%= f.label 'goal of requested talk (optional)' %><br>
+						    <%= f.text_field :content, class: "form-control" %>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
 							<div class="field form-group">
 						    <%= f.label :message %><br>
 						    <%= f.text_area :content, rows: "7", required: true, class: "form-control" %>

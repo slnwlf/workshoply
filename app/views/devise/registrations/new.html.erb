@@ -23,7 +23,7 @@
       <div class="field">
           <%= f.label :bio, "Bio (40-1000 characters)" %><br />
 
-           <p class="small">Required for posting a workshop.</p>
+           <p class="small">Recommended if posting a talk.</p>
 
           <%= f.text_area :bio, :class => "form-control", :rows => "4" %>
       </div>
@@ -43,7 +43,7 @@
           <% thumb_style = @user.avatar_file_name ? '' : 'height: 100px;' %>
           <%= image_tag @user.avatar.url(:thumb), class: "thumb-avatar", style: thumb_style %>
           <div class="avatar-upload">
-            <%= f.label :avatar, "Upload Image", class: "btn btn-default change-avatar-btn" %>
+            <%= f.label :avatar, "Upload Profile Image", class: "btn btn-default change-avatar-btn" %>
             <%= f.file_field :avatar %>
             <p class="small">Image size less than 1 Mb.</p>
           </div>

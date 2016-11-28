@@ -21,21 +21,40 @@
         <%= f.text_field :location, :class => "form-control location-input" %>
       </div>
       <div class="field">
-        <%= f.label :password, "Password* (Min. 8 characters)" %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
+          <%= f.label :bio, "Bio (40-1000 characters)" %><br />
+
+           <p class="small">Recommended if posting a talk.</p>
+
+          <%= f.text_area :bio, :class => "form-control", :rows => "4" %>
+      </div>
+      <div class="field">
+          <%= f.label :link_to_bio, "Link to Bio (insert hyperlink)" %><br />
+          <%= f.text_field :link_to_bio, :class => "form-control", :placeholder => "e.g. www.google.com" %>
+      </div>
+      <div class="field">
+        <%= f.label :password, "Password* (Min. 8 characters)" %><br />
         <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
       </div>
       <div class="field">
         <%= f.label :password_confirmation, "Confirm Password*" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %><br>
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %><br />
       </div>
-      * required field
-      <br>
+      <div class="avatar-upload-container clearfix">
+          <% thumb_style = @user.avatar_file_name ? '' : 'height: 100px;' %>
+          <%= image_tag @user.avatar.url(:thumb), class: "thumb-avatar", style: thumb_style %>
+          <div class="avatar-upload">
+            <%= f.label :avatar, "Upload Profile Image", class: "btn btn-default change-avatar-btn" %>
+            <%= f.file_field :avatar %>
+            <p class="small">Image size less than 1 Mb.</p>
+          </div>
+      </div>
+      <br />
       <div class="actions text-center">
         <%= f.submit "Sign up", :class => "btn btn-primary" %>
       </div>
+      <br />
+      * required field
+      <br />
       <% end %>
       <%= render "devise/shared/links" %>
     </div>

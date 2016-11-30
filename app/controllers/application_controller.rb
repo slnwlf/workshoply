@@ -46,9 +46,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def authenticate_user!
+  # http://stackoverflow.com/questions/16364626/rails-3-2-13-devise-2-2-3-method-authenticate-scope-throws-error-wrong-nu#answer-16364926
+  def authenticate_user!(options={})
     if user_signed_in?
-      super
+      super(options)
     else
       redirect_to login_path, :notice => 'Sign in to continue.'
     end

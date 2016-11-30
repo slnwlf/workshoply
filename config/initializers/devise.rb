@@ -251,6 +251,7 @@ Devise.setup do |config|
   config.omniauth :facebook,
       ENV["FACEBOOK_APP"],
       ENV["FACEBOOK_SECRET"],
+      callback_url: ENV["FACEBOOK_CALLBACK_URL"],
       scope: 'email',
       info_fields: 'email, name'
 

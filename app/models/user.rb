@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable
+         :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 
   validates :full_name, presence: true
   validates :location, presence: true, format: { with: /\A[a-zA-Z][a-zA-Z,\s]+[a-zA-Z], [a-zA-Z]{2}, [a-zA-Z][a-zA-Z,\s]+[a-zA-Z]\z/,
@@ -33,6 +33,27 @@ class User < ActiveRecord::Base
 
   def mailboxer_email(object)
     return email
+  end
+
+
+  # facebook
+  def self.from_omniauth(auth)
+   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+     user.email = auth.info.email
+     user.password = Devise.friendly_token[0,20]
+     user.full_name = auth.info.name
+     user.confirmed_at = Time.zone.now
+     user.skip_confirmation!
+   end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+        user.full_name = data["name"] if user.full_name.blank?
+      end
+    end
   end
   
 end

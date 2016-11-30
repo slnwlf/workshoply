@@ -1,3 +1,11 @@
+
+<%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary' do %>
+        <p>Facebook</p>
+      <% end %>
+    <% end -%>
+  <% end -%>
 <div class="container" style="margin-top: 20px">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 well">

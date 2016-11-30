@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   root to: 'sites#index'
 
   # devise
-  devise_for :users, skip: [:session, :registration], :controllers => {confirmations: "confirmations", passwords: "passwords"}
+  devise_for :users, skip: [:session, :registration], 
+             :controllers => {
+              confirmations: "confirmations", 
+              passwords: "passwords",
+              omniauth_callbacks: "users/omniauth_callbacks"
+            }
   devise_scope :user do
     get "/users/cancel", to: "devise/registrations#cancel", as: "cancel_user_registration"
     post "/users", to: "registrations#create", as: "user_registration"

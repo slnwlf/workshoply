@@ -21,18 +21,18 @@
 
 	<div class="row contact-form-wrap zero-margin">
 		<div class="col-md-6 col-md-offset-3">
-			<h3 class="text-center" style="color:#fff">Send Us a Message</h3>
+			<h3 class="text-center" style="color:#fff">Request for speaker</h3>
 				<%= form_for @message, :html => { :style =>  'color:#fff' } do |f| %>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="field form-group">
-						    <%= f.label :name %><br>
+						    <%= f.label :name %><span class="required-label">*</span><br>
 						    <%= f.text_field :name, autofocus: true, required: true, class: "form-control" %>
 						  </div>
 						</div>
 						<div class="col-sm-6">
 							<div class="field form-group">
-						    <%= f.label :email %><br>
+						    <%= f.label :email %><span class="required-label">*</span><br>
 						    <%= f.email_field :email, required: true, class: "form-control" %>
 						  </div>
 						</div>
@@ -40,13 +40,66 @@
 					<div class="row">
 						<div class="col-xs-12">
 						 	<div class="field form-group">
-						    <%= f.label :subject %><br>
+						    <%= f.label :subject %><span class="required-label">*</span><br>
 						    <%= f.text_field :subject, required: true, class: "form-control" %>
 						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
 							<div class="field form-group">
-						    <%= f.label :message %><br>
-						    <%= f.text_area :content, rows: "7", required: true, class: "form-control" %>
+						    <%= f.label :company %><br>
+						    <%= f.text_field :company, class: "form-control" %>
 						  </div>
+						</div>
+						<div class="col-sm-6">
+							<div class="field form-group">
+						    <%= f.label :location %><br>
+						    <%= f.text_field :location, class: "form-control" %>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="field form-group">
+						    <%= f.label 'number of participants' %><br>
+						    <%= f.text_field :number_participants, class: "form-control" %>
+						  </div>
+						</div>
+						<div class="col-sm-6">
+							<div class="field form-group">
+						    <%= f.label 'potential date' %><br>
+						    <%= f.date_field :date, class: "form-control" %>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="field form-group">
+						    <%= f.label :budget %><br>
+						    <%= f.text_field :budget, class: "form-control" %>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+						 	<div class="field form-group">
+						    <%= f.label 'who is the audience?' %><br>
+						    <%= f.text_field :audience, class: "form-control" %>
+						  </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="field form-group">
+						    <%= f.label 'Speaker requirements' %><span class="required-label">*</span><br>
+						    <%= f.text_area :content, rows: "7", required: true, class: "form-control", style: 'font-size:18px' %>
+						  </div>
+						  <p><span class="required-label">*</span> required field</p>
 						  <div class="actions form-group text-center">
 						    <%= f.submit 'Send', class: 'btn btn-inline-block btn-primary' %>
 						  </div>

@@ -233,6 +233,16 @@ footer {
   }
  }
 
+.custom-btn {
+  min-height: 50px;
+  letter-spacing: 0.5px;
+  position: relative;
+  .left-postition {
+    position: absolute;
+    left: 10px;
+  }
+}
+
 #btn-signup {
     padding: 10px 22px;
     font-size: 21px;

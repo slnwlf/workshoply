@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
      user.full_name = auth.info.name
      user.confirmed_at = Time.zone.now
      user.skip_confirmation!
-     user.save!
+     user.save! if user.email
    end
   end
 

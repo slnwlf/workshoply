@@ -7,6 +7,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
+      if !@user.email
+        flash[:error] = "You need to allow email to sign up with Facebook."
+      end
       redirect_to signup_path
     end
   end

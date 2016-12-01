@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
     resource = args.last || resource_or_scope
     sign_in(scope, resource, options)
     if resource.location and resource.organization
+      flash[:notice] = "Successfully login."
       redirect_to after_sign_in_path_for(resource)
     else
       flash[:notice] = "Please update missing information before you can continue."

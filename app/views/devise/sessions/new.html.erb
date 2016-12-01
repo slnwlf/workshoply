@@ -1,9 +1,22 @@
 <div class="container" style="margin-top: 20px">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 well">
-      <div class="text-center">
-        <h2>Log in</h2>
+      <div class="field">
+        <% if devise_mapping.omniauthable? %>
+          <% resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary btn-block custom-btn' do %>
+              <%= fa_icon "facebook 2x", class: "left-postition" %>
+              Login with Facebook
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
+
+      <div class="field">
+        <p class="text-center">OR</p>
+      </div>
+      
+      <hr>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
         <%= f.label :email %><br />

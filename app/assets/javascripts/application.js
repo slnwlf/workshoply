@@ -48,7 +48,7 @@ $(function() {
     $(this).alert('close');
   });
 
-  $("#signup-with-email").on("click", function() {
+  $("button#signup-with-email, button#login-with-email").on("click", function() {
     $(this).addClass("hidden");
   });
 });

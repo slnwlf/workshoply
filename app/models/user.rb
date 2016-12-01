@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
 
   validates :full_name, presence: true
   validates :location, presence: true, format: { with: /\A[a-zA-Z][a-zA-Z,\s]+[a-zA-Z], [a-zA-Z]{2}, [a-zA-Z][a-zA-Z,\s]+[a-zA-Z]\z/,
-    message: "example: San Diego, CA, United States" }
-  validates :organization, presence: true
-  validates :bio, length: { minimum: 20, maximum: 1000,
-    too_long: "%{count} characters is the maximum allowed" }, on: :update
+    message: "example: San Diego, CA, United States" }, unless: -> { from_omniauth? }
+  validates :organization, presence: true, unless: -> { from_omniauth? }
+  # validates :bio, length: { minimum: 20, maximum: 1000,
+  #   too_long: "%{count} characters is the maximum allowed" }, on: :update
 
   has_attached_file :avatar, 
     styles: { medium: "300x300>", thumb: "100x100>" }, 
@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
      user.full_name = auth.info.name
      user.confirmed_at = Time.zone.now
      user.skip_confirmation!
+     user.save!
    end
   end
 
@@ -54,6 +55,12 @@ class User < ActiveRecord::Base
         user.full_name = data["name"] if user.full_name.blank?
       end
     end
+  end
+
+  private
+
+  def from_omniauth?
+    provider && uid and self.new_record?
   end
   
 end

@@ -7,4 +7,9 @@ $(function() {
 		}
 		$("label[for='user_avatar']").text(fileName);
 	});
+	$("input.missing").on('keyup', function(e) {
+		if ($(this).val().length > 0) {
+			$(this).removeClass("missing");
+		}
+	});
 });

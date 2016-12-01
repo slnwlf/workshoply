@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 	include ReviewsHelper
-	before_action :authenticate_user!, :workshop
+	before_action :authenticate_user!, :oauth_user_must_enter_location_and_organization!, :workshop
 	before_action :review, only: [:edit, :update, :destroy]
 
 	def new

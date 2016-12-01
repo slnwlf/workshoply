@@ -32,6 +32,20 @@ class ApplicationController < ActionController::Base
     session["user_return_to"] || user_path(current_user)
   end
 
+  def sign_in_and_redirect(resource_or_scope, *args)
+    options  = args.extract_options!
+    scope    = Devise::Mapping.find_scope!(resource_or_scope)
+    resource = args.last || resource_or_scope
+    sign_in(scope, resource, options)
+    if resource.location and resource.organization
+      redirect_to after_sign_in_path_for(resource)
+    else
+      flash[:notice] = "Please update missing information before you can continue."
+      redirect_to edit_user_path(resource)
+    end
+  end
+
+
   #mailboxer
   helper_method :mailbox, :conversation
 
@@ -52,6 +66,14 @@ class ApplicationController < ActionController::Base
       super(options)
     else
       redirect_to login_path, :notice => 'Sign in to continue.'
+    end
+  end
+
+  def oauth_user_must_enter_location_and_organization!
+    if !current_user.location and !current_user.organization
+      session[:last_page] = request.env['HTTP_REFERER']
+      flash[:notice] = "Please update missing information before you can continue."
+      redirect_to edit_user_path(current_user)
     end
   end
 

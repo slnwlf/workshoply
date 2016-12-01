@@ -3,7 +3,12 @@ class UsersController < ApplicationController
 	before_action :find_user
 
 	def show
-		@workshops = @user.workshops.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+		if current_user.location and current_user.organization
+      @workshops = @user.workshops.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+    else
+      flash[:notice] = "Please update missing information before you can continue."
+      redirect_to edit_user_path(current_user)
+    end
 	end
 
 	def edit
@@ -16,7 +21,8 @@ class UsersController < ApplicationController
 			else
 				flash[:notice] = "Your profile was successfully updated."
 			end
-			redirect_to user_path(current_user)
+			redirect_to session[:last_page] || user_path(current_user)
+			session[:last_page] = nil
 		else
 			flash[:error] = @user.errors.full_messages.join(", ")
 			render :edit

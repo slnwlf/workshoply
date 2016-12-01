@@ -41,6 +41,7 @@
 							<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>
 						</div>
 				<% elsif current_user.admin && current_user != @user %>
+					<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>
 					<%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-default" %>		
 				<% else %>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 

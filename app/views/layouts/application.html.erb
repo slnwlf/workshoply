@@ -63,6 +63,9 @@
             <li><a class="dropdown-toggle <%= params[:controller] == "users" and params[:action] == "show" and current_user.slug == params[:id] ? 'btn btn-default' : '' %>" data-toggle="dropdown" href="#"><%= current_user.full_name.titleize %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", user_path(current_user) %></li>
+              <% if current_user.admin %>
+                <li><%= link_to "Register New Speaker", signup_path %></li>
+              <% end %>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>

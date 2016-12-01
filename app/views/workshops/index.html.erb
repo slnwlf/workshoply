@@ -9,7 +9,7 @@
 					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				</div>
 				<div class="col-md-8">
-					<h2><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h2>
+					<h1 style="font-weight:bold; font-size: 32px"><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h1>
 					<p>
 						Category: <strong><%= workshop.topic.name.titleize if workshop.topic %></strong>
 					</p>

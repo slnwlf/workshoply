@@ -12,7 +12,7 @@
 				<strong>Expected Outcomes:</strong> <%= @workshop.expected_outcomes %><br>
 				<strong>Price:</strong> <%= number_to_currency(@workshop.price, precision: 0) %><br>
 				</h4>
-				<% if current_user == @workshop.user %>
+				<% if current_user == @workshop.user || current_user.admin %>
 				<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
 				<%= fa_icon "pencil-square-o " %>
 				<% end %>

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 	end
 
 	def also_change_email?
-		if params[:user][:email] == current_user.email
+		if params[:user][:email] == current_user.email || (current_user.admin && params[:user][:email] == @user.email)
 			return false
 		else
 			return true

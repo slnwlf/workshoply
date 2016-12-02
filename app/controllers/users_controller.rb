@@ -21,7 +21,9 @@ class UsersController < ApplicationController
 			else
 				flash[:notice] = "Your profile was successfully updated."
 			end
-			redirect_to session[:last_page] || user_path(current_user)
+
+			# session is for oauth user
+			redirect_to session[:last_page] || redirect_to user_path(@user)
 			session[:last_page] = nil
 		else
 			flash[:error] = @user.errors.full_messages.join(", ")
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
 	end
 
 	def also_change_email?
-		if params[:user][:email] == current_user.email
+		if params[:user][:email] == current_user.email || (current_user.admin && params[:user][:email] == @user.email)
 			return false
 		else
 			return true

@@ -59,14 +59,14 @@ class WorkshopsController < ApplicationController
 	end
 
 	def edit
-		unless current_user == @workshop.user
+		unless current_user == @workshop.user || current_user.admin
 			flash[:error] = "You can only edit your own posted talk."
 			redirect_to workshop_path(@workshop)
 		end
 	end
 
 	def update
-		if current_user == @workshop.user
+		if current_user == @workshop.user || current_user.admin
 			if @workshop.update_attributes(workshop_params)
 				flash[:notice] = "Your talk was successfully edited."
 				redirect_to workshop_path(@workshop)
@@ -82,7 +82,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def destroy
-		if current_user == @workshop.user
+		if current_user == @workshop.user || current_user.admin
 			@workshop.destroy
 			flash[:notice] = "Your talk has been deleted."
 			redirect_to workshops_path

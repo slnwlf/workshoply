@@ -47,6 +47,10 @@ $(function() {
   $(".notice-error-msg .alert").fadeTo(10000, 1000).fadeOut(1000, function() {
     $(this).alert('close');
   });
+
+  $("button#signup-with-email, button#login-with-email").on("click", function() {
+    $(this).addClass("hidden");
+  });
 });
 
 function getJsonFromUrl() {

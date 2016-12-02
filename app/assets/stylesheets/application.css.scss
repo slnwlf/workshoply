@@ -39,6 +39,10 @@ html, body {
   margin-right: 0px;
 }
 
+.line-height-20 {
+  line-height: 20px;
+}
+
 .nav-and-yield {
   min-height: 100%;
   /* equal to footer height */
@@ -232,6 +236,16 @@ footer {
     }
   }
  }
+
+.custom-btn {
+  min-height: 50px;
+  letter-spacing: 0.5px;
+  position: relative;
+  .left-postition {
+    position: absolute;
+    left: 10px;
+  }
+}
 
 #btn-signup {
     padding: 10px 22px;

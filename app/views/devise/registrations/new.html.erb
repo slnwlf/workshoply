@@ -1,61 +1,86 @@
 <div class="container" style="margin-top: 20px">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 well">
-      <h2>Sign Up for BigTalker</h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <h2 class="text-center">Sign Up for BigTalker</h2>
       <div class="field">
-        <%= f.label :full_name, "Full Name*" %><br />
-        <%= f.text_field :full_name, autofocus: true, :class => "form-control" %>
+        <% if devise_mapping.omniauthable? %>
+          <% resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary btn-block custom-btn' do %>
+              <%= fa_icon "facebook 2x", class: "left-postition" %>
+              Sign Up with Facebook
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= oauth_email_error! %>
       </div>
-      <div class="field">
-        <%= f.label :email, "Email*" %><br />
-        <%= f.email_field :email, :class => "form-control" %>
-      </div>
-      <div class="field">
-        <%= f.label :organization, "Organization*" %><br />
-        <%= f.text_field :organization, :class => "form-control" %>
-      </div>
-      <div class="field">
-        <%= f.label :location, "Location*" %><br />
-        <%= f.text_field :location, :class => "form-control location-input" %>
-      </div>
-      <div class="field">
-          <%= f.label :bio, "Bio (40-1000 characters)" %><br />
 
-           <p class="small">Required for posting a workshop.</p>
+      <div class="field">
+        <p class="text-center">OR</p>
+      </div>
 
-          <%= f.text_area :bio, :class => "form-control", :rows => "4" %>
-      </div>
       <div class="field">
-          <%= f.label :link_to_bio, "Link to Bio (insert hyperlink)" %><br />
-          <%= f.text_field :link_to_bio, :class => "form-control", :placeholder => "e.g. www.google.com" %>
+        <button id="signup-with-email" data-toggle="collapse" data-clickaction="exploding" class="btn btn-default btn-block custom-btn <%= 'hidden' if devise_errors? %>" data-target="#signup-email-form">
+        <%= fa_icon "envelope 2x", class: "left-postition line-height-20" %>
+        Sign Up with Email
+        </button>
       </div>
-      <div class="field">
-        <%= f.label :password, "Password* (Min. 8 characters)" %><br />
-        <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation, "Confirm Password*" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %><br />
-      </div>
-      <div class="avatar-upload-container clearfix">
-          <% thumb_style = @user.avatar_file_name ? '' : 'height: 100px;' %>
-          <%= image_tag @user.avatar.url(:thumb), class: "thumb-avatar", style: thumb_style %>
-          <div class="avatar-upload">
-            <%= f.label :avatar, "Upload Image", class: "btn btn-default change-avatar-btn" %>
-            <%= f.file_field :avatar %>
-            <p class="small">Image size less than 1 Mb.</p>
+      <div class="collapse <%= 'in' if devise_errors? %>" id="signup-email-form">
+        <hr>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), hidden: "true") do |f| %>
+          <%= devise_error_messages! %>
+          <div class="field">
+            <%= f.label :full_name, "Full Name*" %><br />
+            <%= f.text_field :full_name, autofocus: true, :class => "form-control" %>
           </div>
+          <div class="field">
+            <%= f.label :email, "Email*" %><br />
+            <%= f.email_field :email, :class => "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :organization, "Organization*" %><br />
+            <%= f.text_field :organization, :class => "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :location, "Location*" %><br />
+            <%= f.text_field :location, :class => "form-control location-input" %>
+          </div>
+          <div class="field">
+              <%= f.label :bio, "Bio (40-1000 characters)" %><br />
+
+               <p class="small">Recommended if posting a talk.</p>
+
+              <%= f.text_area :bio, :class => "form-control", :rows => "4" %>
+          </div>
+          <div class="field">
+              <%= f.label :link_to_bio, "Link to Bio (insert hyperlink)" %><br />
+              <%= f.text_field :link_to_bio, :class => "form-control", :placeholder => "e.g. www.google.com" %>
+          </div>
+          <div class="field">
+            <%= f.label :password, "Password* (Min. 8 characters)" %><br />
+            <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, "Confirm Password*" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %><br />
+          </div>
+          <div class="avatar-upload-container clearfix">
+              <% thumb_style = @user.avatar_file_name ? '' : 'height: 100px;' %>
+              <%= image_tag @user.avatar.url(:thumb), class: "thumb-avatar", style: thumb_style %>
+              <div class="avatar-upload">
+                <%= f.label :avatar, "Upload Profile Image", class: "btn btn-default change-avatar-btn" %>
+                <%= f.file_field :avatar %>
+                <p class="small">Image size less than 1 Mb.</p>
+              </div>
+          </div>
+          <br />
+          <div class="actions text-center">
+            <%= f.submit "Sign up", :class => "btn btn-primary" %>
+          </div>
+          <br />
+          * required field
+          <br />
+        <% end %>
       </div>
-      <br />
-      <div class="actions text-center">
-        <%= f.submit "Sign up", :class => "btn btn-primary" %>
-      </div>
-      <br />
-      * required field
-      <br />
-      <% end %>
       <%= render "devise/shared/links" %>
     </div>
   </div>

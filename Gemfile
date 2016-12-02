@@ -28,6 +28,7 @@ gem 'bootswatch-rails'
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'devise'
+gem 'omniauth-facebook'
 
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'

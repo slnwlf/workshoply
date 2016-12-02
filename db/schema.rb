@@ -164,6 +164,8 @@ ActiveRecord::Schema.define(version: 20161201173603) do
     t.text     "bio"
     t.string   "organization"
     t.string   "link_to_bio"
+    t.string   "provider"
+    t.string   "uid"
     t.boolean  "admin",                  default: false
   end
 

@@ -1,7 +1,7 @@
 include ActionView::Helpers::TextHelper
 
 class WorkshopsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, :oauth_user_must_enter_location_and_organization!, except: [:index, :show]
 	before_action :workshop, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -37,7 +37,13 @@ class WorkshopsController < ApplicationController
 	end
 
 	def new
-		@workshop = Workshop.new
+		if current_user.bio and !current_user.bio.empty?
+			@workshop = Workshop.new
+		else
+			flash[:error] = "You need to fill out your bio before you can post a talk."
+			session[:last_page] = new_workshop_path
+			redirect_to edit_user_path(current_user)
+		end
 	end
 
 	def create

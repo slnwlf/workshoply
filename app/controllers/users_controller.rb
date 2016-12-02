@@ -3,11 +3,21 @@ class UsersController < ApplicationController
 	before_action :find_user
 
 	def show
-		if current_user.location and current_user.organization
+		if @user.location and @user.organization
       @workshops = @user.workshops.paginate(page: params[:page], per_page: 5).order("created_at DESC")
     else
-      flash[:notice] = "Please update missing information before you can continue."
-      redirect_to edit_user_path(current_user)
+    	# redirect oauth user which haven't filled out organizaion and location
+      if current_user and current_user.admin? and @user.uid
+      	flash[:notice] = "This OAuth user haven't update organztion and location yet."
+      	redirect_to edit_user_path(@user)
+      elsif current_user and !current_user.admin? and @user.uid
+      	flash[:notice] = "Please update missing information before you can continue."
+      	redirect_to edit_user_path(@user)
+      elsif !current_user
+      	# handle when user try to look at OAuth user profile which does not have location and organization yet
+      	flash[:notice] = "#{@user.full_name}\'s profile not yet completed."
+      	redirect_to workshops_path
+      end
     end
 	end
 
@@ -23,7 +33,7 @@ class UsersController < ApplicationController
 			end
 
 			# session is for oauth user
-			redirect_to session[:last_page] || redirect_to user_path(@user)
+			redirect_to session[:last_page] || user_path(@user)
 			session[:last_page] = nil
 		else
 			flash[:error] = @user.errors.full_messages.join(", ")

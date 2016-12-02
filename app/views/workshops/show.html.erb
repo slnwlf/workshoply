@@ -12,13 +12,13 @@
 				<strong>Expected Outcomes:</strong> <%= @workshop.expected_outcomes %><br>
 				<strong>Price:</strong> <%= number_to_currency(@workshop.price, precision: 0) %><br>
 				</h4>
-				<% if current_user == @workshop.user || current_user.admin %>
-				<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
-				<%= fa_icon "pencil-square-o " %>
-				<% end %>
-				<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure you want to delete your talk?"}, class: "btn btn-danger btn-delete" do %>
-				<%= fa_icon "trash-o" %>
-				<% end %>
+				<% if current_user == @workshop.user || current_user and current_user.admin %>
+					<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
+						<%= fa_icon "pencil-square-o " %>
+					<% end %>
+					<%= link_to @workshop, method: :delete, data: {confirm: "Are you sure you want to delete your talk?"}, class: "btn btn-danger btn-delete" do %>
+						<%= fa_icon "trash-o" %>
+					<% end %>
 				<% end %>
 				<div class="row clearfix overall-rating-wrapper">
 					<div class="col-sm-7">

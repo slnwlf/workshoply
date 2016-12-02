@@ -131,20 +131,6 @@ ActiveRecord::Schema.define(version: 20161201173603) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "speaker_requests", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "company"
-    t.string   "location"
-    t.string   "goal"
-    t.string   "audience"
-    t.date     "date"
-    t.integer  "budget"
-    t.integer  "number_attendees"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false

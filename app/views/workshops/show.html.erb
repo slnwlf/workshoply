@@ -1,3 +1,19 @@
+<!-- For social sharing card -->
+<%= content_for :head do %>
+	<!-- Facebook Card -->
+  <meta property="og:image" content="<%= @workshop.image.url(:medium) %>"/>
+  <meta property="og:description" content="<%= truncate(@workshop.description, :length => 300, :separator => ' ') %>" />
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers">
+  <meta name="twitter:description" content="<%= truncate(@workshop.description, :length => 300, :separator => ' ') %>">
+  <meta name="twitter:image" content="<%= @workshop.image.url(:medium) %>">
+  <!-- Google+ -->
+  <meta itemprop="name" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers">
+  <meta itemprop="description" content="<%= truncate(@workshop.description, :length => 300, :separator => ' ') %>">
+  <meta itemprop="image" content="<%= @workshop.image.url(:medium) %>">
+<% end %>
+<!-- ######### -->
+
 <div class="container workshop-show">
 	<div class="row workshop-info">
 		<div class="col-md-8">
@@ -12,6 +28,11 @@
 				<strong>Expected Outcomes:</strong> <%= @workshop.expected_outcomes %><br>
 				<strong>Price:</strong> <%= number_to_currency(@workshop.price, precision: 0) %><br>
 				</h4>
+				<div class="social-share-wrapper">
+					<a href="javascript:void(0)" class="fb-share share-btn">
+					  <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+					</a>
+				</div>
 				<% if current_user == @workshop.user || current_user and current_user.admin %>
 					<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
 						<%= fa_icon "pencil-square-o " %>
@@ -101,3 +122,7 @@
 		</div>
 	</div>
 </div>
+
+<%= javascript_tag do %>
+	share_url = "<%= request.original_url %>";
+<% end %>

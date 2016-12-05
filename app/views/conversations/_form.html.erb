@@ -4,7 +4,7 @@
       <% if @recipient %>
         <%= f.collection_select :recipients, @recipient, :id, :full_name, {}, class: "chosen-select form-control" %>
       <% else %>
-        <%= f.select(:recipients, User.all.collect {|p| [ p.mailboxer_name, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
+        <%= f.select(:recipients, User.all.collect {|p| [ p.mailboxer_name, p.id ] }, {selected: 4}, { multiple: true , class: "chosen-select form-control", id: 'selected-admin' })%>
       <% end %>
       <!-- TODO --> 
       <!--add p.username/first_name to display -->

@@ -9,10 +9,10 @@ class ConversationsController < ApplicationController
   def create
     recipients = User.where(id: conversation_params[:recipients])
     admin_recipient = User.where(id: 7)
-    if User.find_by_id(7) != recipients && current_user.id != 7
-      recipients += admin_recipient
-    else
+    if recipients.includes(admin_recipient) && current_user.id == 7
       recipients = recipients
+    else
+      recipients += admin_recipient
     end
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
     flash[:success] = "Your message was successfully sent!"

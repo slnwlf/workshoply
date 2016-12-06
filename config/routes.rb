@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :users, only: [:show, :update, :edit]
+  resources :users, only: [:index, :show, :update, :edit]
 
   #conversations
   resources :conversations do

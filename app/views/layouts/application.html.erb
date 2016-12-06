@@ -5,6 +5,7 @@
     <% if content_for?(:head) %>
       <%= yield(:head) %>
     <% else %>
+      <title>Big Talker - A marketplace for onsite workshops, seminars, and guest speakers</title>
       <!-- Facebook Card -->
       <meta property="og:image" content="http://i.imgur.com/yK5tMXm.jpg"/>
       <meta property="og:description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise." />
@@ -17,9 +18,10 @@
       <meta itemprop="description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise.">
       <meta itemprop="image" content="http://i.imgur.com/yK5tMXm.jpg">
     <% end %>
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@BigTalker_io">
+    <meta name="twitter:creator" content="@BigTalker_io">
     <%= favicon_link_tag asset_path('favicon.ico'), type:'image/png' %>
-    <title>Big Talker - A marketplace for onsite workshops, seminars, and guest speakers</title>
     <%= render 'favicon' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
@@ -118,6 +120,8 @@
     <li class="footer-nav"><a href ="/">Terms and Conditions</a></li>
     <li class="footer-nav"><a href ="http://www.twitter.com/bigtalker_io" target="_blank"><%= fa_icon "twitter 2x" %></a></li>
   </footer>
+  <!-- twitter -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <!-- rails js files -->
   <%= javascript_include_tag 'application' %>
   <!-- geocomplete -->

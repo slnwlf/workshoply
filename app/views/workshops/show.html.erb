@@ -33,7 +33,7 @@
 
 				<%= render "sites/social_share" %>
 
-				<% if current_user == @workshop.user || current_user and current_user.admin %>
+				<% if current_user and current_user.admin or current_user == @workshop.user %>
 					<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
 						<%= fa_icon "pencil-square-o " %>
 					<% end %>

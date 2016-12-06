@@ -43,6 +43,9 @@
 			    <a href="javascript:void(0)" target="_blank" class="linkedIn-share share-btn" data-name="linkedIn">
 		        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
 			    </a>
+			    <a href="mailto:?Subject=BigTalker.io - <%= @workshop.title.titleize %>&Body=Thought%20you%20would%20have%20been%20interested%20in%20this%20talk,%20<%= uri_encode(@workshop.title.titleize) %>.%0A<%= request.original_url %>" class="share-btn">
+		        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+			    </a>
 				</div>
 				<% if current_user == @workshop.user || current_user and current_user.admin %>
 					<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>

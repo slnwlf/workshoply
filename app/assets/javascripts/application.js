@@ -78,15 +78,22 @@ $(function() {
   });
 
   // google plus share
-  $(".google-share").on("click", function() {
-    window.open(
-      'https://plus.google.com/share?url=' + share_url,
-      'popupwindow',
-      'width=500,height=400'
-    );
-    popUp.focus();
+  $(".google-share, .linkedIn-share").on("click", function() {
+    sharePopUpWindow($(this).attr("data-name"), share_url);
   });
 });
+
+function sharePopUpWindow(network, share_url) {
+  var link = {
+    "google": "https://plus.google.com/share?url=",
+    "linkedIn": "https://www.linkedin.com/cws/share?url="
+  };
+  window.open(
+    link[network] + share_url,
+    'popupwindow',
+    'width=500,height=400'
+  );
+}
 
 function getJsonFromUrl() {
   var query = location.search.substr(1);

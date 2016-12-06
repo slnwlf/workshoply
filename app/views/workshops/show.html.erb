@@ -37,9 +37,12 @@
 					<a href="https://twitter.com/intent/tweet?text=<%= @workshop.title.titleize %>&url=<%= request.original_url %>&via=BigTalker_io" class="share-btn">
 		        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
 			    </a>
-			    <a href="javascript:void(0)" target="_blank" class="google-share share-btn">
+			    <a href="javascript:void(0)" target="_blank" class="google-share share-btn" data-name="google">
 		        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-		    </a>
+			    </a>
+			    <a href="javascript:void(0)" target="_blank" class="linkedIn-share share-btn" data-name="linkedIn">
+		        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+			    </a>
 				</div>
 				<% if current_user == @workshop.user || current_user and current_user.admin %>
 					<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>

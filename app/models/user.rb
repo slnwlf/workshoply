@@ -19,8 +19,9 @@ class User < ActiveRecord::Base
   validates :location, presence: true, format: { with: /\A[a-zA-Z][a-zA-Z,\s]+[a-zA-Z], [a-zA-Z]{2}, [a-zA-Z][a-zA-Z,\s]+[a-zA-Z]\z/,
     message: "example: San Diego, CA, United States" }, unless: -> { from_omniauth? }
   validates :organization, presence: true, unless: -> { from_omniauth? }
-  # validates :bio, length: { minimum: 20, maximum: 1000,
-  #   too_long: "%{count} characters is the maximum allowed" }, on: :update
+  validates :bio, length: { minimum: 40, maximum: 1000,
+    too_long: "%{count} characters is the maximum allowed", on: :update,
+    too_short: "%{count} characters is the minimum allowed" }, on: :update
 
   has_attached_file :avatar, 
     styles: { medium: "300x300>", thumb: "100x100>" }, 

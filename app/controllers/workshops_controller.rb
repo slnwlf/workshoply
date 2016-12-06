@@ -27,7 +27,7 @@ class WorkshopsController < ApplicationController
 	end
 
 	def show
-		# see workshop method in private
+		@share_title = @workshop.title.titleize
 		if current_user
 			@reviews = @workshop.reviews.where('user_id != ?', current_user.id)
 			@current_user_review = @workshop.reviews.where(user_id: current_user.id).first

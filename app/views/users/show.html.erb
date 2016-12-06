@@ -11,7 +11,7 @@
 				<% if @user.link_to_bio %>
 				<li>Website: <%= link_to @user.link_to_bio, "http://#{@user.link_to_bio}", target: "_blank", rel: "nofollow" %></li>
 				<% end %>
-				<li><%= @user.location.titleize %></li>
+				<li><%= @user.location %></li>
 				<li>Member since <%= @user.created_at.to_date.to_formatted_s(:long_ordinal) %></li>
 			<li><p>Organization:
 				<% if @user.organization %>

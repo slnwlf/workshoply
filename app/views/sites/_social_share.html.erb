@@ -1,0 +1,20 @@
+<div class="social-share-wrapper">
+	<a href="javascript:void(0)" class="fb-share share-btn">
+	  <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+	</a>
+	<a href="https://twitter.com/intent/tweet?text=<%= uri_encode(@share_title) %>&url=<%= request.original_url %>&via=BigTalker_io" class="share-btn">
+    <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+  </a>
+  <a href="javascript:void(0)" target="_blank" class="google-share share-btn" data-name="google">
+    <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+  </a>
+  <a href="javascript:void(0)" target="_blank" class="linkedIn-share share-btn" data-name="linkedIn">
+    <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+  </a>
+  <a href="mailto:?Subject=BigTalker.io - <%= @share_title %>&Body=Thought%20you%20would%20have%20been%20interested%20in%20<%= uri_encode(@share_title) %>.%0A<%= request.original_url %>" class="share-btn">
+    <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+  </a>
+</div>
+<%= javascript_tag do %>
+	share_url = "<%= request.original_url %>";
+<% end %>

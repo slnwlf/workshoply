@@ -1,3 +1,21 @@
+<!-- For social sharing card -->
+<%= content_for :head do %>
+	<title><%= @workshop.title.titleize %></title>
+	<!-- Facebook Card -->
+  <meta property="og:image" content="<%= @workshop.image.url(:medium) %>"/>
+  <meta property="og:description" content="<%= truncate(@workshop.description, :length => 300, :separator => ' ') %>" />
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="<%= @workshop.title.titleize %>">
+
+  <meta name="twitter:description" content="<%= truncate(@workshop.description, :length => 300, :separator => ' ') %>">
+  <meta name="twitter:image" content="<%= @workshop.image.url(:medium) %>">
+  <!-- Google+ -->
+  <meta itemprop="name" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers">
+  <meta itemprop="description" content="<%= truncate(@workshop.description, :length => 300, :separator => ' ') %>">
+  <meta itemprop="image" content="<%= @workshop.image.url(:medium) %>">
+<% end %>
+<!-- ######### -->
+
 <div class="container workshop-show">
 	<div class="row workshop-info">
 		<div class="col-md-8">
@@ -12,7 +30,10 @@
 				<strong>Expected Outcomes:</strong> <%= @workshop.expected_outcomes %><br>
 				<strong>Price:</strong> <%= number_to_currency(@workshop.price, precision: 0) %><br>
 				</h4>
-				<% if current_user == @workshop.user || current_user and current_user.admin %>
+
+				<%= render "sites/social_share" %>
+
+				<% if current_user and current_user.admin or current_user == @workshop.user %>
 					<%= link_to edit_workshop_path(@workshop), class: "btn btn-primary btn-edit" do %>
 						<%= fa_icon "pencil-square-o " %>
 					<% end %>
@@ -45,7 +66,7 @@
 				<%= image_tag(@workshop.user.avatar.url(:thumb), style: "height: 100px") %><br>
 				<h4>
 				<%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %></h4>
-				<h4><%= @workshop.user.location.titleize %>
+				<h4><%= @workshop.user.location %>
 				</h4>
 				<% if !current_user or current_user != @workshop.user %>
 				<div class="msg-btn-wrapper">

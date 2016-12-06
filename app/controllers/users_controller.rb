@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!, except: [:show]
-	before_action :find_user
+	before_action :find_user, except: [:index]
+
+	def index 
+  	if current_user.admin?
+  		@users = User.where(admin: false).paginate(page: params[:page], per_page: 10).order("full_name ASC")
+  	else
+  		flash[:error] = "Unauthorized access."
+  		redirect_to root_path
+  	end
+  end
 
 	def show
 		if @user.location and @user.organization

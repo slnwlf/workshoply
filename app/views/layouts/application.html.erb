@@ -2,20 +2,26 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise.">
-    <meta property="og:image" content="http://i.imgur.com/yK5tMXm.jpg"/>
-    <meta property="og:description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops." />
-    <!-- Twitter Card -->
-    <meta name="twitter:title" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers.">
-    <meta name="twitter:description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops.">
-    <meta name="twitter:image" content="http://i.imgur.com/yK5tMXm.jpg">
-    <!-- Google+ -->
-    <meta itemprop="name" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers.">
-    <meta itemprop="description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise.">
-    <meta itemprop="image" content="http://i.imgur.com/yK5tMXm.jpg">
-
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% else %>
+      <title>Big Talker - A marketplace for onsite workshops, seminars, and guest speakers</title>
+      <!-- Facebook Card -->
+      <meta property="og:image" content="http://i.imgur.com/yK5tMXm.jpg"/>
+      <meta property="og:description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise." />
+      <!-- Twitter Card -->
+      <meta name="twitter:title" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers">
+      <meta name="twitter:description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise.">
+      <meta name="twitter:image" content="http://i.imgur.com/yK5tMXm.jpg">
+      <!-- Google+ -->
+      <meta itemprop="name" content="Big Talker - A marketplace for onsite workshops, seminars, and guest speakers">
+      <meta itemprop="description" content="Big Talker is a trusted marketplace for onsite guest speakers and workshops. Find your team's next inspiring guest speaker or team building exercise.">
+      <meta itemprop="image" content="http://i.imgur.com/yK5tMXm.jpg">
+    <% end %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@BigTalker_io">
+    <meta name="twitter:creator" content="@BigTalker_io">
     <%= favicon_link_tag asset_path('favicon.ico'), type:'image/png' %>
-    <title>BigTalker. Find onsite workshops, seminars and speakers</title>
     <%= render 'favicon' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
@@ -62,6 +68,7 @@
             </li>
             <li><a class="dropdown-toggle <%= params[:controller] == "users" and params[:action] == "show" and current_user.slug == params[:id] ? 'btn btn-default' : '' %>" data-toggle="dropdown" href="#"><%= current_user.full_name.titleize %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><%= link_to "Admin", users_path if current_user and current_user.admin? %></li>
               <li><%= link_to "Profile", user_path(current_user) %></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             </ul>
@@ -109,14 +116,22 @@
     </div>
   </div>
   <footer class="text-center">
+    <% if current_page?(root_path) %>
+      <%= render "social_share" %>
+      <br>
+    <% end %>
     <li class="footer-nav"><%= link_to "About Big Talker", about_path %></li>
     <li class="footer-nav"><a href ="/">Copyright 2016</a></li>
     <li class="footer-nav"><a href ="/">Terms and Conditions</a></li>
     <li class="footer-nav"><a href ="http://www.twitter.com/bigtalker_io" target="_blank"><%= fa_icon "twitter 2x" %></a></li>
   </footer>
+  <!-- twitter -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <!-- rails js files -->
   <%= javascript_include_tag 'application' %>
   <!-- geocomplete -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdEksj2K9pX7vBO8_jZgjFZk4jvWQQI0o&libraries=places"></script>
+  <!-- facebook -->
+  <script src="//connect.facebook.net/en_US/all.js"></script>
 </body>
 </html>

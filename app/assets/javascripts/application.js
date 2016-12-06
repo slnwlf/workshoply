@@ -76,6 +76,16 @@ $(function() {
       hashtag: "#bigtalker"
     }, function(response) {});
   });
+
+  // google plus share
+  $(".google-share").on("click", function() {
+    window.open(
+      'https://plus.google.com/share?url=' + share_url,
+      'popupwindow',
+      'width=500,height=400'
+    );
+    popUp.focus();
+  });
 });
 
 function getJsonFromUrl() {

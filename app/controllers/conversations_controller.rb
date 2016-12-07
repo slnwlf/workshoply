@@ -6,18 +6,21 @@ class ConversationsController < ApplicationController
     @recipient = recipient
   end
 
-  def create
+   def create
     recipients = User.where(id: conversation_params[:recipients])
     admin_recipient = User.where(id: 7)
-    if recipients.includes(admin_recipient) && current_user.id == 7
+    if current_user.id == 7 || recipients.include?(User.find_by_id(7))
       recipients = recipients
-    else
+    elsif current_user.id != 7 && recipients.exclude?(admin_recipient)
+      recipients += admin_recipient
+    else 
       recipients += admin_recipient
     end
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
     flash[:success] = "Your message was successfully sent!"
     redirect_to conversation_path(conversation)
   end
+
 
   def show
     @receipts = conversation.receipts_for(current_user)

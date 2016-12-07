@@ -8,10 +8,10 @@ class ConversationsController < ApplicationController
 
    def create
     recipients = User.where(id: conversation_params[:recipients])
-    admin_recipient = User.where(id: 7)
-    if current_user.id == 7 || recipients.include?(User.find_by_id(7))
+    admin_recipient = User.where(admin: true)
+    if current_user.admin || recipients.include?(User.find_by_admin(true))
       recipients = recipients
-    elsif current_user.id != 7 && recipients.exclude?(admin_recipient)
+    elsif !current_user.admin && recipients.exclude?(admin_recipient)
       recipients += admin_recipient
     else 
       recipients += admin_recipient

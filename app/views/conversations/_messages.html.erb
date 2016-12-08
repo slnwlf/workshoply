@@ -1,4 +1,4 @@
-<% @receipts.each do |receipt| %>
+<% @receipts.order('created_at DESC').reverse.each do |receipt| %>
     <% message = receipt.message %>
     <div class="media">
       <div class="media-left">

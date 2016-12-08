@@ -8,7 +8,9 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
     else
       new_message_email(message,receiver)
     end
-    InboxMailer.admin_message(message, message.sender, receiver).deliver_now
+    if !receiver.admin && !message.sender.admin
+      InboxMailer.admin_message(message, message.sender, receiver).deliver_now
+    end
   end
 
   #Sends an email for indicating a new message for the receiver

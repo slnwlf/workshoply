@@ -34,6 +34,8 @@ Mailboxer messaging
 
 Project lead:  [Dave Sloan](https://github.com/slnwlf/)
 
-Full-stack web developer: [Trung Huynh](https://github.com/tkhuynh)
+Full Stack Web Developer: [Trung Huynh](https://github.com/tkhuynh)
 
-Full-stack web developer: [Stephanie Brooks](https://github.com/sbrks)
+Full Stack Web Developer: [Stephanie Brooks](https://github.com/sbrks)
+
+Full Stack Web Developer: [Laura (Walley) Russell](https://github.com/laurakathleen)

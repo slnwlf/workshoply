@@ -68,6 +68,6 @@ class User < ActiveRecord::Base
   
   #sends notification when new user signs up
   def new_user_message
-    NewUserMailer.new_user_message.deliver_now
+    NewUserMailer.new_user_message(self).deliver_now
   end
 end

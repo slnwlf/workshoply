@@ -16,7 +16,6 @@ users = User.create([
 		organization: "Amazon",
 		location: "menlo park, ca, united states",
 		bio: "Lorem ipsum dolor sit amet, mei at reque salutandi, petentium sapientem deseruisse vix ea. Eam cu malis perpetua, eam ex mutat aperiri. Ad nonumy scripserit has, duo nulla sonet deterruisset ad, mei eros scriptorem cu. Erant ornatus nonumes ne mea, sed justo delectus perpetua ei.",
-		admin: true
 	}, 
 	{
 		full_name: 'Trung Huynh', 
@@ -25,6 +24,15 @@ users = User.create([
 		password_confirmation: 'trung12345',
 		organization: "Amazon",
 		location: "fremont, ca, united states",
+		bio: "In legimus maluisset accusamus nec, sed ut munere dolorum signiferumque, id esse voluptua reprimique pri. Quo an dolores hendrerit liberavisse. Et eos petentium conclusionemque, eu duo enim feugiat. Ea inani consul aperiri mea, vim id dicit feugait, et eum ignota efficiantur. Eos aperiri lucilius ad, eum ut nostrud consectetuer voluptatibus."
+	},
+	{
+		full_name: 'Laura Russell', 
+		email: 'laura@mail.com', 
+		password: 'laura12345', 
+		password_confirmation: 'laura12345',
+		organization: "GA",
+		location: "Burlingame, CA, United States",
 		bio: "In legimus maluisset accusamus nec, sed ut munere dolorum signiferumque, id esse voluptua reprimique pri. Quo an dolores hendrerit liberavisse. Et eos petentium conclusionemque, eu duo enim feugiat. Ea inani consul aperiri mea, vim id dicit feugait, et eum ignota efficiantur. Eos aperiri lucilius ad, eum ut nostrud consectetuer voluptatibus."
 	}
 ])

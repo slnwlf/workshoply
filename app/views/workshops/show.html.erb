@@ -23,7 +23,7 @@
 				<%= image_tag @workshop.image.url(:medium), class: "img-responsive workshop-img" %>
 				<h2><%= @workshop.title.titleize %></h2>
 				<h4>
-				<span class="h4-big">Topic: <%= @workshop.topic.name.titleize if @workshop.topic %></span><br class="br-big">
+				<strong>Topic: </strong><%= @workshop.topic.name.titleize if @workshop.topic %><br>
 				<strong>Speaker:</strong> <%= link_to @workshop.user.full_name.titleize, user_path(@workshop.user), class: "speaker-name-link" %><br>
 				<strong>Duration:</strong> <%= @workshop.duration.name.titleize if @workshop.duration %><br>
 				<strong>Format:</strong> <%= @workshop.format.name.titleize if @workshop.format %><br>

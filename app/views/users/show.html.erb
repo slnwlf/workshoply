@@ -35,14 +35,14 @@
 					<% end %>
 				<% end %>
 			</p></li>
-			<div>
+			<div class="text-right">
 				<% if !current_user or current_user != @user && !current_user.admin %>
 					<div class="col-md-9 center-block">
 							<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>
 						</div>
 				<% elsif current_user.admin && current_user != @user %>
-					<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>
-					<%= link_to "Edit " + @user.full_name + " Profile", edit_user_path(@user), class: "btn btn-default" %>		
+					<%= link_to "Edit " + @user.full_name + " Profile", edit_user_path(@user), class: "btn btn-default" %>
+					<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>	
 				<% else %>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 
 					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-default"  %>
@@ -69,7 +69,7 @@
 					</h4>
 					<p><%= simple_format(truncate(workshop.description, length: 200, seprator: ' ')) %></p>
 					<% if !current_user or current_user != @user %>
-						<div class="text-center">
+						<div class="text-right">
 							<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
 						</div>
 					<% end %>

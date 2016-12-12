@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   acts_as_messageable
 
   ratyrate_rater
+
+  after_create :new_user_message
   
   friendly_id :full_name, use: :slugged
   has_many :workshops, dependent: :destroy
@@ -64,4 +66,8 @@ class User < ActiveRecord::Base
     provider && uid and self.new_record?
   end
   
+  #sends notification when new user signs up
+  def new_user_message
+    NewUserMailer.new_user_message(self).deliver_now
+  end
 end

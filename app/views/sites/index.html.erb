@@ -31,7 +31,7 @@
 								<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
 							</span>
 						</div>
-						<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %></p>
+						<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %> <%= link_to "Read More", workshop_path(workshop)%></p>
 					</div>
 				</div>
 			<% end %>

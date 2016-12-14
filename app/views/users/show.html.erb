@@ -35,7 +35,7 @@
 					<% end %>
 				<% end %>
 			</p></li>
-			<div class="text-right">
+			<div class="text-center">
 				<% if !current_user or current_user != @user && !current_user.admin %>
 					<div class="col-md-9 center-block">
 							<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>

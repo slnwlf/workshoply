@@ -4,6 +4,6 @@ class InboxMailer < ApplicationMailer
 		@message = message
 		@sender = sender
 		@receiver = receiver
-		mail to: 'dave.sloan@gmail.com', subject: 'Conversation between #{@sender.full_name} and from #{@receiver.full_name}'
+		mail to: 'dave.sloan@gmail.com', subject: 'A message has been sent between two users on BigTalker'
 	end
 end

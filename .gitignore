@@ -15,5 +15,6 @@
 .byebug_history
 /public/system/*
 /public/assets/*
++/tmp/sitemaps/*
 .DS_Store
 .env

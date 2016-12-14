@@ -19,10 +19,10 @@
 					<div class="thumbnail featured-workshop">
 						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img vertical-align" %>
 						<div class="featured-workshop-title-wrapper">
-							<h3><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h3>
+							<h1 style="font-weight:bold; font-size: 28px"><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h1>
 						</div>
 							<h4>
-							Topic: <%= workshop.topic.name.titleize %>
+							Topic: <%= workshop.topic.name.titleize if workshop.topic %>
 							<br>
 							</h4>
 							<div class="workshop-index-speaker clearfix">

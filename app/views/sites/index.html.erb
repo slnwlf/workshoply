@@ -17,24 +17,21 @@
 			<% @featured_workshops.each do |workshop| %>
 				<div class="col-sm-10 col-md-4 col-lg-4 ft-box">
 					<div class="thumbnail featured-workshop">
-						<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img vertical-align" %>
+						<%= link_to "#{image_tag(workshop.image.url(:medium))}".html_safe, workshop_path(workshop), class: "img-responsive workshop-img vertical-align" %>
 						<div class="featured-workshop-title-wrapper">
 							<h3><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h3>
 						</div>
-							<h4>
-							Topic: <%= workshop.topic.name.titleize %>
-							<br>
-							</h4>
-							<div class="workshop-index-speaker clearfix">
-								<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
-								<span>
-									<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
-								</span>
-							</div>
-							<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %></p>
-							<div class="text-center view-btn-wrapper">
-								<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
-							</div>
+						<h4>
+						Topic: <%= workshop.topic.name.titleize %>
+						<br>
+						</h4>
+						<div class="workshop-index-speaker clearfix">
+							<%= link_to image_tag(workshop.user.avatar.url(:thumb)), user_path(workshop.user), class: "tiny-thumb" %>
+							<span>
+								<h4>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></h4>
+							</span>
+						</div>
+						<p><%= truncate(workshop.description, :length => 150, :separator => ' ') %> <%= link_to "Read More", workshop_path(workshop)%></p>
 					</div>
 				</div>
 			<% end %>

@@ -35,14 +35,14 @@
 					<% end %>
 				<% end %>
 			</p></li>
-			<div>
+			<div class="text-center">
 				<% if !current_user or current_user != @user && !current_user.admin %>
 					<div class="col-md-9 center-block">
 							<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>
 						</div>
 				<% elsif current_user.admin && current_user != @user %>
-					<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>
-					<%= link_to "Edit " + @user.full_name + " Profile", edit_user_path(@user), class: "btn btn-default" %>		
+					<%= link_to "Edit " + @user.full_name + " Profile", edit_user_path(@user), class: "btn btn-default" %>
+					<%= link_to "REQUEST TO BOOK", new_conversation_path(speaker: @user), class: "btn btn-primary" %>	
 				<% else %>
 					<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %> 
 					<%= link_to "Change Password", edit_user_password_registration_path(current_user), class: "btn btn-default"  %>
@@ -60,7 +60,7 @@
 			<% @workshops.each do |workshop| %>
 		<div class="col-md-12 thumbnail">
 				<div class="col-md-4">
-					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+					<%= link_to "#{image_tag(workshop.image.url(:medium))}".html_safe, workshop_path(workshop), class: "img-responsive workshop-img" %>
 				</div>
 				<div class="col-md-8">
 					<h2><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></h2>
@@ -68,11 +68,6 @@
 						Topic: <%= workshop.topic.name.titleize %>
 					</h4>
 					<p><%= simple_format(truncate(workshop.description, length: 200, seprator: ' ')) %></p>
-					<% if !current_user or current_user != @user %>
-						<div class="text-center">
-							<%= link_to "View", workshop_path(workshop), class: "btn btn-primary" %>
-						</div>
-					<% end %>
 				</div>
 		</div>
 				<% end %>

@@ -6,7 +6,7 @@
 			<% @workshops.each do |workshop| %>
 			<div class="col-md-12 thumbnail">
 				<div class="col-md-4">
-					<%= image_tag workshop.image.url(:medium), class: "img-responsive workshop-img" %>
+					<%= link_to "#{image_tag(workshop.image.url(:medium))}".html_safe, workshop_path(workshop), class: "img-responsive workshop-img" %>
 				</div>
 				<div class="col-md-8">
 					<h2><strong><%= link_to workshop.title.titleize, workshop_path(workshop), class: "workshop-title-link" %></strong></h2>
@@ -20,9 +20,6 @@
 						<span>
 							<p>Speaker:<%= link_to workshop.user.full_name.titleize, user_path(workshop.user), class: "speaker-name-link" %></p>
 						</span>
-					</div>
-					<div>
-						<%= link_to "View", workshop_path(workshop), class: "view-btn btn btn-primary" %>
 					</div>
 				</div>
 			</div>

@@ -14,7 +14,8 @@ class Workshop < ActiveRecord::Base
 
 	validates :topic_id, presence: true
 	validates :title, presence: true
-	validates :description, presence: true
+	validates :description, presence: true, length: { minimum: 50 }, on: :update
+
 	validates :duration_id, presence: true
 	validates :format_id, presence: true
 	validates :expected_outcomes, presence: true

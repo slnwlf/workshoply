@@ -4,6 +4,6 @@ class InboxMailer < ApplicationMailer
 		@message = message
 		@sender = sender
 		@receiver = receiver
-		mail to: 'dave.sloan@gmail.com', subject: 'Conversation between #{@sender.full_name} and from #{@receiver.full_name}'
+		mail to: ENV['BCC_EMAIL'], subject: "Conversation between #{@sender.full_name} and #{@receiver.full_name}"
 	end
 end

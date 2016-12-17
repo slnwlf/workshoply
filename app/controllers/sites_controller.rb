@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   def index
-    @share_title = "Big Talker - A marketplace for onsite workshops, seminars, and guest speakers"
+    @share_title = "BigTalker - A marketplace for onsite workshops, seminars, and guest speakers"
   	if Rails.env.production?
 	  	@featured_workshops = [Workshop.find(57), Workshop.find(54), Workshop.find(51)]
 	  else

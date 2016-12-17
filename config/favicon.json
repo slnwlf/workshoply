@@ -9,7 +9,7 @@
                 "precomposed_icons": false,
                 "declare_only_default_icon": true
             },
-            "app_name": "Big Talker"
+            "app_name": "BigTalker"
         },
         "desktop_browser": [
 
@@ -27,13 +27,13 @@
                     "rectangle": false
                 }
             },
-            "app_name": "Big Talker"
+            "app_name": "BigTalker"
         },
         "android_chrome": {
             "picture_aspect": "shadow",
             "theme_color": "#ffffff",
             "manifest": {
-                "name": "Big Talker",
+                "name": "BigTalker",
                 "display": "standalone",
                 "orientation": "not_set",
                 "on_conflict": "override",

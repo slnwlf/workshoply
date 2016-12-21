@@ -25,13 +25,13 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="field form-group">
-		    <%= f.label :company %><br>
+		    <%= f.label :company %><span class="required-label">*</span><br>
 		    <%= f.text_field :company, class: "form-control" %>
 		  </div>
 		</div>
 		<div class="col-sm-6">
 			<div class="field form-group">
-		    <%= f.label :location %><br>
+		    <%= f.label :location %><span class="required-label">*</span><br>
 		    <%= f.text_field :location, class: "form-control location-input" %>
 		  </div>
 		</div>
@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="field form-group">
-		    <%= f.label 'number of participants' %><br>
+		    <%= f.label 'number of participants' %><span class="required-label">*</span><br>
 		    <%= f.text_field :number_participants, class: "form-control" %>
 		  </div>
 		</div>
@@ -53,7 +53,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="field form-group">
-		    <%= f.label :budget %><br>
+		    <%= f.label :budget %><span class="required-label">*</span><br>
 		    <div class="input-group">
 		    	<span class="input-group-addon">$</span>
 		    	<%= f.text_field :budget, class: "form-control" %>
@@ -72,7 +72,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="field form-group">
-		    <%= f.label 'Speaker requirements' %><span class="required-label">*</span><br>
+		    <%= f.label 'Message' %><span class="required-label">*</span><br>
 		    <%= f.text_area :content, rows: "7", class: "form-control", style: 'font-size:18px' %>
 		  </div>
 		  <p><span class="required-label">*</span> required field</p>

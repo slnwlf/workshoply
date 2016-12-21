@@ -535,6 +535,11 @@ ul.dropdown-menu{
   .icons p, a{
     font-size:18px;
   }
+  a.contact-icon, a.contact-icon:active, a.contact-icon:focus, a.contact-icon:visited {
+    text-decoration: none !important;
+    pointer: cursor;
+    color: #333333;
+  }
 }
 
 #btn-contact.btn.btn-primary {

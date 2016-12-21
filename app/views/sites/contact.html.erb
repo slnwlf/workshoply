@@ -3,9 +3,11 @@
 		<h1>CONTACT US</h1>
 		<h3>Questions? Comments? We would love to hear from you.</h3>
 		<div class="col-md-4 icons">
-			<%= fa_icon "envelope-o 3x", :html => { :style =>  'color:red' } %>
-			<h4>EMAIL</h4>
-			<%= mail_to "info@bigtalker.io" %>
+			<a href="mailto:info@bigtalker.io?Subject=Hello%20BigTalker" target="_top" class="contact-icon">
+				<%= fa_icon "envelope-o 3x", :html => { :style =>  'color:red' } %>
+				<h4>EMAIL</h4>
+				<p>info@bigtalker.io</p>
+			</a>
 		</div>
 		<div class="col-md-4 icons">
 			<%= fa_icon "map-marker 3x" %>
@@ -13,9 +15,11 @@
 			<p>San Francisco, CA</p>
 		</div>
 		<div class="col-md-4 icons">
-			<%= fa_icon "mobile 3x" %>
-			<h4>PHONE</h4>
-			<p>650-283-3318</p>
+			<a href="tel:+1-650-283-3318" class="contact-icon">
+				<%= fa_icon "mobile 3x" %>
+				<h4>PHONE</h4>
+				<p>650-283-3318</p>
+			</a>
 		</div>
 	</div>
 

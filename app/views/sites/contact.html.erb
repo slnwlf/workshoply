@@ -3,9 +3,11 @@
 		<h1>CONTACT US</h1>
 		<h3>Questions? Comments? We would love to hear from you.</h3>
 		<div class="col-md-4 icons">
-			<%= fa_icon "envelope-o 3x", :html => { :style =>  'color:red' } %>
-			<h4>EMAIL</h4>
-			<%= mail_to "info@bigtalker.io" %>
+			<a href="mailto:info@bigtalker.io?Subject=Hello%20BigTalker" target="_top" class="contact-icon">
+				<%= fa_icon "envelope-o 3x", :html => { :style =>  'color:red' } %>
+				<h4>EMAIL</h4>
+				<p>info@bigtalker.io</p>
+			</a>
 		</div>
 		<div class="col-md-4 icons">
 			<%= fa_icon "map-marker 3x" %>
@@ -13,104 +15,28 @@
 			<p>San Francisco, CA</p>
 		</div>
 		<div class="col-md-4 icons">
-			<%= fa_icon "mobile 3x" %>
-			<h4>PHONE</h4>
-			<p>650-283-3318</p>
+			<a href="tel:+1-650-283-3318" class="contact-icon">
+				<%= fa_icon "mobile 3x" %>
+				<h4>PHONE</h4>
+				<p>650-283-3318</p>
+			</a>
 		</div>
 	</div>
 
 	<div class="row contact-form-wrap zero-margin">
 		<div class="col-md-6 col-md-offset-3">
-			<h3 class="text-center" style="color:#fff">Contact form / Request for speaker</h3>
-				<%= form_for @message, :html => { :style =>  'color:#fff' } do |f| %>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="field form-group">
-						    <%= f.label :name %><span class="required-label">*</span><br>
-						    <%= f.text_field :name, autofocus: true, required: true, class: "form-control" %>
-						  </div>
-						</div>
-						<div class="col-sm-6">
-							<div class="field form-group">
-						    <%= f.label :email %><span class="required-label">*</span><br>
-						    <%= f.email_field :email, required: true, class: "form-control" %>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-						 	<div class="field form-group">
-						    <%= f.label :subject %><span class="required-label">*</span><br>
-						    <%= f.text_field :subject, required: true, class: "form-control" %>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="field form-group">
-						    <%= f.label :company %><br>
-						    <%= f.text_field :company, class: "form-control" %>
-						  </div>
-						</div>
-						<div class="col-sm-6">
-							<div class="field form-group">
-						    <%= f.label :location %><br>
-						    <%= f.text_field :location, class: "form-control location-input" %>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="field form-group">
-						    <%= f.label 'number of participants' %><br>
-						    <%= f.text_field :number_participants, class: "form-control" %>
-						  </div>
-						</div>
-						<div class="col-sm-6">
-							<div class="field form-group">
-						    <%= f.label 'potential date' %><br>
-						    <%= f.date_field :date, class: "form-control" %>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="field form-group">
-						    <%= f.label :budget %><br>
-						    <div class="input-group">
-						    <span class="input-group-addon">$</span>
-						    <%= f.text_field :budget, class: "form-control" %>
-						    </div>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-						 	<div class="field form-group">
-						    <%= f.label 'who is the audience?' %><br>
-						    <%= f.text_field :audience, class: "form-control" %>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="field form-group">
-						    <%= f.label 'Message or speaker requirements' %><span class="required-label">*</span><br>
-						    <%= f.text_area :content, rows: "7", required: true, class: "form-control", style: 'font-size:18px' %>
-						  </div>
-						  <p><span class="required-label">*</span> required field</p>
-						  <div class="actions form-group text-center">
-						    <%= f.submit 'Send', class: 'btn btn-inline-block btn-primary' %>
-						  </div>
-						</div>
-					</div>
-				<% end %>
-				</div>
-			</div>
+			<ul class="nav nav-tabs contact-tabs">
+		    <li class="active"><a data-toggle="pill" href="#contact-form">Contact Us</a></li>
+		    <li><a data-toggle="pill" href="#request-speaker-form">Request Speaker</a></li>
+		  </ul>
+		  <div class="tab-content">
+		  	<div id="contact-form" class="tab-pane fade in active">
+		  		<%= render 'contact_form' %>
+		  	</div>
+	  	 	<div id="request-speaker-form" class="tab-pane fade">
+	  	 		<%= render 'request_speaker_form' %>
+		  	</div>
+		  </div>
 		</div>
 	</div>
 </div>

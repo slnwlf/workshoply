@@ -1,0 +1,11 @@
+<p>Request for Speaker</p>
+<p>Requester Name: <%= @msg.name %></p>
+<p>Company: <%= @msg.company %></p>
+<p>Location: <%= @msg.location %></p>
+<p>Number of participants: <%= @msg.number_participants %></p>
+<p>Budget: $<%= @msg.budget %></p>
+<p>Audience: <%= @msg.audience.present? ? "#{@msg.audience}" : "N/A" %></p>
+<p>Potential Date: <%= @msg.date.present? ? "#{@msg.audience}" : "N/A" %></p>
+<p>Additional Message:<br>
+    <%= @msg.content %>    
+</p>

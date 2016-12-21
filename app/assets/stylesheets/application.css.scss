@@ -323,11 +323,6 @@ a.workshop-title-link {
     margin: 20px auto;
 }
 
-#contact-form{
-  float: right;
-  margin-right:5%;
-}
-
 #reviews-box {
     height: 120px;
     width: 100%;
@@ -539,6 +534,11 @@ ul.dropdown-menu{
 
   .icons p, a{
     font-size:18px;
+  }
+  a.contact-icon, a.contact-icon:active, a.contact-icon:focus, a.contact-icon:visited {
+    text-decoration: none !important;
+    pointer: cursor;
+    color: #333333;
   }
 }
 

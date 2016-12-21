@@ -1,0 +1,84 @@
+<%= form_for @message, :html => { :style =>  'color:#fff' } do |f| %>
+	<%= f.hidden_field :form, value: "request" %>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="field form-group">
+		    <%= f.label :name %><span class="required-label">*</span><br>
+		    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+			<div class="field form-group">
+		    <%= f.label :email %><span class="required-label">*</span><br>
+		    <%= f.email_field :email, class: "form-control" %>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+		 	<div class="field form-group">
+		    <%= f.label :subject %><span class="required-label">*</span><br>
+		    <%= f.text_field :subject, class: "form-control" %>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="field form-group">
+		    <%= f.label :company %><span class="required-label">*</span><br>
+		    <%= f.text_field :company, class: "form-control" %>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+			<div class="field form-group">
+		    <%= f.label :location %><span class="required-label">*</span><br>
+		    <%= f.text_field :location, class: "form-control location-input" %>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="field form-group">
+		    <%= f.label 'number of participants' %><span class="required-label">*</span><br>
+		    <%= f.text_field :number_participants, class: "form-control" %>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+			<div class="field form-group">
+		    <%= f.label 'potential date' %><br>
+		    <%= f.date_field :date, class: "form-control" %>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="field form-group">
+		    <%= f.label :budget %><span class="required-label">*</span><br>
+		    <div class="input-group">
+		    	<span class="input-group-addon">$</span>
+		    	<%= f.text_field :budget, class: "form-control" %>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+		 	<div class="field form-group">
+		    <%= f.label 'who is the audience?' %><br>
+		    <%= f.text_field :audience, class: "form-control" %>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="field form-group">
+		    <%= f.label 'Message' %><span class="required-label">*</span><br>
+		    <%= f.text_area :content, rows: "7", class: "form-control", style: 'font-size:18px' %>
+		  </div>
+		  <p><span class="required-label">*</span> required field</p>
+		  <div class="actions form-group text-center">
+		    <%= f.submit 'Send', class: 'btn btn-inline-block btn-primary' %>
+		  </div>
+		</div>
+	</div>
+<% end %>

@@ -4,16 +4,10 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 	</head>
 	<body>
-    	<p><strong>Contact/Request a speaker form received</strong></p>
-    	<p><strong>Message from: </strong><%=@msg.name %></p>
-    	<p><strong>Email: </strong><%=@msg.email %></p>
-    	<p><strong>Subject: </strong><%= @msg.subject %></p>
-    	<p><strong>Company: </strong><%= @msg.company %></p>
-    	<p><strong>Location: </strong><%= @msg.location %></p>
-    	<p><strong>Number of participants: </strong><%= @msg.number_participants %></p>
-    	<p><strong>Budget: </strong>$<%= @msg.budget %></p>
-    	<p><strong>Audience: </strong><%= @msg.audience %></p>
-    	<p><strong>Potential Date: </strong><%= @msg.date %></p>
-    	<p><strong>Speaker Requirements/Additional Message: </strong><%= @msg.content %></p>
+    <% if @msg.form == "contact" %>
+      <%= render 'contact_email' %>
+    <% elsif @msg.form == "request" %>
+      <%= render 'request_speaker_email' %>  
+    <% end %>
 	</body>
 </html>

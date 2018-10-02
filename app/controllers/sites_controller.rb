@@ -2,9 +2,9 @@ class SitesController < ApplicationController
   def index
     @share_title = "BigTalker - A marketplace for onsite workshops, seminars, and guest speakers"
   	if Rails.env.production?
-	  	@featured_workshops = [Workshop.find(57), Workshop.find(62), Workshop.find(68)]
+      @featured_workshops = [Workshop.find(106), Workshop.find(107), Workshop.find(91)]
 	  else
-	  	@featured_workshops = Workshop.order("RANDOM()").limit(3)
+      @featured_workshops = Workshop.order("RANDOM()").limit(3)
 	  end
   end
 

@@ -40,6 +40,7 @@ class Workshop < ActiveRecord::Base
 		where("location ILIKE ? AND topic_id = ?", city, topic_id)
 	end
 
+	# find_talk_id
 	def self.find_talk_id(slug)
 		res = find_by(slug: slug)
 		if res

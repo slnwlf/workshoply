@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206221731) do
+ActiveRecord::Schema.define(version: 20181025044302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(version: 20161206221731) do
   create_table "workshops", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
     t.string   "slug"
     t.string   "image_file_name"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 20161206221731) do
     t.integer  "price"
     t.integer  "format_id"
     t.integer  "duration_id"
+    t.boolean  "featured",           default: false
   end
 
   add_index "workshops", ["slug"], name: "index_workshops_on_slug", unique: true, using: :btree

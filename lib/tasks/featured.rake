@@ -1,6 +1,6 @@
 task :featured, [:three_talks] => [:environment] do |task, args|
   three_talks = args[:three_talks]
-  three_talks = three_talks.split('|||')
+  three_talks = three_talks.split('###')
   puts three_talks
   res = []
   three_talks.each do |slug|
